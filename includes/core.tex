@@ -1,105 +1,70 @@
-\section{Ukážka glossaries}
-\noindent Verzia FEIstyle 1.5 používa glossary\footnote{\url{https://www.ctan.org/pkg/glossaries?lang=en}} balík.
-\acrfull{cdma} je dlhá skratka naopak \acrshort{gsm} je skratka v krátkej forme.
-\section{Recitácia}
-Citujem všetky zdroje v \textbf{bibliography.bib}, \cite{t00, t01, t02, t03, kniha, kniha2, kniha3, small, big, cs, koll, kap, tug, knuth, zbornik, prispevok}. \newline Good luck.
-\section{Možnosti anonymizácie}
-\noindent Anonymizácia znamená zmena alebo úprava údajov tak, aby sa podľa nich nedala jednoznačne určiť osoba, ktorej tieto údaje patria \cite{t01}. Existuje niekoľko spôsobov, ktorými môžeme dosiahnuť rôznu úroveň anonymizácie na internete: od mazania cookies súborov po ukončení prehliadania webových stránok až po používanie operačných systémov, ktoré sú na anonymite založené; od bezplatných možností až po komerčné verzie.  
-\newline Nasleduje priblíženie niektorých možnosti anonymizácie.
+\section{Prehľad problematiky}
+Digitalizácia najrôznejších aspektov nášho života je prirodzeným prejavom technologického pokroku. Vďaka tomu sa 
+pojmy, ako zmiešaná realita, rozšírená realita či virtuálna realita v~priebehu posledných dekád začali stávať neoddeliteľnou súčasťou nášho jazyka. 
+Na to, aby sme lepšie porozumeli tomu, čo to zmiešaná realita vlastne je, pokladáme za nevyhnutné venovať niekoľko odstavcov aj zvyšným dvom pojmom.
 
-\subsection{Súkromné prehliadanie}
-\noindent Najpoužívanejšie internetové prehliadače súčasnosti majú v sebe zabudovanú funkcionalitu, ktorá dokáže čiastočne anonymizovať prístup na internet. Táto funkcionalita blokuje ukladanie navštívených stránok do histórie a nezaznamenáva súbory, ktoré sa stiahnu z~internetu. \acrshort{sw} a \acrlong{hw} sú skratky.
+\subsection{Virtuálna realita}
+\begin{quote}\itshape
+  The ultimate display would, of course, be a room within which the computer can control the existence of matter. A chair displayed in such a~room 
+  would be good enough to sit in. Handcuffs displayed in such a room would be confining, and a~bullet displayed in such a~room would be fatal. 
+  With appropriate programming such a display could literally be the Wonderland into which Alice walked.
+\end{quote}
+Týmito slovami v roku 1965 Ivan Sutherland vo svojom článku \cite{sutherland_ultimate_1965-1} sformuloval ideu, ktorá predstavuje raný popis 
+imerzívneho\footnote{Z angl. \emph{immersive} - voľne preložené ako vťahujúci do deja} displeja v dobe, keď vtedajšie zariadenia bežne umožňovali 
+zobrazovať rovné čiary, uvažovalo sa, že zobrazovanie kriviek by mohlo byť užitočné a žiadna komerčne dostupná obrazovka nebola schopná vykresliť farbou 
+vyplnenú plochu \cite{sutherland_ultimate_1965-1}. 
 
-\begin{table}[!htbp]
-\caption{Moduly a ich funkcie pri anonymizácii}
-\label{modulyVlastnosti}
-\begin{center}
-\begin{tabular}{p{4cm}|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
-& \multicolumn{14}{c}%
-	 {\textbf{Funkcia}}\\ \hline
-&&&& & &\multicolumn{8}{c}%
-	 {Modifikácia}\\ 
-\textbf{Modul} &\begin{sideways} zobrazenie hlavičky \end{sideways} &\begin{sideways} blokovanie skriptov \end{sideways} &\begin{sideways} zmena IP \end{sideways} & \begin{sideways} zmena lokalizácie \end{sideways} & \begin{sideways} zmazanie/blokovanie cookies \end{sideways} & \begin{sideways} blokovanie trackerov \end{sideways}  & \begin{sideways} popis \end{sideways} & \begin{sideways}používateľský agent\end{sideways} & \begin{sideways} kódové označenie prehliadača \end{sideways} & \begin{sideways} názov prehliadača \end{sideways} & \begin{sideways} verzia prehliadača \end{sideways} & \begin{sideways} platforma \end{sideways} & \begin{sideways} výrobca prehliadača \end{sideways} & \begin{sideways} označenie výrobcu prehliadača \end{sideways} \\ \hline
-User agent switcher & & & & & &  & X & X & X & X & X & X & X & X  \\ \hline
-Ghostery &  && & & X & X &  &  & & & & & & \\  \hline
-Better privacy && &  & & X &  &  &  & & & & & & \\  \hline
-Anonymox &  && X & X & X &  & X & X & & & & & & \\  \hline
-Modify headers & & &  &  & X &  &  & X &  &  &  & & &  \\  \hline
-Request policy & & &  &  & & X  &  &  &  &  &  & & &   \\  \hline
-Live HTTP headers & X& &  &  & &  &  &  &  &  &  & & &   \\  \hline
-User agent awitcher & & &  &  & &  & X & X &  &  &  & & &   \\  \hline
-Header hacker & & &  &  & &  & X & X & X & X & X & X & X & X    \\  \hline
-Mod header & & &  &  & &  & X & X & X & X & X & X & X & X    \\  \hline
-Script no & &X &  &  & &  &  &  &  &  &  &  &  &     \\  \hline
-No script & &X &  &  & &  &  &  &  &  &  &  &  &     \\  \hline
-Proxify it & & &X  & X & &  &  &  &  &  &  &  &  &     \\  \hline
-I'm not here & & &  & X & &  &  &  &  &  &  &  &  &     \\  \hline
-Get edition & &X &X &X &X&X &  &  &  &  &  &  &  &     \\  \hline
-Anonymous browsing toolbar & & & X & X & &  &  &  &  &  &  &  &  &     \\  \hline
-Easy hide your IP and surf & & & X & X& &  &  & X & X & X & X &  &  &     \\  \hline
-\end{tabular}
-\end{center}
-\end{table}
+Krátko potom Sutherland skonštruoval prvý interaktívny systém slúžiaci na zobrazovanie virtuálnej reality, ktorý si vyslúžil priliehavú prezývku 
+\emph{Damoklov meč} \cite[5]{schmalstieg_augmented_2016}. Trojrozmerný displej s~upevnením na hlavu, ktorý Sutherland vo svojej práci 
+\cite{sutherland_head-mounted_1968} popísal v~roku 1968, pozostával zo špeciálnych okuliarov, ktoré na sebe mali upevnené dve miniatúrne obrazovky 
+typu \acrshort{crt} a~boli pevnou súčasťou ramena visiaceho zo stropu miestnosti. Okrem zníženia fyzickej záťaže používateľa, ktorá vznikala kvôli 
+hmotnosti zariadenia, toto rameno slúžilo ako mechanický snímač polohy hlavy a~spolu s~ďalším, ultrazvukovým snímačom generovalo vstupné údaje pre výpočet
+rotačnej a~translačnej matice. Tie boli súčasťou operácií nevyhnutných pre dynamické generovanie obrazu. Objekty, z~ktorých pozostával 
+výsledný obraz, boli poskladané z~jednoduchých čiar a~vytvárali tzv.~wireframe model.
 
-\subsection{Anonymná sieť}
-\noindent Anonymná sieť je sieť serverov, medzi ktorými dáta prechádzajú šifrované. V anonymných sieťach dáta prechádzajú z počítača používateľa, odkiaľ bola požiadavka poslaná, cez viaceré proxy smerovače, z ktorých každý správu doplní o smerovanie a zašifruje vlastným kľúčom. Cesta od ...
+Sutherlandovo dielo významne prispelo k rozvoju myšlienok a technológií súvisiacimi s~vizualizáciou umelého sveta. Postupom času vzniklo množstvo ďalších 
+prototypov rôznorodých systémov, ktoré sa líšili nie len účelom použitia, ale aj spôsobom vzájomnej interakcie s~človekom a~aj tým, či a~ako veľmi bol umelý 
+svet prepojený s tým skutočným. Ako príklad uvedieme systém VIDEOPLACE Myrona Kruegera z roku 1985, ktorý kombinuje zosnímanú postavu používateľa s~umelo vytvoreným 
+prostredím. Krueger navrhuje využitie tohto systému pre účely telekomunikácie uvádzajúc, že komunikácia medzi priateľmi či obchodnými partnermi nie je 
+obmedzená len slovami, a teda je jednoznačne žiadúce, aby geograficky vzdialené osoby mohli zdieľať spoločné virtuálne prostredie 
+\cite{krueger_videoplace---artificial_1985}.
+
+Práve Kruegerov systém sprostredkúva to, čo v súčasnej terminológii môžeme označiť ako virtuálnu realitu. Tá prenesie človeka do úplne odlišného prostredia, 
+reálne okolie a objekty v ňom nahradí počítačom generovanými, s~cieľom poskytnúť používateľovi intenzívny zážitok z~nového sveta, akoby sa v~ňom skutočne nachádzal
+\cite{brigham_reality_2017}. 
+
+V deväťdesiatych rokoch minulého storočia bola snaha o rozšírenie zariadení pre virtuálnu realitu medzi bežných spotrebiteľov. Tieto zariadenia však boli cenovo
+nedostupné a~spôsobovali používateľom nevoľnosť. Príčinou nevoľnosti bol nesúlad medzi zrakovým a vestibulárnym vnemom; ten bol spôsobený vysokou latenciou medzi pohybom 
+hlavy používateľa a~reakciou VR zariadenia na tento pohyb prekreslením virtuálnej scény. 
+
+Prelom nastal až v roku 2014, keď Palmer Luckey, 
+zakladateľ spoločnosti Oculus, objavil spôsob, ako znížiť dobu trvania vyhodnocovania polohy hlavy za použitia gyroskopu, akcelerometra a magnetometra. 
+Tento úspech opäť naštartoval záujem o túto technologickú oblasť \cite{brigham_reality_2017}. \todo{dopisat zariadenia}
+
+\subsection{Rozšírená realita}
+Podľa výskumu popísaného v článku \cite{speicher_what_2019} definícia rozšírenej reality nie je ani zďaleka tak jednoznačná, ako v prípade virtuálnej reality. 
+Jeho autori položili desiatim osobám, ktoré sa zaoberajú virtuálnou a rozšírenou realitou v komerčnej a akademickej sfére, súbor šesťnástich otázok, ktoré boli 
+navrhnuté tak, aby odhalili rozdiely vo vnímaní toho, čo je virtuálna, rozšírená a zmiešaná realita. Autori uvádzajú, že respondenti sa nezhodovali pri vymenovávaní
+relevantných charakteristík rozšírenej reality. Niektorí za rozšírenú realitu pokladajú aj jednoduchú vrstvu\footnote{pôvodne použitý angl. termín \emph{overlay}} 
+s~kontextuálnymi informáciami, zatiaľ čo ostatní explicitne uvádzali interakciu s~reálnym prostredím a prekrývanie skutočných objektov počítačom generovanými 
+ako jej súčasť.
+
+Chen a Xue uvádzajú, že typický \acrshort{ar} systém musí spĺňať tri podmienky: musí umožňovať interakciu medzi reálnym a virtuálnym obsahom, dokáže v reálnom čase 
+prekrývať reálne objekty virtuálnymi, a musí pracovať v trojrozmernom priestore. Takáto funkcionalita vyžaduje použitie rôznych techník sledovania, zobrazovania a
+interakcie \cite{chen_renaissance_2022}.
+
+Techniky sledovania sú používané na zaznamenávanie a overovanie pozície a orientácie používateľov. Zohrávajú dôležitú úlohu pri zosúladení polohy reálnych a virtuálnych
+objektov. Pozíciu a orientáciu je možné zisťovať pomocou metód spracovania obrazu, za použitia rozličných senzorov, či kombináciou oboch spôsobov.
+
+Zobrazovacie techniky spájajú virtuálny obsah a reálne prostredie a zobrazujú oboje naraz. V praxi sa uplatnili tri spôsoby zobrazovania: pomocou ručného zariadenia 
+(\emph{handheld display}) - napr. smartfón alebo tablet, pomocou náhlavného zariadenia (\emph{headmounted-display}) a za použitia projekcie na povrch reálneho objektu 
+(\emph{projection-based display}).
+
+Interakčné techniky zabezpečujú intuitívne používateľské prostredie a adekvátne reakcie systému. Používateľské vstupy pritom môžu byť vo forme gest, hlasových povelov,
+prípadne je možné použiť reálny objekt ako ovládací prvok \cite{chen_renaissance_2022}.
 
 
-\subsection{Funkcionalita}
-\noindent  Rozšírenie tiež okrem splnenia špecifikácie malo pre prehľadnosť a overenie funkčnosti zobrazovať údaje, ktoré boli na server odoslané. Zoznam údajov odoslaných na server, sa mal ukladať do krátkodobej histórie, aby nemal používateľ k dispozícií len najnovšie údaje, ale aj údaje odoslané v nejakom časovom období. Nejaky listing z priloh \ref{lst:sublime}.
 
-\subsubsection{Funkcionalita2}
-\noindent Samozrejmosťou bolo nastavenie zapnutia rozšírenia pri štarte, prípadne interval zmeny odosielaných údajov.
-
-\subsection{Vzhľad}
-\noindent Dôležitou požiadavkou kladenou na rozšírenie bolo príjemné používateľské rozhranie. Z~tohto dôvodu malo rozšírenie obsahovať zoznam modifikovaných vlastností a tlačidlo pre prístup k nastaveniam rozšírenia v jednoduchej a praktickej forme. Predpokladaný vzhľad je zobrazený na obrázku č. \ref{vzhladobr}.
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=8cm]{img/vzhlad.png}
-  \caption{Predpokladaný vzhľad rozšírenia.}
-  \label{vzhladobr}
-\end{figure}	 
-\noindent Dôležitou požiadavkou kladenou na rozšírenie bolo príjemné používateľské rozhranie.\cite{t00} Z~tohto dôvodu malo rozšírenie obsahovať zoznam modifikovaných vlastností a tlačidlo pre prístup k nastaveniam rozšírenia v jednoduchej a praktickej forme. Predpokladaný vzhľad je zobrazený na obrázku č. \ref{vzhladobr}.
-
-\begin{algorithm}
-\scriptsize
-\begin{algorithmic}
- \STATE <text>
- \IF{<condition>} \STATE {<text>} \ELSE \STATE{<text>} \ENDIF
- \IF{<condition>} \STATE {<text>} \ELSIF{<condition>} \STATE{<text>} \ENDIF
- \FOR{<condition>} \STATE {<text>} \ENDFOR
- \FOR{<condition> \TO <condition> } \STATE {<text>} \ENDFOR
- \FORALL{<condition>} \STATE{<text>} \ENDFOR
- \WHILE{<condition>} \STATE{<text>} \ENDWHILE
- \REPEAT \STATE{<text>} \UNTIL{<condition>}
- \LOOP \STATE{<text>} \ENDLOOP
- \REQUIRE <text>
- \ENSURE <text>
- \RETURN <text>
- \PRINT <text>
- \COMMENT{<text>}
- \AND, \OR, \XOR, \NOT, \TO, \TRUE, \FALSE
-\end{algorithmic}
-\caption{Ukážka príkazov pre algorithmic}  
-\label{alg:preview}  
-\end{algorithm}
-
-\begin{lstlisting}[
-  caption={Ukážka algoritmu},
-  label={lst:main-c},
-  language=c
-]
-/* Hello World program */
-
-#include<stdio.h>
-
-struct cpu_info {
-    long unsigned utime, ntime, stime, itime;
-    long unsigned iowtime, irqtime, sirqtime;
-};
-
-main()
-{
-    printf("Hello World");
-}
-\end{lstlisting}
+%Pomerne známym zástupcom prvého z~uvedených prístupov k rozšírenej realite je zariadenie od spoločnosti Google s~názvom Google Glass. Zariadenie v~tvare bežných 
+%okuliarov, dostupné len počas pomerne krátkeho obdobia (2013 - 2015) \cite{brigham_reality_2017} dokázalo používateľovi zobrazovat informácie na malom displeji tesne
+%nad pravým okom. 
