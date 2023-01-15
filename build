@@ -1,0 +1,5 @@
+pdflatex dp
+biber dp
+makeglossary dp
+pdflatex dp
+pdflatex dp
