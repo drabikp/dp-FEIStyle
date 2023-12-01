@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{FEIstyle}[2020/05/13 v. 1.6.1 Thesis template - FEI STUBA]
+\ProvidesClass{FEIstyle}[2023/05/18 v. 1.7.0 Thesis template - FEI STUBA]
 
 % parse arguments
 \DeclareOption{dizp}{\def\typPraceSkr{dizp}
@@ -59,20 +59,19 @@
 \usepackage[overload]{textcase}
 \usepackage[acronym,nopostdot,nogroupskip,nonumberlist]{glossaries}
 
+\usepackage{microtype}
+\usepackage[utf8]{inputenc}
 % we should use ISO 690 & 690-2 http://www.fei.stuba.sk/sk/kniznica-fei/vzory-bibliografickych-odkazov-a-citovanie.html?page_id=1756 
 % package for biblatex https://github.com/michal-h21/biblatex-iso690
 \usepackage[backend=biber,style=iso-numeric,autolang=other,bibencoding=utf8,seconds=true]{biblatex}
 
 \ifnum\FEIenglish=0
-    \usepackage[slovak]{babel}
+    \usepackage[english,slovak]{babel}
 \else
     \usepackage[english]{babel}
 \fi
 
-\usepackage[utf8]{inputenc}
-
 \usepackage[style=slovak]{csquotes}
-\usepackage{microtype}
 \usepackage[T1]{fontenc}
 
 \usepackage[immediate]{silence}
@@ -98,16 +97,90 @@
 \usepackage{changepage}
 \usepackage{scrextend}
 \usepackage{xstring}
-\usepackage{url}
+\usepackage{xurl}
 \usepackage{enumitem}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage[bookmarksopen,colorlinks,plainpages=false,urlcolor=blue,hypertexnames=false,unicode]{hyperref}
 \usepackage{algorithm}
 \usepackage{algorithmic}
+\usepackage{tabularx}
+\usepackage{booktabs}
 % \usepackage{showframe} % debugging overflows
 
 % \cftsetpnumwidth{1.8em} % set the dots width in loX (f,t,l,a...) https://tex.stackexchange.com/q/369283/106389
+
+% https://stackoverflow.com/a/74266238
+\lstset{
+  extendedchars=true,
+  literate=
+    {á}{{\'a}}1
+    {ä}{{\"a}}1
+    {č}{{\v{c}}}1
+    {ď}{{\v{d}}}1
+    {é}{{\'e}}1
+    {í}{{\'i}}1
+    {ĺ}{{\'l}}1
+    {ľ}{{\v{l}}}1
+    {ň}{{\v{n}}}1
+    {ó}{{\'o}}1
+    {ô}{{\^o}}1
+    {ŕ}{{\'{r}}}1
+    {š}{{\v{s}}}1
+    {ť}{{\v{t}}}1
+    {ú}{{\'u}}1
+    {ý}{{\'y}}1
+    {ž}{{\v{z}}}1
+    {Á}{{\'A}}1
+    {Ä}{{\""A}}1
+    {Č}{{\v{C}}}1
+    {Ď}{{\v{C}}}1
+    {É}{{\'E}}1
+    {Í}{{\'I}}1
+    {Ĺ}{{\'L}}1
+    {Ľ}{{\v{L}}}1
+    {Ň}{{\v{N}}}1
+    {Ó}{{\'O}}1
+    {Ô}{{\^O}}1
+    {Ŕ}{{\'{R}}}1
+    {Š}{{\v{S}}}1
+    {Ť}{{\v{T}}}1
+    {Ú}{{\'U}}1
+    {Ý}{{\'Y}}1
+    {Ž}{{\v{Z}}}1
+}
+
+% https://www.overleaf.com/learn/latex/Code_listing
+\definecolor{codegreen}{rgb}{0,0.506,0}
+\definecolor{codegray}{rgb}{0.2,0.2,0.2}
+\definecolor{codeviolet}{rgb}{0.58,0,0.82}
+\definecolor{codemagenta}{rgb}{0.839,0,0.494}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+\lstdefinestyle{code-listing}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codemagenta},
+    numberstyle=\ttfamily\footnotesize\color{codegray},
+    stringstyle=\color{codeviolet},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=none,
+    numbersep=8pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=single,
+    framesep=3pt,
+    framerule=0pt,
+    xleftmargin=4pt,
+    xrightmargin=4pt,
+    framexleftmargin=1pt,
+    framexrightmargin=1pt
+}
 
 \newboolean{isThesis}
 
@@ -233,13 +306,13 @@
 \parskip=1pt
 \linespread{1.3}
 \hypersetup{colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black}
-\sectionfont{\bf\fontsize{22pt}{1.3}\selectfont}
-\subsectionfont{\bf\fontsize{16pt}{1.3}\selectfont}
-\subsubsectionfont{\bf\fontsize{14pt}{1.3}\selectfont}
+\sectionfont{\bf\fontsize{22pt}{20pt}\selectfont}
+\subsectionfont{\bf\fontsize{16pt}{15pt}\selectfont}
+\subsubsectionfont{\bf\fontsize{14pt}{14pt}\selectfont}
 
-\titlespacing*\section{0pt}{24pt}{12pt}
-\titlespacing*\subsection{6pt}{12pt}{6pt}
-\titlespacing*\subsubsection{12pt}{10pt}{0pt}
+\titlespacing*\section{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\titlespacing*\subsection{6pt}{3ex plus 1ex minus .2ex}{1.25ex plus .2ex}
+\titlespacing*\subsubsection{12pt}{2.5ex plus 1ex minus .2ex}{1.25ex plus .2ex}
 
 \lstset{
   basicstyle=\scriptsize\ttfamily,
@@ -250,26 +323,14 @@
   captionpos=b % caption below text
 }
 
-%\IfEqCase*{\FEIenglish}{
-%    {0}{
-%        \addto\captionsslovak{\renewcommand{\figurename}{Obr\a'azok}}
-%        \addto\captionsslovak{\renewcommand{\tablename}{Tabu\v{l}ka}}
-%        \addto\captionsslovak{\renewcommand{\contentsname}{Obsah}}
-%        \addto\captionsslovak{\renewcommand\listfigurename{Zoznam obr\a'azkov}}
-%        \addto\captionsslovak{\renewcommand\listtablename{Zoznam tabuliek}}
-%        \addto\captionsslovak{\renewcommand{\chaptername}{Kapitola}}
-%        \addto\captionsslovak{\renewcommand{\lstlistingname}{V\a'ypis}}
-%        \renewcommand{\ALG@name}{Algoritmus}}
-%    {1}{
-%        \addto\captionsenglish{\renewcommand{\figurename}{Figure}}
-%        \addto\captionsenglish{\renewcommand{\tablename}{Table}}
-%        \addto\captionsenglish{\renewcommand{\contentsname}{Contents}}
-%        \addto\captionsenglish{\renewcommand\listfigurename{List of Figures}}
-%        \addto\captionsenglish{\renewcommand\listtablename{List of Table}}
-%        \addto\captionsenglish{\renewcommand{\chaptername}{Chapter}}
-%        \addto\captionsenglish{\renewcommand{\lstlistingname}{Listing}}
-%        \renewcommand{\ALG@name}{Algorithm}}
-%    }[]
+\IfEqCase*{\FEIenglish}{
+   {0}{
+       \addto\captionsslovak{\renewcommand{\lstlistingname}{V\a'ypis}}
+       \renewcommand{\ALG@name}{Algoritmus}}
+   {1}{
+       \addto\captionsenglish{\renewcommand{\lstlistingname}{Listing}}
+       \renewcommand{\ALG@name}{Algorithm}}
+   }[]
 
 % http://tex.stackexchange.com/questions/588/how-can-i-change-the-margins-for-only-part-of-the-text
 \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
@@ -470,22 +531,22 @@
     \noindent\MakeTextUppercase{\printSkola}
     \newline
     \MakeTextUppercase{\printFakulta}
-    \vspace{1em}
-    \begin{tabbing} 
-        \hspace*{7cm}\= \kill
-        \v{S}tudijn\a'y program:\> \printStudijnyProgram \\
-        Autor:\> \printAutor \\
-        \typPrace:\>
-        \begin{minipage}[t]{21.5em}
-            \printNazov
-        \end{minipage} \\
-        Ved\a'uci z\a'avere\v{c}nej pr\a'ace:\> \printVeduciZaverecnejPrace \\\IfEqCase*{\@tempKonzultant}{
-            {0}{}
-            {1}{Konzultant:\>\printKonzultant \\}
-                }[]Miesto a rok predlo\v{z}enia pr\a'ace:\>\printMesto \ \@rok
-    \end{tabbing}
-    \vspace{1em}
-    \input{#1}
+    \vspace{2.3em}
+
+    \noindent\begin{tabularx}{\textwidth}{@{}p{7cm}@{}X@{}}
+      \v{S}tudijn\a'y program:               & \printStudijnyProgram       \\
+      Autor:                                 & \printAutor                 \\
+      \typPrace:                             & \printNazov                 \\
+      Ved\a'uci z\a'avere\v{c}nej pr\a'ace:  & \printVeduciZaverecnejPrace \\
+      \IfEqCase*{\@tempKonzultant}{
+        {0}{}
+        {1}{Konzultant:                      & \printKonzultant            \\}
+      }[]
+      Miesto a rok predlo\v{z}enia pr\a'ace: & \printMesto \ \@rok         \\
+    \end{tabularx}
+    \vspace{1.4em}
+
+    \noindent\input{#1}
 
     \vspace{2em}
     \noindent K\v{l}\a'u\v{c}ov\a'e slov\a'a: \printKeywords
@@ -498,22 +559,22 @@
     \noindent\MakeTextUppercase{\printSkolaEn}
     \newline
     \MakeTextUppercase{\printFakultaEn}
-    \vspace{1em}
-    \begin{tabbing} 
-        \hspace*{7cm}\= \kill
-        Study Programme:\> \printStudijnyProgramEn \\
-        Author:\> \printAutor \\
-        \typPraceEn:\>
-        \begin{minipage}[t]{21.5em}
-            \printNazovEn
-        \end{minipage} \\
-        Supervisor:\> \printVeduciZaverecnejPrace \\\IfEqCase*{\@tempKonzultant}{
-            {0}{}
-            {1}{Consultant:\>\printKonzultant \\}
-                }[]Place and year of submission:\>\printMesto \ \@rok
-    \end{tabbing}
-    \vspace{1em}
-    \input{#1}
+    \vspace{2.3em}
+
+    \noindent\begin{tabularx}{\textwidth}{@{}p{7cm}@{}X@{}}
+      Study Programme:              & \printStudijnyProgramEn     \\
+      Author:                       & \printAutor                 \\
+      \typPraceEn:                  & \printNazovEn               \\
+      Supervisor:                   & \printVeduciZaverecnejPrace \\
+      \IfEqCase*{\@tempKonzultant}{
+        {0}{}
+        {1}{Consultant:             & \printKonzultant            \\}
+      }[]
+      Place and year of submission: & \printMesto \ \@rok         \\
+    \end{tabularx}
+    \vspace{1.4em}
+
+    \noindent\input{#1}
 
     \vspace{2em}
     \noindent Keywords: \printKeywordsEn
@@ -595,8 +656,17 @@
 
 \renewcommand{\glsnamefont}[1]{\textbf{#1}}
 
-\newcommand\FEIglossaries[1]{
+% https://tex.stackexchange.com/questions/266591/printing-glossaries-with-long-styles-adds-to-the-tables-counter
+\newglossarystyle{FEIlong}{
     \setglossarystyle{long}
+    \renewenvironment{theglossary}{
+      \begin{longtable*}{lp{\glsdescwidth}}
+    }
+    {\end{longtable*}}%
+}
+
+\newcommand\FEIglossaries[1]{
+    \setglossarystyle{FEIlong}
     \makeglossaries
     \loadglsentries{#1}
     \setlength\LTleft{8pt}
