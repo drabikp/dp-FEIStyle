@@ -1,0 +1,7 @@
+Ideme popisovat:
+- co ideme robit
+- preco (?)
+- teoreticky uvod k problematike - skokovy prenos vzruchu
+- pouzite nastroje UE (verzie), Blender
+- postup tvorby - Blender - sculpting, keyed particle system, nepouzitelna animacia a export do .abc
+- postup - UE - do detailu rozpitvat jednotlive blueprinty
