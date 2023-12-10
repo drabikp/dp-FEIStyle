@@ -2,7 +2,7 @@
 \usepackage[textsize=tiny]{todonotes}
 % upravene premenne oproti defaultu
 
-\FEIschool{Paneurópska vysoká škola v Bratislave}
+\FEIschool{Paneurópska vysoká škola}
 \FEIfaculty{Fakulta informatiky}
 
 %
@@ -14,7 +14,9 @@
 \FEIkeywordsEn{keyword1, keyword2, keyword3}
 \FEIregNr{FI-100786-21449}
 \FEIsupervisor{RNDr. Ján Lacko, PhD.}
-\FEIconsultant{Ing. John Doe}
+\FEItrainingWorkplace{Ústav aplikovanej informatiky}
+\FEIdate{7}{1}{2024}
+%\FEIconsultant{Ing. John Doe}
 
 \FEIglossaries{includes/glossary}
 \bibliography{includes/bibliography.bib}
@@ -22,23 +24,39 @@
 \iffalse \input{includes/glossary} \fi
 
 \begin{document}
+
+\pagestyle{empty} %%%%%
+
 \frontmatter
 
 \FEIpdfInfo
 \FEIcover
 \FEItitlePage
-% \FEIassignment{includes/assignment.jpeg}
+\FEIassignment{includes/assignment_placeholder.jpg}
+\newpage
 % \FEIassignment{includes/assignment_part2.jpeg}
 \FEIabstract{includes/abstract}
 \FEIabstractEn{includes/abstractEN}
 \FEIthanks{includes/thanks}
 \FEIcontent
-\FEIlistOfFiguresAndTables
+%\FEIlistOfFiguresAndTables
+\renewcommand{\listfigurename}{Zoznam ilustrácií}
+\renewcommand{\cftloftitlefont}{\bf\fontsize{22pt}{20pt}\selectfont} % kopia zo \sectionfont
+\renewcommand{\cftfigpresnum}{Obr\'{a}zok\ }
+
+\newlength{\mylenf}
+\settowidth{\mylenf}{\cftfigpresnum}
+\setlength{\cftfignumwidth}{\dimexpr\mylenf+3em}
+\setlength{\cfttabnumwidth}{\dimexpr\mylenf+3em}
+
+\FEIlistOfFigures
 \FEIlistOfGlossaries
 %\FEIlistOfAlgorithms
 %\FEIlistOfListings
 
 \mainmatter
+
+\pagestyle{plain}  %%%%%%
 
 \FEIintroduction{includes/introduction}
 \FEIcore{includes/core}

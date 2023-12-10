@@ -362,9 +362,9 @@
     \begin{changemargin}{0.19cm}{0.19cm}
         \IfEqCase*{\FEIenglish}{
             {0}{
-                \def\@skolaTemp{\printSkola}
+                \def\@skolaTemp{\hspace*{\fill}\printSkola\hspace*{\fill}}
                 \def\@skolaFakulta{\printFakulta}
-                \def\@skolaEvCislo{{\fontsize{12pt}{1.3}\selectfont Eviden\v{c}n\a'e \v{c}\a'islo: \printEvidencneCislo}}
+                \def\@skolaEvCislo{{\bf\fontsize{12pt}{1.3}\selectfont \printEvidencneCislo}}
                 \def\@skolaNazovPrace{\printNazov}
                 \def\@skolaTypPrace{\typPrace}
                 }
@@ -387,14 +387,12 @@
         \vspace{60mm}
         \begin{center}
             {\fontsize{16pt}{1.3}\selectfont \bf{\MakeTextUppercase{\@skolaNazovPrace}}} \\[1em] 
-            {\bf\fontsize{16pt}{1.3}\selectfont \MakeTextUppercase{\@skolaTypPrace}}
+            {\bf\fontsize{16pt}{1.3}\selectfont \@skolaTypPrace}
         \end{center}
         \vspace{\fill}
         \begin{flushleft}
             {\fontsize{14pt}{1.3}\selectfont \bf
-                \@rok
-                \hfill
-                \printAutor}
+                \@rok\newline\printAutor}
         \end{flushleft} 
     \end{changemargin}
     \newpage    
@@ -406,19 +404,20 @@
     \begin{changemargin}{0.19cm}{0.19cm} 
         \IfEqCase*{\FEIenglish}{
             {0}{
-                \def\@skolaTemp{\printSkola}
+                \def\@skolaTemp{\hspace*{\fill}\printSkola\hspace*{\fill}}
                 \def\@skolaFakulta{\printFakulta}
                 \def\@skolaStudPr{\printStudijnyProgram}
                 \def\@skolaStudPrCisl{\printNazovStudijnehoOdboru}
-                \def\@skolaSkolPrac{\printSkoliacePracovisko}
-                \def\@skolaEvCislo{{\fontsize{12pt}{1.3}\selectfont Eviden\v{c}n\a'e \v{c}\a'islo: \printEvidencneCislo}}
+                \def\@skolaSkolPrac{\printSkoliacePracovisko}                
                 \def\@skolaNazovPrace{\printNazov}
                 \def\@skolaTypPrace{\typPrace}
                 \def\@tempStudProgr{\v{S}tudijn\a'y program:}
                 %\def\@tempCisloStud{\v{C}\a'islo \v{s}tudijn\a'eho odboru:}
-                \def\@tempNazovStud{N\a'azov \v{s}tudijn\a'eho odboru:}
+                %\def\@tempNazovStud{N\a'azov \v{s}tudijn\a'eho odboru:}
+                \def\@tempNazovStud{\v{S}tudijn\a'y odbor:}
                 \def\@tempSkolPracov{\v{S}koliace pracovisko:}
-                \def\@tempVedPrace{Ved\a'uci z\a'avere\v{c}nej pr\a'ace:}
+                %\def\@tempVedPrace{Ved\a'uci z\a'avere\v{c}nej pr\a'ace:}
+                \def\@tempVedPrace{\v{S}kolite\v{l}:}
                 \def\@tempKonzultanta{Konzultant:}
                 \ifthenelse{\boolean{isThesis}}
                 {}{
@@ -463,13 +462,14 @@
         {
             \ifthenelse{\boolean{isThesis}}
             {
-                \fontsize{12pt}{1.3}\selectfont \@skolaEvCislo
+                \fontsize{12pt}{1.3}\selectfont  
             }{}
         }    
         \vspace{60mm}
         \begin{center}
             {\fontsize{16pt}{1.3}\selectfont \bf{\MakeTextUppercase{\@skolaNazovPrace}}} \\[1em]
-            {\bf\fontsize{16pt}{1.3}\selectfont  \MakeTextUppercase{\@skolaTypPrace}}
+            {\fontsize{14pt}{1.3}\selectfont  \@skolaTypPrace} \\[1em]
+            {\fontsize{14pt}{1.3}\selectfont \bf\printAutor}
         \end{center}
         \vspace{\fill}
         \begin{tabbing}
@@ -493,9 +493,7 @@
         \begin{flushleft}
             {\fontsize{14pt}{1.3}\selectfont \bf
                 \printMesto \
-                \@rok
-                \hfill
-                \printAutor}
+                \@rok}
         \end{flushleft}
     \end{changemargin}
     \newpage
@@ -527,24 +525,24 @@
 
 \newcommand\FEIabstract[1]{
     \pagestyle{empty}   
-    \section*{\fontsize{22pt}{1.3}\selectfont S\'{U}HRN}
-    \noindent\MakeTextUppercase{\printSkola}
-    \newline
-    \MakeTextUppercase{\printFakulta}
-    \vspace{2.3em}
+    \section*{\fontsize{22pt}{1.3}\selectfont ABSTRAKT}
+    % \noindent\MakeTextUppercase{\printSkola}
+    % \newline
+    % \MakeTextUppercase{\printFakulta}
+    % \vspace{2.3em}
 
-    \noindent\begin{tabularx}{\textwidth}{@{}p{7cm}@{}X@{}}
-      \v{S}tudijn\a'y program:               & \printStudijnyProgram       \\
-      Autor:                                 & \printAutor                 \\
-      \typPrace:                             & \printNazov                 \\
-      Ved\a'uci z\a'avere\v{c}nej pr\a'ace:  & \printVeduciZaverecnejPrace \\
-      \IfEqCase*{\@tempKonzultant}{
-        {0}{}
-        {1}{Konzultant:                      & \printKonzultant            \\}
-      }[]
-      Miesto a rok predlo\v{z}enia pr\a'ace: & \printMesto \ \@rok         \\
-    \end{tabularx}
-    \vspace{1.4em}
+    % \noindent\begin{tabularx}{\textwidth}{@{}p{7cm}@{}X@{}}
+    %   \v{S}tudijn\a'y program:               & \printStudijnyProgram       \\
+    %   Autor:                                 & \printAutor                 \\
+    %   \typPrace:                             & \printNazov                 \\
+    %   Ved\a'uci z\a'avere\v{c}nej pr\a'ace:  & \printVeduciZaverecnejPrace \\
+    %   \IfEqCase*{\@tempKonzultant}{
+    %     {0}{}
+    %     {1}{Konzultant:                      & \printKonzultant            \\}
+    %   }[]
+    %   Miesto a rok predlo\v{z}enia pr\a'ace: & \printMesto \ \@rok         \\
+    % \end{tabularx}
+    % \vspace{1.4em}
 
     \noindent\input{#1}
 
@@ -556,23 +554,23 @@
 \newcommand\FEIabstractEn[1]{
     \pagestyle{empty}   
     \section*{\fontsize{22pt}{1.3}\selectfont ABSTRACT}
-    \noindent\MakeTextUppercase{\printSkolaEn}
-    \newline
-    \MakeTextUppercase{\printFakultaEn}
-    \vspace{2.3em}
+    % \noindent\MakeTextUppercase{\printSkolaEn}
+    % \newline
+    % \MakeTextUppercase{\printFakultaEn}
+    % \vspace{2.3em}
 
-    \noindent\begin{tabularx}{\textwidth}{@{}p{7cm}@{}X@{}}
-      Study Programme:              & \printStudijnyProgramEn     \\
-      Author:                       & \printAutor                 \\
-      \typPraceEn:                  & \printNazovEn               \\
-      Supervisor:                   & \printVeduciZaverecnejPrace \\
-      \IfEqCase*{\@tempKonzultant}{
-        {0}{}
-        {1}{Consultant:             & \printKonzultant            \\}
-      }[]
-      Place and year of submission: & \printMesto \ \@rok         \\
-    \end{tabularx}
-    \vspace{1.4em}
+    % \noindent\begin{tabularx}{\textwidth}{@{}p{7cm}@{}X@{}}
+    %   Study Programme:              & \printStudijnyProgramEn     \\
+    %   Author:                       & \printAutor                 \\
+    %   \typPraceEn:                  & \printNazovEn               \\
+    %   Supervisor:                   & \printVeduciZaverecnejPrace \\
+    %   \IfEqCase*{\@tempKonzultant}{
+    %     {0}{}
+    %     {1}{Consultant:             & \printKonzultant            \\}
+    %   }[]
+    %   Place and year of submission: & \printMesto \ \@rok         \\
+    % \end{tabularx}
+    % \vspace{1.4em}
 
     \noindent\input{#1}
 
@@ -582,8 +580,9 @@
 }
         
 \newcommand\FEIcontent{ 
-    \pagestyle{plain}
-    \addtocontents{toc}{\protect\thispagestyle{plain}}
+    %\pagestyle{plain}
+    \pagestyle{empty}
+    \addtocontents{toc}{\protect\thispagestyle{empty}}
     \tableofcontents
     \newpage
 }
@@ -675,7 +674,7 @@
 \newcommand\FEIlistOfGlossaries{  
     \pagestyle{plain}
     \IfEqCase*{\FEIenglish}{
-        {0}{\def\@zoznamZn{Zoznam skratiek}}
+        {0}{\def\@zoznamZn{Zoznam skratiek a značiek}}
         {1}{\def\@zoznamZn{List of Abbreviations}}
     }[]
     %\addtocontents{lof}{\protect\thispagestyle{plain}}
@@ -807,12 +806,15 @@
 \newcommand\frontmatter{%
     \clearpage
     %\@mainmatterfalse
-    \pagenumbering{roman}}
+    %\pagenumbering{roman}
+    }
 
 \newcommand\mainmatter{%
     \cleardoublepage
     % \@mainmattertrue
-    \pagenumbering{arabic}}
+    %\setcounter{page}{9}
+    %\pagenumbering{arabic}
+    }
 
 \newcommand\backmatter{%
     \if@openright
