@@ -310,7 +310,7 @@ platné učebnice samy o sebe nie sú zdrojom miskoncepcií, no zo svojej podsta
 Na základe záverov vyššie spomenutých štúdií sme sa rozhodli pre vytvorenie aplikácie, ktorá bude spĺňať nasledujúce kritériá:
 \begin{itemize}
   \item aplikácia bude vyobrazovať trojrozmerný model nervovej bunky,
-  \item v rámci aplikácie bude naimplementovaná animácia reprezentujúca zjednodušený model mechanizmu skokového prenosu nervového vzruchu,
+  \item v rámci aplikácie bude naimplementovaná animácia reprezentujúca zjednodušený model mechanizmu skokového prenosu nervového vzruchu po myelinizovanom vlákne,
   \item na základe používateľského vstupu bude možné túto animáciu opakovane spustiť
   \item rýchlosť tejto animácie bude prispôsobiteľná grafickým ovládacím prvkom.
 \end{itemize}
@@ -330,6 +330,13 @@ Neurón pozostáva z častí:
 Neurón, vzhľadom na jeho tvar a morfologické zvláštnosti, je bunkou rôznorodého vzhľadu a veľkosti. Telo nervovej bunky je trofickým centrom neurónu. Prijíma a spracováva prichádzajúce podnety a 
 prevádza ich do neuritu. Tvar tela nervových buniek je rozmanitý, Závisí od počtu výbežkov, od druhu nervových buniek a ich lokalizácie, napr. v kôre mozgu sú bunky tvaru štíhlych pyramíd (pyramídové bunky),
 v mieche sa nachádzajú multipolárne neuróny hviezdicového tvaru, v mozočku má telo tvar guľovitý, resp. hruškovitý. \cite{holecovaAnatomiaMorfologiaZivocichov2016}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=8cm]{img/neuron-schema.png}
+  \caption{Stavba neurónu \cite{petrovicovaFyziologiaZivocichovCloveka2006}.}
+  \label{neuron-stavba}
+\end{figure}	
 
 \subsection{Procesy na nervových vláknach}
 
@@ -355,12 +362,27 @@ kladné náboje k vzrušenému elektronegatívnemu miestu a potom spolu s Na\tex
 elektropozitivita susedného miesta zvonku a posilňuje zvnútra. Oslabovanie elektropozitivity znamená oslabovanie polarizácie, pokles membránového potenciálu až k úrovni prahovej depolarizácie,
 čím sa vyvolá akčný potenciál už na novom mieste. Posun akčného potenciálu je plynulý, no rýchlosť jeho vedenia je relatívne malá.
 
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/nemyelin.png}
+  \caption{Šírenie nervového vzruchu v nemyelinizovaných nervových vláknach \cite{javorkaLekarskaFyziologiaUcebnica2001}.}
+  \label{nemyelin}
+\end{figure}
+
 \paragraph{Vedenie na myelinizovanom vlákne.}
 Myelinizované nervové vlákna sú obalené myelínovými obalmi (pošvami). Tie nie sú súvislé, ale prerušované v miestach Ranvierovych zárezov. Iba v týchto miestach je vodivá membrána v styku s mimobunkovou 
 tekutinou a teda len v týchto miestach je polarizovaná. Ak sa akčný potenciál práve nachádza v jednom Ranvierovom záreze, povrch membrány je tu elektronegatívny a jej vnútorná strana 
 elektropozitívna. Opäť je tu prítomný fenomén oslabovania elektropozitivity, tentokrát ale najbližšieho Ranvierovho zárezu, ktorý môže byť vzdialený jeden až dva milimetre. Aj tu platí, že ak
-depolarizácia membrány v susednom záreze dosiahne prahovú hodnotu, zrodí sa v ňom nervový vzruch. Ten sa naň teda presunul skokom. Tento typ vedenia možno charakterizovať týmito vlastnosťami:
+depolarizácia membrány v susednom záreze dosiahne prahovú hodnotu, zrodí sa v ňom nervový vzruch. Ten sa naň teda presunul skokom. 
 
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/myelin.png}
+  \caption{Saltatórne vedenie vzruchu v myelinizovaných nervových vláknach \cite{javorkaLekarskaFyziologiaUcebnica2001}.}
+  \label{myelin}
+\end{figure}	
+
+Tento typ vedenia možno charakterizovať týmito vlastnosťami:
 \begin{itemize}
   \item ióny nemôžu prestupovať cez myelínový obal, len cez obnaženú membránu v Ranvierovom záreze,
   \item nervový vzruch ,,skáče'' zo zárezu do zárezu, preto hovoríme o saltatórnom vedení (,,vedení skokom''),
@@ -394,7 +416,7 @@ membránový potenciál. \cite{javorkaLekarskaFyziologiaUcebnica2001}
 \section{Tvorba MR aplikácie}
 
 Na realizáciu aplikácie boli použité nástroje Blender a Unreal Engine. Blender je slobodný a otvorený \todo{FOSS} softvér pre prácu s trojrozmernou grafikou. Používa sa na 3D modelovanie,
-animáciu, tvorbu vizuálnych efektov, a pod. Unreal Engine je herný engine vyvíjaný spoločnosťou Epic Games. Pôvodne bol určený pre vývoj FPS hier \todo{FPS}, no dnes má širokú škálu použitia
+animáciu, tvorbu vizuálnych efektov, a pod. Unreal Engine je herný engine vyvíjaný spoločnosťou Epic Games. Pôvodne bol určený pre vývoj FPS hier\todo{FPS}, no dnes má širokú škálu použitia
 od vývoja najrôznejších herných titulov a tvorbu filmových efektov až po architektonické vizualizácie a tvorbu aplikácií určených pre virtuálnu, rozšírenú a zmiešanú realitu.
 
 \subsection{Tvorba modelu neurónu v Blenderi}
@@ -415,17 +437,54 @@ výbežkov, ktoré predstavovali základ pre dendrity. Následne sme tento zákl
 Po prepnutí sa do režimu \emph{sculpting} sme v pravom paneli zaškrtli voľbu \texttt{Dyntopo}, čo je skratka pre \emph{Dynamic topology}. Táto funkcia Blenderu umožňnuje dynamickú zmenu
 topológie pri sculptingových úpravách. Flexibilita pri práci, ktorá sa vykonáva pomocou sculptingu, by bola významne obmedzená pevne definovaným počtom polygónov. \emph{Dyntopo} tento problém
 rieši tým, že automaticky pridáva alebo odoberá v oblastiach, s ktorými sa pracuje. To znamená, že pri používaní rôznych sculptingových nástrojov sa topológia mení automaticky podľa potreby.
-Pre vytváranie výbežkov sme použili nástroje \emph{Snake hook} a \emph{Elastic deform}, ktoré nám umožnili presne a flexibilne modelovať ich dlhé a tenké štruktúry. Po vytvorení základných výbežkov
-sme prešli k detailnejšej práci na stromových štruktúrach na koncoch výbežkov. Na ich tvorbu sme využili rovnaké nástroje, pričom sme dbali na to, aby rozloženie a hustota vetiev reflektovala
-vyobrazenie neurónu v dostupných materiáloch. \todo{vzorove obrazky}
+Pre vytváranie výbežkov sme použili nástroje \emph{Snake hook} a \emph{Elastic deform}, ktoré nám umožnili presne a flexibilne modelovať ich dlhé a tenké štruktúry. Počiatočná fáza modelovania
+je vyobrazená na obrázku č. \ref{blender1}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/n1-crop.png}
+  \caption{Tvorba modelu v Blenderi - počiatočná fáza.}
+  \label{blender1}
+\end{figure}	
+
+Po vytvorení základných výbežkov sme prešli k detailnejšej práci na stromových štruktúrach na koncoch výbežkov, ako vidno na obrázku č. \ref{blender2}. Na ich tvorbu sme využili rovnaké nástroje, 
+pričom sme dbali na to, aby rozloženie a hustota vetiev reflektovala vyobrazenie neurónu v dostupných materiáloch. \todo{vzorove obrazky}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/n2-crop.png}
+  \caption{Tvorba modelu v Blenderi - práca na koncoch výbežkov.}
+  \label{blender2}
+\end{figure}	
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/n3-crop.png}
+  \caption{Tvorba modelu v Blenderi - hotové telo neurónu.}
+  \label{blender3}
+\end{figure}	
 
 Ďalším krokom bolo vymodelovanie axónu. Ako základ axónu sme použili Bézierovú krivku. Bézierová krivka je parametrická krivka umožňujúca tvorbu hladkých zakrivených tvarov, pričom výsledný tvar je
 jednoducho modifikovateľný pomocou riadiacich bodov. Do projektu sme vložili novú Bézierovu krivku. Jej umiestnenie v priestore sme volili tak, aby jeden koniec zasahoval do tela neurónu 
 a druhý koniec sa nachádzal v adekvátnej vzdialenosti - v mieste, kde sme mali v úmysle neskôr vytvoriť zakončenia axónu. Po vhodnom vytvarovaní krivky sme v záložke \texttt{Object Data Properties}
 v sekcii \texttt{Geometry} $\rightarrow$ \texttt{Bevel} nastavili parameter \texttt{Depth} tak, aby táto krivka nadobudla adekvátny objem. Následne sme túto krivku prekonvertovali na mesh, aby 
 sme ju neskôr mohli detailnejšie tvarovať pomocou sculptingu. \todo{Popisat join?}
-Pomocou nástroja \emph{Inflate} sme zväčšili objem meshu v oblasti konca krivky a tiež v mieste, kde sa krivka spája s telom neurónu. 
+Pomocou nástroja \emph{Inflate} sme zväčšili objem meshu v oblasti konca krivky a tiež v mieste, kde sa krivka spája s telom neurónu. Výsledok vidno na obrázku č. \ref{blender4}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/n5-crop.png}
+  \caption{Tvorba modelu v Blenderi - telo neurónu spolu s axónom.}
+  \label{blender4}
+\end{figure}	
 
 Poslednou časťou neurónu, ktorú sme potrebovali zahrnúť do modelu, bola myelínová pošva. Ako jej základ poslúžil objekt typu \texttt{Cylinder}, ktorý sme viacnásobným použitím nástroja \emph{Bevel} postupne
 upravili do zodpovedajúceho tvaru pripomínajúceho súdok. Tento objekt sme následne zduplikovali celkom desaťkrát a jednotlivé kópie sme umiestnili za sebou na vymodelovaný axón tak, aby medzi 
-nimi boli medzery reprezentujúce Ranvierove zárezy.
+nimi boli medzery reprezentujúce Ranvierove zárezy. Na obrázku č. \ref{blender5} je vyobrazená výsledná podoba modelu neurónu, zatiaľ bez aplikovaných materiálov.
+ 
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/n5-crop.png}
+  \caption{Tvorba modelu v Blenderi - hotový model neurónu bez aplikovaných materiálov.}
+  \label{blender5}
+\end{figure}	

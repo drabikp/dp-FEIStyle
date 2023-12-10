@@ -57,7 +57,7 @@
 \LoadClass[\myset]{\parentclass}
 
 \usepackage[overload]{textcase}
-\usepackage[acronym,nopostdot,nogroupskip,nonumberlist]{glossaries}
+\usepackage[acronym,nopostdot,nogroupskip,nonumberlist,toc]{glossaries}
 
 \usepackage{microtype}
 \usepackage[utf8]{inputenc}
