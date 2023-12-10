@@ -261,8 +261,9 @@ Výskum sa zaoberá potenciálnymi vplyvmi rôznych faktorov, ako sú disciplín
 pre pochopenie možností AR pri zlepšovaní vzdelávacích procesov a výsledkov. V štúdii sa tiež zdôrazňuje kvalita zahrnutých metaanalýz, pričom sa konštatuje ich všeobecne prijateľná až dobrá kvalita, 
 čo prispieva k spoľahlivosti zistení.
 
-\section{Identifikácia vzdelávacích miskoncepcií}
-\subsection{Bunka ako dvojrozmerný objekt}
+\section{Návrh MR aplikácie na základe miskoncepcií vo vzdelávaní}
+\subsection{Identifikácia miskoncepcií}
+\subsubsection{Bunka ako dvojrozmerný objekt}
 Vijapurkar uvádza, že problém pri vzdelávaní študentov, pokiaľ ide o presnú vizualizáciu buniek, vyplýva z ich hlboko zakorenenej mylnej predstavy o bunkách ako dvojrozmerných 
 štruktúrach \cite{vijapurkarWhatCellsReally2014}. Aj keď sú bunky na ilustráciách znázornené ako trojrozmerné, tieto snahy často nepomáhajú študentom vytvoriť si správnu trojrozmernú 
 predstavu. Tento problém sa neobmedzuje len na nedostatok trojrozmernosti v mentálnych modeloch študentov; ide aj o ich neschopnosť vnímať bunky ako dynamické, funkčné jednotky života, 
@@ -289,7 +290,7 @@ ktorý môže účinne riešiť a korigovať hlboko zakorenené mylné predstavy
 Na záver možno konštatovať, že hoci tradičné metódy zobrazovania buniek v 3D nestačia na to, aby pomohli študentom vytvoriť si presné vizuálne predstavy, začlenenie moderných technológií, 
 ako sú počítačové 3D modely a aplikácie zmiešanej reality, by mohlo poskytnúť účinnejšie riešenie pri pretváraní študentských predstáv o bunkách ako komplexných, dynamických a trojrozmerných štruktúrach.
 
-\subsection{Nepresnosti pri výuke problematiky nervových vzruchov}
+\subsubsection{Nepresnosti pri výuke problematiky nervových vzruchov}
 Odomova štúdia \cite{odomActionPotentialsBiology1993} identifikuje osem kľúčových konceptov týkajúcich sa akčného potenciálu a hodnotí ich presnosť a obsiahnutie v šiestich 
 stredoškolských učebniciach biológie. Zistenia odhaľujú rôznorodosť rozsahu pokrytia konceptov súvisiacich s nervovým vzruchom, pričom niektoré učebnice poskytujú komplexnejšie 
 a presnejšie informácie ako iné. Uvádza sa, že väčšina učebníc prezentuje pojmy prostredníctvom textu alebo ilustrácií, pričom chýbajú praktické úlohy v laboratóriu. 
@@ -300,6 +301,19 @@ a zavádzajúce analógie porovnávajúce nervové vzruchy s elektrickým prúdo
 Okrem toho štúdia ďalej zdôrazňuje nevyhnutnosť presného a komplexného pokrytia problematiky nervových vzruchov v učebniciach biológie, najmä vzhľadom na zásadnú úlohu neurobiológie 
 pri porozumení biológie človeka. V článku sa tiež pojednáva o vývoji modelov a počítačových simulácií na pomoc pri výučbe pojmov akčného potenciálu, pričom sa poukazuje na potrebu 
 praktických skúseností študentov na pochopenie týchto abstraktných konceptov. 
+
+\subsection{Návrh aplikácie}
+Výsledky vyššie spomenutých štúdií jednoznačne podporujú a vytvárajú priestor na ďalší výskum a experimenty v oblasti využitia moderných technológií v rámci vyučovacieho procesu. Doteraz používané
+platné učebnice samy o sebe nie sú zdrojom miskoncepcií, no zo svojej podstaty nedokážu vždy odovzdať informácie o trojdimenzionálnej štruktúre biologických objektov alebo procesoch; 
+žiacke miskoncepcie však môžu vznikať ako dôsledok nesprávnej interpretácie ilustrácií či modelov. Aplikovanie rozšírenej reality sa preto ponúka ako možné riešenie tohto problému.
+
+Na základe záverov vyššie spomenutých štúdií sme sa rozhodli pre vytvorenie aplikácie, ktorá bude spĺňať nasledujúce kritériá:
+\begin{itemize}
+  \item aplikácia bude vyobrazovať trojrozmerný model nervovej bunky,
+  \item v rámci aplikácie bude naimplementovaná animácia reprezentujúca zjednodušený model mechanizmu skokového prenosu nervového vzruchu,
+  \item na základe používateľského vstupu bude možné túto animáciu opakovane spustiť
+  \item rýchlosť tejto animácie bude prispôsobiteľná grafickým ovládacím prvkom.
+\end{itemize}
 
 \section{Biologický základ nervového systému}
 \subsection{Nervové bunky - neuróny}
@@ -377,12 +391,13 @@ Na následnej hyperpolarizácii (pozitívny následný potenciál) sa zúčastň
 Intracelulárnemu hromadeniu Na\textsuperscript{+} a zvyšovaniu extracelulárnej koncentrácie K\textsuperscript{+} zabraňuje trvalé pôsobenie sodíkovo-draslíkovej pumpy ktorá udržuje stály pokojový 
 membránový potenciál. \cite{javorkaLekarskaFyziologiaUcebnica2001}
 
-\todo{kapitola} kapitola 
+\section{Tvorba MR aplikácie}
 
 Na realizáciu aplikácie boli použité nástroje Blender a Unreal Engine. Blender je slobodný a otvorený \todo{FOSS} softvér pre prácu s trojrozmernou grafikou. Používa sa na 3D modelovanie,
 animáciu, tvorbu vizuálnych efektov, a pod. Unreal Engine je herný engine vyvíjaný spoločnosťou Epic Games. Pôvodne bol určený pre vývoj FPS hier \todo{FPS}, no dnes má širokú škálu použitia
 od vývoja najrôznejších herných titulov a tvorbu filmových efektov až po architektonické vizualizácie a tvorbu aplikácií určených pre virtuálnu, rozšírenú a zmiešanú realitu.
 
+\subsection{Tvorba modelu neurónu v Blenderi}
 Model neurónu sme si pripravili v Blenderi. Prvým krokom bolo vytvorenie nového projektu voľbou \texttt{General} v úvodnom dialógu po spustení Blendera. Štandardne sú v novom projekte 
 umiestnené vzorové objekty (kocka, zdroj svetla a kamera). Tieto neboli pre naše použitie potrebné, odstránili sme ich. Do projektu sme pridali nový objekt typu \texttt{UV Sphere}, 
 ktorý nám poslúžil ako základ pre ďalšie tvarovanie pomocou techniky zvanej sculpting. 

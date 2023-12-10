@@ -501,7 +501,7 @@
 
 \newcommand\FEIthanks[1]{
     \pagestyle{empty}
-    \vspace*{120mm}
+    %\vspace*{120mm}
     \IfEqCase*{\FEIenglish}{
         {0}{\section*{\fontsize{22pt}{1.3}\selectfont Po\v{d}akovanie}}
         {1}{\section*{\fontsize{22pt}{1.3}\selectfont Acknowledgments}}
@@ -510,6 +510,27 @@
     \ifthenelse{\isempty{#1}}
     {Chcem sa po\v{d}akova\v{t} ved\'{u}cemu z\'{a}vere\v{c}nej pr\'{a}ce, ktor\'{y}m bol \printVeduciZaverecnejPrace, za odborn\'{e} vedenie, rady a pripomienky, ktor\'{e} mi pomohli pri vypracovan\'{i} tejto  \typPraceTempII.}
     {\input{#1}}    
+    \newpage
+}
+
+\newcommand\FEIprehlasenie[1]{
+    \pagestyle{empty}
+    \vspace*{120mm}
+    \IfEqCase*{\FEIenglish}{
+        {0}{\section*{\fontsize{22pt}{1.3}\selectfont \v{C}estn\'{e} prehl\'{a}senie}}
+        {1}{\section*{\fontsize{22pt}{1.3}\selectfont Acknowledgments}}
+        }[]
+        
+    \ifthenelse{\isempty{#1}}    
+    {\v{C}estne vyhlasujem, \v{z}e z\'{a}vere\v{c}n\'{u} pr\'{a}cu som vypracoval samostatne a \v{z}e som uviedol v\v{s}etku pou\v{z}it\'{u} literat\'{u}ru.}
+    {\input{#1}}
+    \newline
+    \newline
+    \newline
+    \begin{flushleft}
+        {\fontsize{14pt}{1.3}\selectfont 
+        \hfill ......................................}
+    \end{flushleft}     
     \newpage
 }
 
