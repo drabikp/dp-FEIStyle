@@ -5,12 +5,17 @@
 \usepackage[ddmmyyyy]{datetime}
 \renewcommand{\dateseparator}{. }
 
+%\usepackage[backend=biber,style=iso-numeric,autolang=other,bibencoding=utf8,seconds=true]{biblatex}
+%\bibliography{../includes/bibliography.bib}
+
 \title{Využitie MS HoloLens 2 vo vzdelávaní} 
 \subtitle{Diplomová práca}
 \author{Bc. Peter Drábik}
 \titlegraphic{
    \includegraphics[width=3cm]{img/pevs-logo.png}
 }
+
+\usepackage[T1]{fontenc}
 
 \begin{document}
 
@@ -35,9 +40,6 @@
 }
 
 \section{Popis umelej reality}
-%\begin{frame}{Popis umelej reality}
-    
-%\end{frame}
 
 \subsection{Popis VR}
 \begin{frame}{Popis VR}
@@ -60,44 +62,79 @@
     \begin{itemize}
         \item Kombinuje AR a VR
         \item Umožňuje interakciu medzi fyzickými a virtuálnymi objektami
-        \item Pokročilé rozpoznávanie fyzického priestoru a umiestňovanie virtuaálny objektov v ňom
+        \item Pokročilé rozpoznávanie fyzického priestoru a umiestňovanie virtuálnych objektov v ňom
     \end{itemize}
 \end{frame}
 
 \section{Využitie umelej reality vo vzdelávaní}
 \begin{frame}{Využitie umelej reality vo vzdelávaní}
-    
+    Závery z rôznych štúdií:
+    \begin{itemize}
+        \item Umožňuje študentom lepšie sa oboznámiť s komplexnými procesmi v bunke, so štruktúrou bielkovín
+        \item Uľahčuje chápanie abstraktných konceptov
+        \item Potenciál umelej reality nie je závislý na oblasti vzdelávania ani na charakteristike účastníkov vzdelávacieho procesu
+    \end{itemize}
 \end{frame}
 
 \section{Problém a jeho riešenie}
 \subsection{Identifikované miskoncepcie vo vyučovaní biológie}
 \begin{frame}{Identifikované miskoncepcie vo vyučovaní biológie}
-    
+    \begin{itemize}
+        \item Bunka ako dvojrozmerný objekt \pause
+        \item Nepresné analógie používané pri vysvetľovaní princípov šírenia nervového vzruchu
+    \end{itemize}
 \end{frame}
 
 \subsection{Návrh aplikácie}
 \begin{frame}{Návrh aplikácie}
-    
+    Kritériá:
+        \begin{itemize}
+        \item aplikácia bude vyobrazovať trojrozmerný model nervovej bunky,
+        \item v rámci aplikácie bude naimplementovaná animácia reprezentujúca zjednodušený model mechanizmu skokového prenosu nervového vzruchu po myelinizovanom vlákne,
+        \item na základe používateľského vstupu bude možné túto animáciu opakovane spustiť
+        \item rýchlosť tejto animácie bude prispôsobiteľná grafickým ovládacím prvkom.
+        \end{itemize}
 \end{frame}
 
 \section{Tvorba aplikácie}
-\begin{frame}{Tvorba aplikácie}
-    
-\end{frame}
-
 \subsection{3D model nervovej bunky}
 \begin{frame}{3D model nervovej bunky}
-    
+    \begin{itemize}
+        \item Použitý nástroj - Blender
+        \item 99\% práce - sculpting
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{3D model nervovej bunky}    
+    \begin{center}
+        \includegraphics[width=8cm]{../img/finalModel-crop.png}
+    \end{center}    
 \end{frame}
 
 \subsection{MR aplikácia v Unreal Engine}
 \begin{frame}{MR aplikácia v Unreal Engine}
-    
+    \begin{itemize}
+        \item Unreal Engine - viacúčelový nástroj
+        \item Logika aplikácie - Blueprint        
+        \item Microsoft Reality Toolkit
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{MR aplikácia v Unreal Engine}
+    \begin{center}
+        \includegraphics[width=11cm]{img/unreal.png}
+    \end{center}
 \end{frame}
 
 \section{Výskum}
 \begin{frame}{Výskum}
-    
+    \begin{itemize}
+        \item Výskum prebehol na skupine 20 študentov ŠpMNDaG v Bratislave
+        \item Polovica študentov si vyskúšala aplikáciu
+        \item Všetci študenti dostali dotazník
+    \end{itemize}    
 \end{frame}
 
 % \section{Stavba neurónu}

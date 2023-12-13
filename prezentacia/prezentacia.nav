@@ -33,40 +33,42 @@
 \headcommand {\beamer@framepages {9}{9}}
 \headcommand {\beamer@subsectionpages {9}{9}}
 \headcommand {\beamer@subsectionentry {0}{3}{1}{10}{Identifikované miskoncepcie vo vyučovaní biológie}}
-\headcommand {\slideentry {3}{1}{1}{10/10}{Identifikované miskoncepcie vo vyučovaní biológie}{0}}
-\headcommand {\beamer@framepages {10}{10}}
-\headcommand {\beamer@subsectionpages {10}{10}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{11}{Návrh aplikácie}}
-\headcommand {\slideentry {3}{2}{1}{11/11}{Návrh aplikácie}{0}}
-\headcommand {\beamer@framepages {11}{11}}
-\headcommand {\beamer@sectionpages {9}{11}}
-\headcommand {\beamer@subsectionpages {11}{11}}
-\headcommand {\sectionentry {4}{Tvorba aplikácie}{12}{Tvorba aplikácie}{0}}
-\headcommand {\slideentry {4}{0}{1}{12/12}{}{0}}
+\headcommand {\slideentry {3}{1}{1}{10/11}{Identifikované miskoncepcie vo vyučovaní biológie}{0}}
+\headcommand {\beamer@framepages {10}{11}}
+\headcommand {\beamer@subsectionpages {10}{11}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{12}{Návrh aplikácie}}
+\headcommand {\slideentry {3}{2}{1}{12/12}{Návrh aplikácie}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\slideentry {4}{0}{2}{13/13}{}{0}}
+\headcommand {\beamer@sectionpages {9}{12}}
+\headcommand {\beamer@subsectionpages {12}{12}}
+\headcommand {\sectionentry {4}{Tvorba aplikácie}{13}{Tvorba aplikácie}{0}}
+\headcommand {\slideentry {4}{0}{1}{13/13}{}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\beamer@subsectionpages {12}{13}}
+\headcommand {\beamer@subsectionpages {13}{13}}
 \headcommand {\beamer@subsectionentry {0}{4}{1}{14}{3D model nervovej bunky}}
 \headcommand {\slideentry {4}{1}{1}{14/14}{3D model nervovej bunky}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\beamer@subsectionpages {14}{14}}
-\headcommand {\beamer@subsectionentry {0}{4}{2}{15}{MR aplikácia v Unreal Engine}}
-\headcommand {\slideentry {4}{2}{1}{15/15}{MR aplikácia v Unreal Engine}{0}}
+\headcommand {\slideentry {4}{1}{2}{15/15}{3D model nervovej bunky}{0}}
 \headcommand {\beamer@framepages {15}{15}}
-\headcommand {\beamer@sectionpages {12}{15}}
-\headcommand {\beamer@subsectionpages {15}{15}}
-\headcommand {\sectionentry {5}{Výskum}{16}{Výskum}{0}}
-\headcommand {\slideentry {5}{0}{1}{16/16}{}{0}}
+\headcommand {\beamer@subsectionpages {14}{15}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{16}{MR aplikácia v Unreal Engine}}
+\headcommand {\slideentry {4}{2}{1}{16/16}{MR aplikácia v Unreal Engine}{0}}
 \headcommand {\beamer@framepages {16}{16}}
-\headcommand {\slideentry {5}{0}{2}{17/17}{}{0}}
+\headcommand {\slideentry {4}{2}{2}{17/17}{MR aplikácia v Unreal Engine}{0}}
 \headcommand {\beamer@framepages {17}{17}}
-\headcommand {\beamer@sectionpages {16}{17}}
+\headcommand {\beamer@sectionpages {13}{17}}
 \headcommand {\beamer@subsectionpages {16}{17}}
-\headcommand {\slideentry {6}{0}{1}{18/18}{}{0}}
+\headcommand {\sectionentry {5}{Výskum}{18}{Výskum}{0}}
+\headcommand {\slideentry {5}{0}{1}{18/18}{}{0}}
 \headcommand {\beamer@framepages {18}{18}}
-\headcommand {\beamer@partpages {1}{18}}
-\headcommand {\beamer@subsectionpages {18}{18}}
-\headcommand {\beamer@sectionpages {18}{18}}
-\headcommand {\beamer@documentpages {18}}
-\headcommand {\gdef \inserttotalframenumber {18}}
+\headcommand {\slideentry {5}{0}{2}{19/19}{}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\beamer@sectionpages {18}{19}}
+\headcommand {\beamer@subsectionpages {18}{19}}
+\headcommand {\slideentry {6}{0}{1}{20/20}{}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\beamer@partpages {1}{20}}
+\headcommand {\beamer@subsectionpages {20}{20}}
+\headcommand {\beamer@sectionpages {20}{20}}
+\headcommand {\beamer@documentpages {20}}
+\headcommand {\gdef \inserttotalframenumber {19}}
