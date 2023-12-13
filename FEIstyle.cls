@@ -604,6 +604,7 @@
     %\pagestyle{plain}
     \pagestyle{empty}
     \addtocontents{toc}{\protect\thispagestyle{empty}}
+    \renewcommand{\cfttoctitlefont}{\bf\fontsize{22pt}{1.3}\selectfont}    
     \tableofcontents
     \newpage
 }
