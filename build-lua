@@ -1,0 +1,5 @@
+lualatex dp
+biber dp
+makeglossary dp
+lualatex dp
+lualatex dp

@@ -65,6 +65,9 @@
 % package for biblatex https://github.com/michal-h21/biblatex-iso690
 \usepackage[backend=biber,style=iso-numeric,autolang=other,bibencoding=utf8,seconds=true]{biblatex}
 
+\usepackage{fontspec} % LuaLaTeX needs this
+%\setmainfont{Times New Roman}
+
 \ifnum\FEIenglish=0
     \usepackage[english,slovak]{babel}
 \else
@@ -72,7 +75,7 @@
 \fi
 
 \usepackage[style=slovak]{csquotes}
-\usepackage[T1]{fontenc}
+%\usepackage[T1]{fontenc}
 
 \usepackage[immediate]{silence}
 \WarningFilter[temp]{latex}{Command}
@@ -546,7 +549,7 @@
 
 \newcommand\FEIabstract[1]{
     \pagestyle{empty}   
-    \section*{\fontsize{22pt}{1.3}\selectfont ABSTRAKT}
+    \section*{\fontsize{22pt}{1.3}\selectfont Abstrakt}
     % \noindent\MakeTextUppercase{\printSkola}
     % \newline
     % \MakeTextUppercase{\printFakulta}
@@ -574,7 +577,7 @@
     
 \newcommand\FEIabstractEn[1]{
     \pagestyle{empty}   
-    \section*{\fontsize{22pt}{1.3}\selectfont ABSTRACT}
+    \section*{\fontsize{22pt}{1.3}\selectfont Abstract}
     % \noindent\MakeTextUppercase{\printSkolaEn}
     % \newline
     % \MakeTextUppercase{\printFakultaEn}
