@@ -295,7 +295,7 @@ Odomova štúdia \cite{odomActionPotentialsBiology1993} identifikuje osem kľú�
 stredoškolských učebniciach biológie. Zistenia odhaľujú rôznorodosť rozsahu pokrytia konceptov súvisiacich s nervovým vzruchom, pričom niektoré učebnice poskytujú komplexnejšie 
 a presnejšie informácie ako iné. Uvádza sa, že väčšina učebníc prezentuje pojmy prostredníctvom textu alebo ilustrácií, pričom chýbajú praktické úlohy v laboratóriu. 
 
-V dokumente sa tiež uvádzajú konkrétne miskoncepcie zistené v vyhodnocovaných učebniciach, ako napríklad nepresnosti týkajúce sa úlohy sodíkovo-draslíkovej pumpy pri repolarizácii 
+V dokumente sa tiež uvádzajú konkrétne miskoncepcie zistené v vyhodnocovaných učebniciach, ako napríklad nepresnosti týkajúce sa úlohy sodno-draselnej pumpy pri repolarizácii 
 a zavádzajúce analógie porovnávajúce nervové vzruchy s elektrickým prúdom v drôtoch. 
 
 Okrem toho štúdia ďalej zdôrazňuje nevyhnutnosť presného a komplexného pokrytia problematiky nervových vzruchov v učebniciach biológie, najmä vzhľadom na zásadnú úlohu neurobiológie 
@@ -382,7 +382,7 @@ depolarizácia membrány v susednom záreze dosiahne prahovú hodnotu, zrodí sa
   \label{myelin}
 \end{figure}	
 
-Tento typ vedenia možno charakterizovať týmito vlastnosťami:
+Tento typ vedenia možno charakterizovať týmito vlastnosťami: 
 \begin{itemize}
   \item ióny nemôžu prestupovať cez myelínový obal, len cez obnaženú membránu v Ranvierovom záreze,
   \item nervový vzruch \uv{skáče} zo zárezu do zárezu, preto hovoríme o saltatórnom vedení (\uv{vedení skokom}),
@@ -409,8 +409,8 @@ Sodíkové kanály sa aj napriek pretrvávajúcej depolarizácii veľmi rýchlo 
 so zvýšením permeability pre ióny K\textsuperscript{+} zodpovedná za rýchly návrat hrotového potenciálu na pokojovú úroveň. Pri následnej hyperpolarizácii už dosahuje priepustnosť membrány pre 
 Na\textsuperscript{+} východiskovú úroveň , kým pre K\textsuperscript{+} zostáva zvýšená nad pokojový stav.
 
-Na následnej hyperpolarizácii (pozitívny následný potenciál) sa zúčastňuje aj elektrogénny efekt sodíkovo-draslíkovej pumpy, ktorá participuje i na obnovení pôvodného rozloženia iónov.
-Intracelulárnemu hromadeniu Na\textsuperscript{+} a zvyšovaniu extracelulárnej koncentrácie K\textsuperscript{+} zabraňuje trvalé pôsobenie sodíkovo-draslíkovej pumpy ktorá udržuje stály pokojový 
+Na následnej hyperpolarizácii (pozitívny následný potenciál) sa zúčastňuje aj elektrogénny efekt sodno-draselnej pumpy, ktorá participuje i na obnovení pôvodného rozloženia iónov.
+Intracelulárnemu hromadeniu Na\textsuperscript{+} a zvyšovaniu extracelulárnej koncentrácie K\textsuperscript{+} zabraňuje trvalé pôsobenie sodno-draselnej pumpy ktorá udržuje stály pokojový 
 membránový potenciál. \cite{javorkaLekarskaFyziologiaUcebnica2001}
 
 \section{Tvorba MR aplikácie}
@@ -488,3 +488,45 @@ nimi boli medzery reprezentujúce Ranvierove zárezy. Na obrázku č. \ref{blend
   \caption{Tvorba modelu v Blenderi - hotový model neurónu bez aplikovaných materiálov.}
   \label{blender5}
 \end{figure}
+
+\subsection{Implementácia aplikácie v hernom engine}
+Aplikáciu sme po zvážení viacerých faktorov implementovali v Unreal Engine. medzi aspekty, ktoré ovplyvnili toto rozhodnutie, patria:
+\begin{itemize}
+  \item rozsiahla dokumentácia a podpora komunity,
+  \item možnosť vývoja prostredníctvom Blueprint Visual Scripting,
+  \item predošlá skúsenosť s vývojom v Unreal Engine.
+\end{itemize}
+
+Unreal Engine má k dispozícií rozsiahlu dokumentáciu, aktívnu komunitu na diskusných fórach a nespočetne veľa inštruktážných videí na platformách ako YouTube a pod. To pomáha prekonať počiatočné
+ťažkosti vývojárom, ktorí ešte nenadobudli hlbšie znalosti používania Unreal Engine. Množstvo problémov, na ktoré začínajúci vývojár potenciálne môže naraziť, tak s najväčšiou pravdepodobnosťou
+už niekto riešil. To jednoznačne prispieva k rýchlejšiemu vývoju aplikácií.
+
+Ďalší aspekt, ktorý zohral zásadnú úlohu vo výbere nástroja na vývoj, bola prítomnosť Blueprint Visual Scriptingu. Blueprint Visual Scripting je výkonný, používateľsky prívetivý nástroj v rámci 
+Unreal Engine určený na vývoj hier a tvorbu interaktívneho obsahu. Umožňuje vývojárom a dizajnérom vytvárať komplexnú hernú logiku a správanie bez potreby tradičného textového programovania. Namiesto toho 
+Blueprint využíva rozhranie založené na uzloch, kde sú funkcie a akcie reprezentované ako vzájomne prepojené bloky. Vďaka tomuto vizuálnemu prístupu je dostupný aj pre tých, ktorí nemajú hlboké znalosti programovania.
+Okrem Blueprint Visual Scriptingu je možné použiť aj jazyk C++, ktorý je však vhodnejší pre skúsenejších vývojárov.
+
+\subsubsection{Kostra aplikácie}
+K výberu finálnej množiny verzií použitých nástrojov viedla pomerne zložitá cesta. Na začiatku sme pracovali s predpokladom, že kompatibilita MRTK a Unreal Engine nebude závislá od verzie Unreal
+Engine, a teda voľba padla prirodzene na najnovšiu verziu, ťo bola v čase písania tejto práce verzia 5.3.2. Ukázalo sa však, že plugin Mixed Reality Toolkit Hub TODO
+
+Na to, aby sme mohli začať tvoriť aplikáciu pre MS HoloLens 2, bolo najprv potrebné okrem Unreal Engine doinštalovať potrebné závislosti:
+\begin{itemize}
+  \item Windows 10 SDK 10.0.18362.0
+  \item Visual Studio 2019 s ďalšími komponentmi:
+  \begin{itemize}    
+    \item \texttt{Desktop development with C++}
+    \item \texttt{.NET desktop development}
+    \item \texttt{Universal Windows Platform development}
+    \item \texttt{C++ (v142) Universal Windows Platform tools}
+    \item \texttt{MSVC v142 - VS 2019 C++ ARM64 build tools}    
+  \end{itemize}
+\end{itemize}
+
+Pokračovali sme vytvorením nového projektu zo šablóny \emph{Blank} v kategórii \emph{Games}. V nastaveniach nového projektu sme vybrali voľby:
+\begin{itemize}
+  \item \emph{C++ project} - vyžadované pri použití UX Tools, stále je možné používať aj Blueprinty,
+  \item \emph{Scalable 2D or 3D} a \emph{Mobile/Tablet} - prispôsobenie projektu z hľadiska výkonu zariadenia, na ktorom bude výsledná aplikácia spúšťaná, a
+  \item \emph{No Starter Content} - nepotrebujeme v projekte žiadne vzorové objekty.
+\end{itemize}
+

@@ -547,6 +547,70 @@
     \setlength{\voffset}{0cm}
 }
 
+\newcommand\FEIassignmentCustom{   % pokus o repliku zadania, ktore nam dala teta na studijnom
+    \newfontfamily{\timesnewroman}{Times New Roman}
+    \pagestyle{empty}
+    \vspace*{-22mm}
+    \begin{center}
+        \makebox[\textwidth]{\includegraphics[width=7.5cm]{img/logo-uni.png}}
+    \end{center}
+    \setlength{\hoffset}{0cm} 
+    \setlength{\voffset}{0cm}
+
+    \vspace*{10mm}
+    {\timesnewroman
+    \begin{center}
+        {\fontsize{21}{25.2}\selectfont\bfseries
+        \scalebox{0.985}{ZADANIE DIPLOMOVEJ PRÁCE}
+        }
+    \end{center}
+
+    \vspace*{7mm}
+
+    \hspace*{-4mm}
+    \begin{minipage}{.95\textwidth}        
+        \setstretch{1.15}
+        {
+            \fontsize{11.1}{13.2}\selectfont 
+            \begin{tabbing}
+                Meno a priezvisko študenta:\hspace*{13.9mm}\={\bfseries\printAutor}\\
+                Evidenčné číslo diplomovej práce:\>\bfseries{\printEvidencneCislo}\\
+                Študijný odbor:\>\bfseries{informatika}\\
+                Študijný program:\>\bfseries{\printStudijnyProgram}\\
+                Forma a metóda štúdia:\>\bfseries{externá prezenčná}\\
+                Vedúci diplomovej práce:\>\bfseries{\printVeduciZaverecnejPrace}\\
+                Ústav/katedra:\>\bfseries{\printSkoliacePracovisko}\\
+                Dátum zadania diplomovej práce:\>\bfseries{11. 07. 2022}\\
+            \end{tabbing}
+        }
+        \vspace*{-8mm}
+        {\fontsize{12}{14.4}\selectfont
+            Názov: {\bfseries\printNazov}\\
+        }
+        
+        {\fontsize{11.1}{13.2}\selectfont
+        \vspace*{2mm}
+        
+        \begin{tabularx}{.99\textwidth}{@{} >{\raggedright}l @{\hspace{1.2mm}} X @{}}            
+            Anotácia:&\begin{minipage}[t]{\linewidth}\setstretch{0.98}\fontsize{11.1}{13.2}\selectfont 
+                Cieľom práce je navrhnúť a implementovať aplikáciu pre využitie zmiešanej reality prostredníctvom zariadenia MS HOLOLENS 2 vo vzdelávaní v oblasti prírodovedných predmetov.
+                Autor navrhne, implementuje a otestuje aplikáciu využiteľnú pri výučbe s využitím herných enginov alebo ako natívnu aplikáciu.\end{minipage} \\
+        \end{tabularx}
+            
+        }
+        \setstretch{1.0}
+        {\fontsize{11.1}{13.2}\selectfont
+            \vspace*{99mm}
+            .............................................................\hspace{30.5mm}............................................................\\
+            \hspace*{11mm}RNDr. Ján Lacko, PhD.\hspace{44mm}prof. RNDr. Frank Schindler, PhD.\\
+            \hspace*{19mm}vedúci práce\hspace{69mm}vedúci ústavu
+        }
+        
+    \end{minipage}
+
+    }
+}
+
 \newcommand\FEIabstract[1]{
     \pagestyle{empty}   
     \section*{\fontsize{22pt}{1.3}\selectfont Abstrakt}

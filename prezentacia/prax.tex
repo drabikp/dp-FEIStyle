@@ -1,0 +1,80 @@
+\documentclass[pdf]{beamer}
+\mode<presentation>{\usetheme{Warsaw}} 
+
+\usepackage{fontspec} % LuaLaTeX needs this
+\usepackage[slovak]{babel}
+
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{. }
+
+\title{Odborná prax} 
+%\subtitle{Diplomová práca}
+\author{Bc. Peter Drábik}
+\titlegraphic{
+   \includegraphics[width=3cm]{img/pevs-logo.png}
+}
+
+
+\begin{document}
+
+\newdate{mydate}{16}{12}{2023}
+\date{\displaydate{mydate}}
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+\section{O spoločnosti}
+\begin{frame}
+    \frametitle{O spoločnosti}
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item PosAm spol. s r. o.
+        \item Motto: Pretvárame informačné technológie na úžitok pre zákazníkov
+        \item Verejné zákazky aj projekty v komerčnej sfére
+    \end{itemize}
+\end{frame}
+
+\section{O klientovi}
+\begin{frame}
+    \frametitle{O klientovi}
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item ČEZ Distribuce - skupina ČEZ (České energetické závody)
+        \item Projekt - Jednotní systém řízení osádek v terénu
+        \item Modul automatického plánovania práce
+    \end{itemize}
+\end{frame}
+
+\section{Práca na projekte}
+\begin{frame}
+    \frametitle{Práca na projekte}
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item Použité technológie:
+        \begin{itemize}
+            \item Java, Spring Boot, Hibernate
+            \item Microsoft SQL Server
+        \end{itemize}        
+        \item Vývoj na základe vstupov od analytika, písanie unit testov
+        \item Agilný tím
+    \end{itemize}    
+\end{frame}
+
+\section{Nadobudnuté znalosti}
+\begin{frame}
+    \frametitle{Nadobudnuté znalosti}
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item Projekt veľkého rozsahu
+        \item Prehĺbenie znalostí v oblasti backendových frameworkov
+        \item Optimalizácia výkonu
+    \end{itemize}
+\end{frame}
+
+\section*{}
+\begin{frame}{}
+    Ďakujem za pozornosť.
+\end{frame}
+
+\end{document}
