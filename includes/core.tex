@@ -506,6 +506,8 @@ Unreal Engine určený na vývoj hier a tvorbu interaktívneho obsahu. Umožňuj
 Blueprint využíva rozhranie založené na uzloch, kde sú funkcie a akcie reprezentované ako vzájomne prepojené bloky. Vďaka tomuto vizuálnemu prístupu je dostupný aj pre tých, ktorí nemajú hlboké znalosti programovania.
 Okrem Blueprint Visual Scriptingu je možné použiť aj jazyk C++, ktorý je však vhodnejší pre skúsenejších vývojárov.
 
+Pomocou Blueprint Visual Scriptingu vieme vytvárať vlastné objekty (\emph{Blueprint Class}), ktoré môžu dediť sovje správanie a vlastnosti od Iných Blueprintov.
+
 \subsubsection{Kostra aplikácie}
 K výberu finálnej množiny verzií použitých nástrojov viedla pomerne zložitá cesta. Na začiatku sme pracovali s predpokladom, že kompatibilita MRTK a Unreal Engine nebude závislá od verzie Unreal
 Engine, a teda voľba padla prirodzene na najnovšiu verziu, ťo bola v čase písania tejto práce verzia 5.3.2. Ukázalo sa však, že plugin Mixed Reality Toolkit Hub TODO
@@ -534,4 +536,11 @@ Pokračovali sme vytvorením nového projektu zo šablóny \emph{Blank} v kateg�
 
 Pre správnu funkčnosť v MR prostredí bolo potrebné do projektu pridať \emph{data asset} s názvom \texttt{ARSessionConfig}. V \emph{Level Blueprinte} sme následne začiatok a koniec \emph{AR Session}
 priradili k udalostiam \emph{Begin Play}, resp. \emph{End Play}, ako je znázornené na obrázku \todo{Obrazok}.
-Pokračovali sme vytvorením objektu typu \texttt{Pawn}, ktorý v tomto prípade reprezentuje používateľa HoloLensu. 
+Pokračovali sme vytvorením Blueprintu dediaceho od triedy \texttt{DefaultPawn}, ktorý v tomto prípade reprezentuje používateľa HoloLensu; nazvali sme ho MRPawn.
+Do tohto Blueprintu sme pridali nový komponent typu
+\texttt{Camera}, čo umožnilo naviazať pohľad používateľa v 3D scéne na pohyb HoloLensu. Za normálnych okolností je možná kolízia Pawnu s inými objektami, v MR projekte to však nie je žiadúce.
+Z tohto dôvodu sme v rámci tohto Blueprintu na jeho komponentoch \texttt{CollisionComponent} a \texttt{MeshComponent} nastavili \emph{Collision Presets} na hodnotu \texttt{NoCollision}. 
+
+Ďalším krokom bolo pridanie nového Blueprintu typu \texttt{Game Mode Base} s názvom MRGameMode. Tento Blueprint nám umožňuje meniť rôzne nastavenia aplikácie; pre násbola dôležitá možnosť nastaviť 
+to, aký Pawn sa má použiť. To sme dosiahli zmenou nastavenia \emph{Default Pawn Class} na hodnotu MRPawn. V nastaveniach projektu v sekcii \emph{Maps \& Modes} sme následne nastavili parameter
+\emph{Default Game Mode} na hodnotu MRGameMode.
