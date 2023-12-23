@@ -523,6 +523,8 @@ Na to, aby sme mohli začať tvoriť aplikáciu pre MS HoloLens 2, bolo najprv p
   \end{itemize}
 \end{itemize}
 
+Taktiež bolo potrebné spustiť \emph{Epic Games Launcher} a doinštalovať do Unreal Enginu plugin s názvom Microsoft OpenXR za účelom sprístupnenia funkcií špecifických pre MR platformu Microsoftu.
+
 Pokračovali sme vytvorením nového projektu zo šablóny \emph{Blank} v kategórii \emph{Games}. V nastaveniach nového projektu sme vybrali voľby:
 \begin{itemize}
   \item \emph{C++ project} - vyžadované pri použití UX Tools, stále je možné používať aj Blueprinty,
@@ -530,3 +532,6 @@ Pokračovali sme vytvorením nového projektu zo šablóny \emph{Blank} v kateg�
   \item \emph{No Starter Content} - nepotrebujeme v projekte žiadne vzorové objekty.
 \end{itemize}
 
+Pre správnu funkčnosť v MR prostredí bolo potrebné do projektu pridať \emph{data asset} s názvom \texttt{ARSessionConfig}. V \emph{Level Blueprinte} sme následne začiatok a koniec \emph{AR Session}
+priradili k udalostiam \emph{Begin Play}, resp. \emph{End Play}, ako je znázornené na obrázku \todo{Obrazok}.
+Pokračovali sme vytvorením objektu typu \texttt{Pawn}, ktorý v tomto prípade reprezentuje používateľa HoloLensu. 
