@@ -221,7 +221,7 @@ objektov (napr. tlačidiel) a hotových príkladov aplikácií \cite{valoremrepl
 
 \acrshort{mrtk} je dostupný pre populárny herný engine Unity. Unity je dostupné bezplatne pre osobné použitie, čo robí takýto vývoj prístupný širokému spektru záujemcov.
 Programový kód aplikácií vyvíjaných v tomto prostredí je písaný v jazyku C\#. Samostatná verzia \acrshort{mrtk} existuje aj pre nástroj s názvom Unreal Engine. Unreal
-Engine sme si zvolili na realizáciu aplikácie tejto diplomovej práce; jeho detailnejšiemu popisu a dôvodom jeho voľby sa budeme venovať v kapitole \todo{cislo kapitoly}.
+Engine sme si zvolili na realizáciu aplikácie tejto diplomovej práce; jeho detailnejšiemu popisu a dôvodom jeho voľby sa budeme venovať v kapitole \ref{gameengine}.
 
 Okrem HoloLens 2 je podporovaných niekoľko ďalších zariadení, napr. Meta Quest \cite{microsoftWhatMixedReality}. Takztiež sú podporované platformy postavené na platforme
 iOS a Android. Jednou z výhod multiplatformovosti je aj jednoduchý prenos aplikácie napísanej pre pôvodnu verziu HoloLens na verziu 2. Rovnako sa dá veľká časť programu
@@ -489,7 +489,7 @@ nimi boli medzery reprezentujúce Ranvierove zárezy. Na obrázku č. \ref{blend
   \label{blender5}
 \end{figure}
 
-\subsection{Implementácia aplikácie v hernom engine}
+\subsection{Implementácia aplikácie v hernom engine}\label{gameengine}
 Aplikáciu sme po zvážení viacerých faktorov implementovali v Unreal Engine. medzi aspekty, ktoré ovplyvnili toto rozhodnutie, patria:
 \begin{itemize}
   \item rozsiahla dokumentácia a podpora komunity,
@@ -544,3 +544,15 @@ Z tohto dôvodu sme v rámci tohto Blueprintu na jeho komponentoch \texttt{Colli
 Ďalším krokom bolo pridanie nového Blueprintu typu \texttt{Game Mode Base} s názvom MRGameMode. Tento Blueprint nám umožňuje meniť rôzne nastavenia aplikácie; pre násbola dôležitá možnosť nastaviť 
 to, aký Pawn sa má použiť. To sme dosiahli zmenou nastavenia \emph{Default Pawn Class} na hodnotu MRPawn. V nastaveniach projektu v sekcii \emph{Maps \& Modes} sme následne nastavili parameter
 \emph{Default Game Mode} na hodnotu MRGameMode.
+
+Interaktivitu scény nám zabezpečila inštalácia pluginu Mixed Reality Tookit UX Tools. Ten sme do Unreal Enginu doinštalovali pomocou Epic Games Launchera a a následne sme ho povolili v nastaveniach
+projektu v sekcii Plugins. UX Tools nám poskytuje \emph{Hand Interaction Actors}, vďaka ktorým môžeme ako používateľ interagovať rukami v MR prostredí s UX prvkami na malú aj veľkú vzdialenosť.
+\begin{itemize}
+  \item Interakcia na malú vzdialenosť - uchopenie prvku medzi ukazovák a prostredník, alebo ťuknutie prstom.
+  \item Interakcia na veľkú vzdialenosť - nasmerovanie virtuálneho lúča z ruky smerom na prvok a stlačenie palca a ukazováka.
+\end{itemize}
+Týchto actorov sme do projektu pridali tak, že sme si otvorili predtým vytvorený Blueprint MRPawn a v grafe udalostí (\emph{Event Graph}) sme na udalosť \texttt{BeginPlay} naviazali dva nové uzly
+typu \texttt{Spawn Actor from Class}. Na jednom z nich sme nastavili parameter \emph{Hand} na \texttt{Right}, na druhom na \texttt{Left}; na oboch sme zaškrtli \emph{Show Near Cursor on Grab Targets}.
+S parametrom \emph{Spawn Transform} na oboch uzloch sme prepojili nový uzol \emph{Make Transform}. Na parameter \emph{Owner} sme naviazali referenciu na samotný MRPawn pomocou objektovej referencie
+\emph{Self}.
+\todo{obrazok}
