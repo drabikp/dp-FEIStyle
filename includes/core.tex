@@ -557,7 +557,7 @@ S parametrom \emph{Spawn Transform} na oboch uzloch sme prepojili nový uzol \em
 \emph{Self}.
 \todo{obrazok}
 
-\subsubsection{Animácia prechodu kladne nabitých častíc do nervového vlákna}
+\subsubsection{Animácia prechodu častíc do nervového vlákna}
 Jednou z výziev pri tvorbe aplikácie bolo vytvorenie animácie prechodu častíc dovnútra nervového vlákna pri depolarizácii a ich následný návrat do okolia nervového vlákna pri repolarizácii. Využili sme 
 na to časticový systém Niagara, ktorý je súčasťou Unreal Enginu. 
 
@@ -591,4 +591,54 @@ ak \texttt{Alpha} = 1. Blueprint tohto skriptu sa nachádza \todo{obrazok}.
 
 Následne sme si vytvorili nový emitter, ktorý slúži ako zdroj častíc. Emitteru sme v sekcii \emph{User Exposed} pridali tri parametre typu \texttt{StaticMesh} s názvami \texttt{MeshA}, \texttt{MeshB} a \texttt{MeshC}
 a tri parametre typu \texttt{int32} s názvami \texttt{ScatterA}, \texttt{ScatterB} a \texttt{ScatterC}. Do sekcie \texttt{Particle Spawn} sme pridali náš predtým vytvorený modul \texttt{NMS}. V jeho nastaveniach sme 
-nastavili parametre tak, ako vidno na obrázku \todo{obrazok}.
+nastavili parametre pre jednotlivé meshe a rozptýlenia častíc tak, ako vidno na obrázku \ref{nms-settings}. 
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/nms-settings.png}
+  \caption{Nastavenia modulu NMS}
+  \label{nms-settings}
+\end{figure}	
+
+V sekcii \emph{Particle Update} sme pridali modul \texttt{Set Position}, ktorému sme ako hodnotu nastavili 
+\texttt{Niagara\_3Lerp}; zobrazili sa nám nastavenia pre parametre \texttt{V1}, \texttt{V2}, \texttt{V3} a \texttt{Alpha}. Do prvých troch parametrov sme nastavili referenciu na výstupné parametre \texttt{NMS}, ktoré
+nám boli prístupné v sekcii \emph{Parameter Attributes} - \texttt{MorphingPositionA}, \texttt{MorphingPositionB} a \texttt{MorphingPositionC}. 
+
+Ďalej bolo potrebné vytvoriť nový \emph{Niagara System}, do ktorého sme pridali predtým vytvorený emitter. Do sekcie \emph{User Exposed} sme pridali premennú typu \texttt{float} s názvom \texttt{MorhpingLerp} a jej 
+referenciu sme nastavili ako hodnotu parametra \texttt{Alpha} modulu emittera \texttt{Set Position}.
+
+V Blenderi sme si pripravili tri meshe, ktoré budú slúžiť ako parametre pre vyššie popísaný časticový systém, v tvaroch väčšieho a menšieho torusu a malého valca. Väčší torus reprezentuje častice v okolí neurónu, 
+menší torus reprezentuje častice blížiace sa k membráne v okolí Ranvierovho zárezu a malý valec reprezentuje častice vnútri nervového vlákna.
+
+Ďalším krokom bolo vytvorenie \emph{Blueprint Class} typu \texttt{Actor} s názvom \texttt{BP\_Morphing}. Jeho účelom je zaobaliť animáciu pohybu častíc. Do Blueprintu sme pridali náš Niagara System, ktorému sme do 
+parametrov \texttt{MeshA}, \texttt{MeshB} a \texttt{MeshC} nastavili predtým vytvorené meshe. Parametre \texttt{ScatterA}, \texttt{ScatterB} a \texttt{ScatterC} sme nastavili na hodnoty 100, 100 a 30.
+
+V grafe udalostí sme pridali novú časovú os (\emph{Timeline}); tejto časovej osi sme pridali novú krivku, podľa ktorej sa v čase bude meniť hodnota parametra \texttt{MorphingLerp} nášho Niagara Systemu. Krivka je vyobrazená
+na obrázku \ref{krivka1}; stúpajúca časť reprezentuje fázu depolarizácie a klesajúca časť fázu repolarizácie.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/krivka1.png}
+  \caption{Nastavenia modulu NMS}
+  \label{krivka1}
+\end{figure}
+
+
+% \begin{table}[]
+%   \caption{Výsledky štatistického spracovania zozbieraných odpovedí}
+%   \label{tab:stat1}
+%   \resizebox{\textwidth}{!}{%
+%   \begin{tabular}{@{}lcccccccc@{}}
+%   \toprule
+%                       & \multicolumn{2}{c}{Reprezentácia neurónu} & \multicolumn{2}{c}{Princíp prenosu vzruchu} & \multicolumn{2}{c}{Smer prenosu vzruchu} & \multicolumn{2}{c}{Celkové skóre}             \\ \midrule
+%                       & Kontrolná skupina    & Výskumná skupina   & Kontrolná skupina     & Výskumná skupina    & Kontrolná skupina   & Výskumná skupina   & Kontrolná skupina      & Výskumná skupina     \\
+%   Aritmetický priemer & 0,67                 & 0,86               & 2,67                  & 3,00                & 0,67                & 1,00               & 4,00                   & 4,86                 \\
+%   Štandardná odchýlka & 0,50                 & 0,38               & 1,41                  & 1,29                & 0,50                & 0,00               & 1,66                   & 1,46                 \\
+%   Rozptyl             & 0,25                 & 0,14               & 2,00                  & 1,67                & 0,25                & 0,00               & 2,75                   & 2,14                 \\
+%   Normálne rozdelenie & Nie                  & Nie                & Áno                   & Nie                 & Nie                 & Nie                & Áno                    & Áno                  \\
+%   Test                & \multicolumn{2}{c}{Mann-Whitney}          & \multicolumn{2}{c}{Mann-Whitney}            & \multicolumn{2}{c}{Mann-Whitney}         & \multicolumn{2}{c}{Independent sample t-test} \\
+%   Výsledok            & \multicolumn{2}{c}{0,54}                  & \multicolumn{2}{c}{0,61}                    & \multicolumn{2}{c}{0,30}                 & \multicolumn{2}{c}{0,29}                      \\
+%   Signifikancia       & \multicolumn{2}{c}{nie}                   & \multicolumn{2}{c}{nie}                     & \multicolumn{2}{c}{nie}                  & \multicolumn{2}{c}{nie}                       \\ \bottomrule
+%   \end{tabular}%
+%   }
+% \end{table}
