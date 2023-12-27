@@ -556,3 +556,39 @@ typu \texttt{Spawn Actor from Class}. Na jednom z nich sme nastavili parameter \
 S parametrom \emph{Spawn Transform} na oboch uzloch sme prepojili nový uzol \emph{Make Transform}. Na parameter \emph{Owner} sme naviazali referenciu na samotný MRPawn pomocou objektovej referencie
 \emph{Self}.
 \todo{obrazok}
+
+\subsubsection{Animácia prechodu kladne nabitých častíc do nervového vlákna}
+Jednou z výziev pri tvorbe aplikácie bolo vytvorenie animácie prechodu častíc dovnútra nervového vlákna pri depolarizácii a ich následný návrat do okolia nervového vlákna pri repolarizácii. Využili sme 
+na to časticový systém Niagara, ktorý je súčasťou Unreal Enginu. 
+
+Pomocou časticového systému (\emph{Particle system}) je možné simulovať rôzne javy, ako napr. oheň, hmla, dym, pričom objekty reprezentujúce tieto javy sú tvorené zhlukmi častíc; správanie týchto častíc
+je riadené množinou pravidiel ovplyvňujúcich ich pohyb, vzhľad a životný cyklus.
+
+Pozíciu častíc v priestore sme pôvodne chceli ovládať rovnakým spôsobom, ako je to umožnené v systéme \emph{Keyed Particle System} v Blenderi - častice by kopírovali objem zvoleného meshu; v čase by 
+sa časticovému systému menil parameter, ktorý odkazuje na mesh, podľa ktorého sa majú častice preusporiadať. Vstavaná funkcionalita Niagary umožňuje časticiam kopírovať len povrch meshu, nie jeho objem, 
+preto bolo potrebné pripraviť si vlastné riešenie; v ďalšom texte budeme popisovať len najdôležitejšie kroky pri tvorbe tohto riešenia. 
+
+Našim zámerom bolo vytvoriť taký časticový systém, ktorý by umožňoval na základe plynulej zmeny vstupného parametra v rozsahu 0 až 1 plynulú tranzíciu medzi troma rôznymi objemami, ktoré by častice vypĺňali.
+Vypĺňanie presne definovaných objemov sme nahradili tak, že sme využili schopnosť Niagary kopírovať časticami povrch meshu, a ku každej súradnici kazždej častice sme pridali náhodne vygenerovanú hodnotu v 
+parametrom definovanom rozsahu pre každý mesh zvlášť. Tým sme dosiahli uspokojivý rozptyl častíc.
+
+Pre tento účel sme si vytvorili nový \emph{Niagara Module Script}; nazvali sme ho \texttt{NMS}. Do sekcie \emph{Module Inputs} sme pridali parametre typu \texttt{Static Mesh} nazvané \texttt{StaticMeshA}, \texttt{StaticMeshB} a 
+\texttt{StaticMeshC} reprezentujúce meshe, podľa ktorých sa bude meniť poloha častíc v priestore, a parametre typu \texttt{int32} nazvané \texttt{MorphingScatterA}, \texttt{MorphingScatterB} a \texttt{MorphingScatterC},
+ktorých hodnota bude určovať rozptyl častíc v okolí povrchov jednotlivých meshov. Následne sme do sekcie \emph{Particle Attributes} pridali parametre typu \texttt{Vector} nazvané \texttt{MorphingPositionA}, 
+\texttt{MorphingPositionB} a \texttt{MorphingPositionC}, ktoré reprezentujú výstupné hodnoty tohto skriptu - polohy častíc.
+
+Pre každý mesh sme vytvorili skript, ktorý z hodnoty príslušnej premennej \texttt{StaticMesh} zobral náhodný bod z povrchu meshu, pomocou uzla \texttt{Break Vector} sme jeho súradnice rozdelili na tri 
+separátne hodnoty, ku ktorým sme následne pripočítali náhodnú hodnotu v rozsahu \(\left<-\frac{MorphingScatter}{2}, \frac{MorphingScatter}{2}\right>\). Upravené hodnoty súradníc sme následne spojili pomocou uzla 
+\texttt{Make Vector} a výslednú hodnotu sme nastavili do príslušného parametra \texttt{MorphingPosition}. Celý Blueprint je vyobrazený \todo{Obrazok / priloha}
+
+Plynulý prechod medzi dvoma vstupnými hodnotami zabezpečuje uzol \texttt{Lerp}\footnote{Skratka pre \emph{Linear interpolation}.}, ktorý má parameter \texttt{A}, \texttt{B} a \texttt{C};
+Hodnota parametra \texttt{C} určuje štádium prechodu medzi hodnotami \texttt{A} a \texttt{B}, pričom hodnota \texttt{C} = 0 znamená, že na výstupe bude \texttt{A} a pri hodnote \texttt{C} = 1 bude na výstupe \texttt{B}.
+Na prechod medzi troma vstupnými hodnotami sme si vytvorili vlastný \emph{Niagara Dynamic Input Script} s názvom \texttt{Niagara\_3Lerp}. Na jeho vstup sú tri parametre typu \texttt{Vector} s názvami \texttt{V1}, 
+\texttt{V2} a \texttt{V3}, medzi ktorými sa má vykonať interpolácia, a parameter typu \texttt{float} s názvom \texttt{Alpha} udávajúci štádium prechodu medzi meshmi. Základom tohto skriptu sú dva uzly \texttt{Lerp} 
+prepojené takým spôsobom, že vstupy \texttt{A} a \texttt{B} prvého Lerpu sú \texttt{V1} a \texttt{V2}, a vstupy \texttt{A} a \texttt{B} druhého Lerpu sú tvorené výstupom prvého Lerpu a hodnotou \texttt{V3}.
+Na oboch Lerpoch sú hodnoty \texttt{C} prepočítané na základe parametra \texttt{Alpha} tak, že na výstupe skriptu je hodnota \texttt{V1} ak \texttt{Alpha} = 0, \texttt{V2} ak \texttt{Alpha} = 0,5 a \texttt{V3} 
+ak \texttt{Alpha} = 1. Blueprint tohto skriptu sa nachádza \todo{obrazok}.
+
+Následne sme si vytvorili nový emitter, ktorý slúži ako zdroj častíc. Emitteru sme v sekcii \emph{User Exposed} pridali tri parametre typu \texttt{StaticMesh} s názvami \texttt{MeshA}, \texttt{MeshB} a \texttt{MeshC}
+a tri parametre typu \texttt{int32} s názvami \texttt{ScatterA}, \texttt{ScatterB} a \texttt{ScatterC}. Do sekcie \texttt{Particle Spawn} sme pridali náš predtým vytvorený modul \texttt{NMS}. V jeho nastaveniach sme 
+nastavili parametre tak, ako vidno na obrázku \todo{obrazok}.
