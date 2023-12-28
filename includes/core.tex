@@ -611,31 +611,102 @@ V Blenderi sme si pripravili tri meshe, ktoré budú slúžiť ako parametre pre
 menší torus reprezentuje častice blížiace sa k membráne v okolí Ranvierovho zárezu a malý valec reprezentuje častice vnútri nervového vlákna.
 
 Ďalším krokom bolo vytvorenie \emph{Blueprint Class} typu \texttt{Actor} s názvom \texttt{BP\_Morphing}. Jeho účelom je zaobaliť animáciu pohybu častíc. Do Blueprintu sme pridali náš Niagara System, ktorému sme do 
-parametrov \texttt{MeshA}, \texttt{MeshB} a \texttt{MeshC} nastavili predtým vytvorené meshe. Parametre \texttt{ScatterA}, \texttt{ScatterB} a \texttt{ScatterC} sme nastavili na hodnoty 100, 100 a 30.
+parametrov \texttt{MeshA}, \texttt{MeshB} a \texttt{MeshC} nastavili predtým vytvorené meshe. Parametre \texttt{ScatterA}, \texttt{ScatterB} a \texttt{ScatterC} sme nastavili na hodnoty 100, 100 a 30. Vytvorili sme 
+novú premennú typu \texttt{float} s názvom \texttt{LoopSpeed}, pomocou ktorej budeme ovládať rýchlosť prehrávania časovej osi.
 
 V grafe udalostí sme pridali novú časovú os (\emph{Timeline}); tejto časovej osi sme pridali novú krivku, podľa ktorej sa v čase bude meniť hodnota parametra \texttt{MorphingLerp} nášho Niagara Systemu. Krivka je vyobrazená
-na obrázku \ref{krivka1}; stúpajúca časť reprezentuje fázu depolarizácie a klesajúca časť fázu repolarizácie.
+na obrázku \ref{krivka1}; stúpajúca časť reprezentuje fázu depolarizácie a klesajúca časť fázu repolarizácie. Ďalej sme vytvorili novú udalosť s názvom \texttt{Animate}, ktorú sme prepojili s akciou \emph{Play from Start} 
+na časovej osi. Na udalosť \texttt{BeginPlay} spre pripojili uzol \texttt{Set Play Rate}; na parameter \texttt{New Rate} sme pripojili referenciu na premennú \texttt{LoopSpeed} a na parameter \texttt{Target} zasa referenciu
+na časovú os.
 
 \begin{figure}[!htbp]
   \centering
-  \includegraphics[width=10cm]{img/krivka1.png}
-  \caption{Nastavenia modulu NMS}
+  \includegraphics[width=10cm]{img/krivka1_1.png}
+  \caption{Krivka časovej osi pre zmenu parametra MorphingLerp}
   \label{krivka1}
 \end{figure}
 
+\subsubsection{Animácia skoku nervového vzruchu}
+Prítomnosť nervového vzruchu sme sa rozhodli reprezentovať pomocou meshu guľového tvaru, ktorý bude vyžarovať svetlo a bude viditeľný v momente svojho presunu. Najskôr sme vytvorili nový \emph{Blueprint Class} s názvom
+\texttt{BP\_Impulse}, do ktorého sme pridali komponenty \texttt{Sphere} a \texttt{PointLight}. Materiálu objektu \texttt{Sphere} sme nastavili \texttt{Lighting Mode} na hodnotu \texttt{Surface Translucency Volume} a 
+parameter \texttt{Opacity} na hodnotu 0.7; tým sme dosiahli určitú úroveň priesvitnosti. Parameter \texttt{Emissive Color}, ktorý reprezentuje farbu, ktorú bude objekt vyžarovať, sme nastavili na bledomodrú.
+V grafe udalostí sme si vytvorili časovú os, ktorá svojim výstupom v čase bude ovládať intenzitu svetla \texttt{PointLight} a priehľadnosť materiálu aplikovanom na objekte \texttt{Sphere} tak, aby na začiatku a konci časovej 
+osi objekt nebol viditeľný a nebolo vyžarované žiadne svetlo. Prehrávanie časovej osi je spúľtané udalosťou \texttt{AnimateLighting}.
+
+Následne sme vytvorili \emph{Blueprint Class} typu \texttt{Actor} s názvom \texttt{BP\_SplineMovement}. Funkciou tohto Blueprintu bude posun zvoleného objektu po danej krivke; tým budeme simulovať skok nervového vzruchu
+popod myelínovú pošvu. Vytvorili sme novú premennú typu \texttt{Actor} s názvom \texttt{Actor}, premennú \texttt{Speed} typu \texttt{float}. a premennú typu \texttt{Spline Component} s názvom \texttt{Spline}. 
+\texttt{Actor} reprezentuje objekt, ktorý bude posúvaný po krivke \texttt{Spline}, \texttt{Speed} bude určovať rýchlosť posunu. V grafe udalostí sme si vytvorili novú časovú os, ktorej prehrávanie je spúšťané udalosťou
+\texttt{Play Timeline}; výstupná hodnota je následne použitá na nastavenie polohy a rotácie Actora prostredníctvom uzlov \texttt{SetActorLocation} a \texttt{SetActorRotation}. Následne sme si vytvorili udalosť \texttt{Reset Position},
+ktorá umiestni Actora na začiatok krivky Spline.
+
+\subsubsection{Vytvorenie výsledného Blueprintu}
+Všetky doteraz vytvorené časti aplikácie bolo potrebné spojiť do jedného Blueprintu, v rámci ktorého by sa riadilo spúštanie čiastkových animácií v správnom slede. Vytvorili sme si nový \emph{Blueprint Class} s názvom
+\texttt{BP\_Neuron}, do ktorého sme umiestnili predtým vytvorený model neurónu. Pre tento objekt sme vytvorili dva nové materiály - oba s určitou úrovňou priehľadnosti; materiálu pre telo neurónu sme nastavili ružovú farbu a 
+materiálu pre myelínovú pošvu sme nastavili žltú farbu.
+
+Ďalej sme do Blueprintu vložili po deväť\footnote{Náš model obsahuje deväť Ranvierovych zárezov.} inštancií \texttt{BP\_Morphing}, \texttt{BP\_SplineMovement} a \texttt{BP\_Impulse}, a deväť nových objektov typu 
+\texttt{Spline Component}.
+Každý z objektov \texttt{Spline} sme rozmiestnili a prispôsobili tak, aby na seba postupne nadväzovali, ako vidno na obrázku \ref{splines}. Tým sú definované dráhy, po ktorých sa budú pohybovať jednotlivé inštancie 
+\texttt{BP\_Impulse}. Všetky inštancie \texttt{BP\_Morphing} sme umiestnili do jednotlivých Ranvierovych zárezov; tie budú v počiatočnom stave reprezentovať katióny v okolí nervového vlákna. 
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=15cm]{img/splines.png}
+  \caption{Rozmiestnenie objektov typu \texttt{Spline Component}}
+  \label{splines}
+\end{figure}
+
+Ďalej sme postupovali tak, že sme si v rámci tohto Blueprintu vytvorili novú funkciu s názvom \texttt{Animate Function} s tromi parametrami typu \texttt{Child Actor Component Object Reference}; na vstupe sa očakáva jedna inštancia
+\texttt{BP\_SplineMovement}, jedna inštancia \texttt{BP\_Morphing} a jedna inštancia \texttt{BP\_Impulse}. Účelom tejto funkcie je v rovnakom momente spustiť animáciu na týchto troch objektoch - tým je realizovaná čiastková animácia
+v okolí jedného Ranvierovho zárezu. V rámci tejto animácie najprv častice z okolia nervového vlákna v oblasti tohto zárezu prejdú dovnútra vlákna; v tom momente sa objaví nervový vzruch, ktorý sa presunie k ďalšiemu Ranvierovmu
+zárezu a zmizne; medzičasom sa častice postupne presunú naspäť do okolia nervového vlákna. Správne načasovanie animácií jednotlivých objektov je zabezpečené vhodne navrhnutými krivkami ich časových osí.
+
+Následne sme vytvorili novú udalosť s názvom \texttt{Reset all positions}, ktorej účelom je na každej inštancii \texttt{BP\_SplineMovement} spustiť udalosť \texttt{Reset Position}; skript je vyobrazený na obrázku č. \ref{resetall}.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=15cm]{img/resetall.png}
+  \caption{Skript udalosti \texttt{Reset all positions}}
+  \label{resetall}
+\end{figure}
+
+Medzi premenné Blueprintu sme pridali novú premennú typu \texttt{float} s názvom \texttt{AnimationSpeed}, ktorá bude slúžiť na zmenu rýchlosti celej animácie. Potom sme vytvorili novú funkciu s názvom \texttt{InitMorphingAndSplineMovement}, ktorá má tri parametre typu \texttt{Child Actor Component Object Reference} pre inštancie \texttt{BP\_SplineMovement}, \texttt{BP\_Morphing} a \texttt{BP\_Impulse}, a jeden parameter typu 
+\texttt{Spline Component Object Reference}. Účelom tejto funkcie je nastaviť správne hodnoty parametrov \texttt{Actor} a \texttt{Spline} na inštancii \texttt{BP\_SplineMovement} a nastaviť rýchlosť prehrávania animácií v inštanciách
+\texttt{BP\_SplineMovement}, \texttt{BP\_Morphing} a \texttt{BP\_Impulse} na základe premennej \texttt{AnimationSpeed}. Potom sme využili \texttt{Construction Script} na to, aby sme túto funkciu zavolali pre príslušné inštancie - 
+celkovo deväťkrát; časť skriptu vidno na obrázku č. \ref{constr-script}.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=11cm]{img/constr-script.png}
+  \caption{\emph{Construction Script} Blueprintu \texttt{BP\_Neuron}}
+  \label{constr-script}
+\end{figure}
+
+V grafe udalostí sme si vytvorili novú časovú os; v nej sme si vytvorili deväť stôp typu \texttt{Event Track} a do každej sme sme pridali práve jeden kľúč (\emph{Key}) takým spôsobom, aby sa všetkých deväť udalostí generovaných
+týmito stopami spúšťalo postupne v rovnakom intervale. Táto časová os teda deväťkrát spúšťa funkciu \texttt{AnimateFunction}, vždy s inými parametrami; časť tohto skriptu je vyobrazená na obrázku č. \ref{main-timeline}.
+Tým sme dosiahli, že animácie v jednotlivých Ranvierovych zárezoch sa prehrávajú postupne, reprezentujúc celkovú zamýšľanú podobu reprezentácie mechanizmu skokového prenosu nervového vzruchu.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=11cm]{img/main-timeline.png}
+  \caption{Skript s časovou osou v Blueprinte \texttt{BP\_Neuron}}
+  \label{main-timeline}
+\end{figure}
+
+Animácia časovej osi tohto Blueprintu je spúšťaná udalosťou \texttt{Play Timeline}, ktorá okrem toho aj nastavuje jej rýchlosť prehrávania na základe skôr definovanej premennej \texttt{AnimationSpeed}.
 
 % \begin{table}[]
-%   \caption{Výsledky štatistického spracovania zozbieraných odpovedí}
+%   \caption{Súborné štatistické spracovanie (deskriptívna a induktívna štatistická analýza) kvantitatívneho pedagogického výskumu}
 %   \label{tab:stat1}
 %   \resizebox{\textwidth}{!}{%
 %   \begin{tabular}{@{}lcccccccc@{}}
 %   \toprule
 %                       & \multicolumn{2}{c}{Reprezentácia neurónu} & \multicolumn{2}{c}{Princíp prenosu vzruchu} & \multicolumn{2}{c}{Smer prenosu vzruchu} & \multicolumn{2}{c}{Celkové skóre}             \\ \midrule
-%                       & Kontrolná skupina    & Výskumná skupina   & Kontrolná skupina     & Výskumná skupina    & Kontrolná skupina   & Výskumná skupina   & Kontrolná skupina      & Výskumná skupina     \\
-%   Aritmetický priemer & 0,67                 & 0,86               & 2,67                  & 3,00                & 0,67                & 1,00               & 4,00                   & 4,86                 \\
-%   Štandardná odchýlka & 0,50                 & 0,38               & 1,41                  & 1,29                & 0,50                & 0,00               & 1,66                   & 1,46                 \\
-%   Rozptyl             & 0,25                 & 0,14               & 2,00                  & 1,67                & 0,25                & 0,00               & 2,75                   & 2,14                 \\
-%   Normálne rozdelenie & Nie                  & Nie                & Áno                   & Nie                 & Nie                 & Nie                & Áno                    & Áno                  \\
+%   Skupina             & Kontrola           & Experiment           & Kontrola            & Experiment            & Kontrola           & Experiment          & Kontrola             & Experiment             \\ \midrule
+%   Aritmetický priemer & 0,67               & 0,86                 & 2,67                & 3,00                  & 0,67               & 1,00                & 4,00                 & 4,86                   \\
+%   Štandardná odchýlka & 0,50               & 0,38                 & 1,41                & 1,29                  & 0,50               & 0,00                & 1,66                 & 1,46                   \\
+%   Rozptyl             & 0,25               & 0,14                 & 2,00                & 1,67                  & 0,25               & 0,00                & 2,75                 & 2,14                   \\
+%   Normálne rozdelenie & Nie                & Nie                  & Áno                 & Nie                   & Nie                & Nie                 & Áno                  & Áno                    \\
 %   Test                & \multicolumn{2}{c}{Mann-Whitney}          & \multicolumn{2}{c}{Mann-Whitney}            & \multicolumn{2}{c}{Mann-Whitney}         & \multicolumn{2}{c}{Independent sample t-test} \\
 %   Výsledok            & \multicolumn{2}{c}{0,54}                  & \multicolumn{2}{c}{0,61}                    & \multicolumn{2}{c}{0,30}                 & \multicolumn{2}{c}{0,29}                      \\
 %   Signifikancia       & \multicolumn{2}{c}{nie}                   & \multicolumn{2}{c}{nie}                     & \multicolumn{2}{c}{nie}                  & \multicolumn{2}{c}{nie}                       \\ \bottomrule
