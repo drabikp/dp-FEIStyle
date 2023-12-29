@@ -1,4 +1,4 @@
-\section{Prehľad problematiky v oblasti zmiešanej reality}
+\section{Prehľad problematiky v oblasti MR}
 Digitalizácia najrôznejších aspektov nášho života je prirodzeným prejavom technologického pokroku. Vďaka tomu sa 
 pojmy, ako zmiešaná realita, rozšírená realita či virtuálna realita v~priebehu posledných dekád začali stávať neoddeliteľnou súčasťou nášho jazyka. 
 Na to, aby sme lepšie porozumeli tomu, čo to zmiešaná realita vlastne je, pokladáme za nevyhnutné venovať niekoľko odstavcov aj zvyšným dvom pojmom.
@@ -10,7 +10,7 @@ Na to, aby sme lepšie porozumeli tomu, čo to zmiešaná realita vlastne je, po
   With appropriate programming such a display could literally be the Wonderland into which Alice walked \cite{sutherlandUltimateDisplay1965b}.
 \end{quote}
 Týmito slovami v roku 1965 Ivan Sutherland vo svojom článku \emph{The Ultimate Display} sformuloval ideu, ktorá predstavuje raný popis 
-imerzívneho\footnote{Z angl. \emph{immersive} - voľne preložené ako vťahujúci do deja} displeja v dobe, keď vtedajšie zariadenia bežne umožňovali 
+imerzívneho\footnote{Z angl. \emph{immersive} {--} voľne preložené ako vťahujúci do deja} displeja v dobe, keď vtedajšie zariadenia bežne umožňovali 
 zobrazovať rovné čiary, uvažovalo sa, že zobrazovanie kriviek by mohlo byť užitočné a žiadna komerčne dostupná obrazovka nebola schopná vykresliť farbou 
 vyplnenú plochu \cite{sutherlandUltimateDisplay1965b}. 
 
@@ -79,14 +79,14 @@ Techniky sledovania sú používané na zaznamenávanie a overovanie pozície a 
 objektov. Pozíciu a orientáciu je možné zisťovať pomocou metód spracovania obrazu, za použitia rozličných senzorov, či kombináciou oboch spôsobov.
 
 Zobrazovacie techniky spájajú virtuálny obsah a reálne prostredie a zobrazujú oboje naraz. V praxi sa uplatnili tri spôsoby zobrazovania: pomocou ručného zariadenia 
-(\emph{handheld display}) - napr. smartfón alebo tablet, pomocou náhlavného zariadenia (\emph{headmounted-display}) a za použitia projekcie na povrch reálneho objektu 
+(\emph{handheld display}) {--} napr. smartfón alebo tablet, pomocou náhlavného zariadenia (\emph{headmounted-display}) a za použitia projekcie na povrch reálneho objektu 
 (\emph{projection-based display}).
 
 Interakčné techniky zabezpečujú intuitívne používateľské prostredie a adekvátne reakcie systému. Používateľské vstupy pritom môžu byť vo forme gest, hlasových povelov,
 prípadne je možné použiť reálny objekt ako ovládací prvok \cite{chenRenaissanceAugmentedReality2022}.
 
 Pomerne známym zástupcom zariadení pre rozšírenú realitu je zariadenie od spoločnosti Google s~názvom Google Glass. Zariadenie v~tvare bežných 
-okuliarov, dostupné len počas pomerne krátkeho obdobia (2013 - 2015) \cite{brighamRealityCheckBasics2017} dokázalo používateľovi zobrazovat informácie na malom displeji tesne
+okuliarov, dostupné len počas pomerne krátkeho obdobia (2013 {--} 2015) \cite{brighamRealityCheckBasics2017} dokázalo používateľovi zobrazovat informácie na malom displeji tesne
 nad pravým okom. 
 
 \subsection{Zmiešaná realita}
@@ -261,8 +261,17 @@ Výskum sa zaoberá potenciálnymi vplyvmi rôznych faktorov, ako sú oblasť vz
 pre pochopenie možností AR pri zlepšovaní vzdelávacích procesov a výsledkov. V štúdii sa tiež zdôrazňuje kvalita zahrnutých metaanalýz, pričom sa konštatuje ich všeobecne prijateľná až dobrá kvalita, 
 čo prispieva k spoľahlivosti zistení.
 
-\section{Návrh MR aplikácie na základe miskoncepcií vo vzdelávaní}
-\subsection{Identifikácia miskoncepcií}
+\section{Teoretický základ pre tvorbu MR aplikácie}
+Ako uvádzajú viacerí autori (napr. \cite{turekDidaktika2014,brestenskaKreativneDigitalneKompetencie2020}), samotná implementácia digitálnych technológií do vzdelávania nestačí na to, aby sa zlepšovali
+vedomosti, zručnosti a postoje žiakov. Po odznení počiatočného wow-efektu je často pozorovaný pokles pozitívneho vplyvu digitálnych technológií; nástroj sa pre žiakov stáva rutinným, najmä pokiaľ
+je zachovaný transmisívny model vyučovania. Je preto nevyhnutné, aby digitálne nástroje mali vysokú didaktickú úroveň, aby boli vedecky korektné a aby sa riadili zásadami vyučovacieho procesu.
+Z toho dôvodu si vytvorenie aplikácie vhodnej pre vzdelávanie vyžaduje dôkladné naštudovanie problematiky z pohľadu odborného, ako aj didaktického. 
+
+Po štúdiu odbornej literatúry \cite{nagyovaMiskoncepcieZiakovOblasti2016} sme sa rozhodli vytvoriť aplikáciu, ktorú bude možné použiť pri sprístupňovaní učiva o nervovej sústave. Vychádzali sme z faktu,
+že pri tomto učive vznikajú isté miskoncepcie, ktoré možno práve pomocou \acrshort{mr} aplikácie eliminovať. Za účelom získania dostatočného teoretického základu pre vytvorenie aplikácie sme vykonali 
+rešerš dostupnej literatúry týkajúcej sa fyziológie nervovej sústavy (kapitola~\ref{nervova-sustava}) a špeciálnej didaktiky neurovied so zameraním na identifikáciu miskoncepcií (kapitola~\ref{miskoncepcie}).
+
+\subsection{Identifikácia miskoncepcií}\label{miskoncepcie}
 \subsubsection{Bunka ako dvojrozmerný objekt}
 Vijapurkar uvádza, že problém pri vzdelávaní študentov, pokiaľ ide o presnú vizualizáciu buniek, vyplýva z ich hlboko zakorenenej mylnej predstavy o bunkách ako dvojrozmerných 
 štruktúrach \cite{vijapurkarWhatCellsReally2014}. Aj keď sú bunky na ilustráciách znázornené ako trojrozmerné, tieto snahy často nepomáhajú študentom vytvoriť si správnu trojrozmernú 
@@ -315,17 +324,19 @@ Na základe záverov vyššie spomenutých štúdií sme sa rozhodli pre vytvore
   \item rýchlosť tejto animácie bude prispôsobiteľná grafickým ovládacím prvkom.
 \end{itemize}
 
-\section{Biologický základ nervového systému}
-\subsection{Nervové bunky - neuróny}
+\section{Biologická podstata prenosu nervového vzruchu}\label{nervova-sustava}
+V záujme didaktickej a vedeckej korektnosti modelu bolo nutné vykonať hĺbkovú rešerš literatúry zameranej na fyziológiu nervovej sústavy. Vzhľadom k povahe modelu bol
+osobitý zreteľ kladený na morfológiu nervovej bunky a procesy prebiehajúce pri prenose nervového vzruchu.
+\subsection{Nervové bunky {--} neuróny}
 Nervové bunky (neuróny) predstavujú základnú morfologickú a funkčnú jednotku nervového tkaniva. Sú to bunky s charakteristickými výbežkami, pomocou ktorých sa sústreďujú v rôznych častiach nervovej 
 sústavy, v sivej hmote mozgu a miechy, na sietnici, v cerebrospinálnych a vo vegetatívnych uzloch. Odlišujú sa od seba tvarom, veľkosťou a funkčne. 
 
 Neurón pozostáva z častí:
 \begin{itemize}
   \item telo nervovej bunky (neurocit, perikaryon),
-  \item výbežky (dendrity) - výbežky slúžiace k príjmu podráždenia, vedú vzruchy smerom k telu bunky (celulipetálne),
-  \item neurit (axón) - výbežok odvádzajúci vzruchy z bunkového tela na perifériu (celulifugálne),
-  \item nervové zakončenie (telodendrie) - konečné vetvičky axónu, ktoré sú súčasťou synapsií.
+  \item výbežky (dendrity) {--} výbežky slúžiace k príjmu podráždenia, vedú vzruchy smerom k telu bunky (celulipetálne),
+  \item neurit (axón) {--} výbežok odvádzajúci vzruchy z bunkového tela na perifériu (celulifugálne),
+  \item nervové zakončenie (telodendrie) {--} konečné vetvičky axónu, ktoré sú súčasťou synapsií.
 \end{itemize}
 Neurón, vzhľadom na jeho tvar a morfologické zvláštnosti, je bunkou rôznorodého vzhľadu a veľkosti. Telo nervovej bunky je trofickým centrom neurónu. Prijíma a spracováva prichádzajúce podnety a 
 prevádza ich do neuritu. Tvar tela nervových buniek je rozmanitý, Závisí od počtu výbežkov, od druhu nervových buniek a ich lokalizácie, napr. v kôre mozgu sú bunky tvaru štíhlych pyramíd (pyramídové bunky),
@@ -354,10 +365,10 @@ depolarizácie a akčný potenciál nevznikne. Takéto podnety nazývame podprah
 
 \subsubsection{Vedenie akčného potenciálu}
 
-Sú dva typy vedenia akčného potenciálu - vedenie po nemyelinizovanom a vedenie po myelinizovanom nervovom vlákne.
+Sú dva typy vedenia akčného potenciálu {--} vedenie po nemyelinizovanom a vedenie po myelinizovanom nervovom vlákne.
 
 \paragraph{Vedenie na nemyelinizovanom vlákne.} 
-Vzrušený úsek vlákna má obrátenú polaritu - povrch je elektronegatívny a vnútro elektropozitívne. Zo susedného normálne polarizovaného miesta (povrch pozitívny, vnútro negatívne) prechádzajú
+Vzrušený úsek vlákna má obrátenú polaritu {--} povrch je elektronegatívny a vnútro elektropozitívne. Zo susedného normálne polarizovaného miesta (povrch pozitívny, vnútro negatívne) prechádzajú
 kladné náboje k vzrušenému elektronegatívnemu miestu a potom spolu s Na\textsuperscript{+} vnikajú dovnútra a tam idú niekoľko milimetrov opačným smerom. Týmto pohybom nábojov sa oslabuje 
 elektropozitivita susedného miesta zvonku a posilňuje zvnútra. Oslabovanie elektropozitivity znamená oslabovanie polarizácie, pokles membránového potenciálu až k úrovni prahovej depolarizácie,
 čím sa vyvolá akčný potenciál už na novom mieste. Posun akčného potenciálu je plynulý, no rýchlosť jeho vedenia je relatívne malá.
@@ -386,7 +397,7 @@ Tento typ vedenia možno charakterizovať týmito vlastnosťami:
 \begin{itemize}
   \item ióny nemôžu prestupovať cez myelínový obal, len cez obnaženú membránu v Ranvierovom záreze,
   \item nervový vzruch \uv{skáče} zo zárezu do zárezu, preto hovoríme o saltatórnom vedení (\uv{vedení skokom}),
-  \item dĺžka jedného myelinizovaného úseku (internódium) závisí od priemeru vlákna - čím je hrubšie, tým je myelinizovaný úsek (a teda i skok) dlhší,
+  \item dĺžka jedného myelinizovaného úseku (internódium) závisí od priemeru vlákna {--} čím je hrubšie, tým je myelinizovaný úsek (a teda i skok) dlhší,
   \item čas jedného skoku nezávisí od dĺžky internódia, je rovnaký pri dlhých i krátkych internódiach. Ak sú dlhšie (na hrubších vláknach), ich počet je menší a teda i počet skokov na jednotku dĺžky vlákna bude menší. To zvyšuje rýchlosť vedenia a následne napr. reflexný a reakčný čas,
   \item iónové prúdy sú obmedzené len na Ranvierove zárezy, teda menej iónov prechádza na jednotku povrchu nervového vlákna a sekundárne menej energie treba na udržovanie a obnovu koncentračných rozdielov Na\textsuperscript{+} a K\textsuperscript{+} v mimobunkovej a vnútrobunkovej tekutine.
 \end{itemize}
@@ -395,13 +406,13 @@ Saltatórne vedenie je takto nielen veľmi rýchle, ale i veľmi hospodárne. Je
 
 \subsubsection{Iónové zmeny počas vedenia akčného potenciálu}
 
-Zmenou polarizácie membrány oproti pokojovým podmienkam sa výrazne mení jej priepustnosť pre ióny Na\textsuperscript{+} - pri depolarizácii sa priepustnosť pre Na\textsuperscript{+} zvyšuje, 
+Zmenou polarizácie membrány oproti pokojovým podmienkam sa výrazne mení jej priepustnosť pre ióny Na\textsuperscript{+} {--} pri depolarizácii sa priepustnosť pre Na\textsuperscript{+} zvyšuje, 
 pri hyperpolarizácii sa znižuje. Zmena priepustnosti pre Na\textsuperscript{+} sa uskutočňuje prostredníctvom napäťovo závislých sodíkových kanálov. Depolarizácia membrány vyvoláva aj 
 otváranie pomalých draslíkových kanálov. 
 
-Pri podprahových stimuláciách , na ktoré reaguje membrána iba miestnym podráždením, t.j. stupňovaným potenciálom, výstup K\textsubscript{+} prevažuje nad vstupom Na\textsuperscript{+}. 
+Pri podprahových stimuláciách , na ktoré reaguje membrána iba miestnym podráždením, t.j. stupňovaným potenciálom, výstup K\textsuperscript{+} prevažuje nad vstupom Na\textsuperscript{+}. 
 Úroveň depolarizácie sa už teda nemôže ďalej zvyšovať a membrána sa vracia do pokojového stavu. Ak má však podnet prahovú úroveň, resp. stupeň depolarizácie membrány dosahuje spúšťaciu úroveň
--55 mV, sodíkové kanály sa prudko otvárajú, priepustnosť pre Na\textsuperscript{+} sa niekoľkostonásobne zvyšuje a vstup Na\textsuperscript{+} v smere koncentračného aj elektrického gradientu
+{--}55 mV, sodíkové kanály sa prudko otvárajú, priepustnosť pre Na\textsuperscript{+} sa niekoľkostonásobne zvyšuje a vstup Na\textsuperscript{+} v smere koncentračného aj elektrického gradientu
 mnohonásobne prevyšuje výstup K\textsuperscript{+}. Tieto rýchle zmeny iónového rozloženia na membráne majú za následok prudkú depolarizáciu až transpolarizáciu membrány, korešpondujúcu so vzostupným
 ramenom hrotového potenciálu.
 
@@ -443,7 +454,7 @@ je vyobrazená na obrázku č. \ref{blender1}
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=10cm]{img/n1-crop.png}
-  \caption{Tvorba modelu v Blenderi - počiatočná fáza.}
+  \caption{Tvorba modelu v Blenderi {--} počiatočná fáza.}
   \label{blender1}
 \end{figure}	
 
@@ -453,20 +464,20 @@ pričom sme dbali na to, aby rozloženie a hustota vetiev reflektovala vyobrazen
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=10cm]{img/n2-crop.png}
-  \caption{Tvorba modelu v Blenderi - práca na koncoch výbežkov.}
+  \caption{Tvorba modelu v Blenderi {--} práca na koncoch výbežkov.}
   \label{blender2}
 \end{figure}	
 
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=10cm]{img/n3-crop.png}
-  \caption{Tvorba modelu v Blenderi - hotové telo neurónu.}
+  \caption{Tvorba modelu v Blenderi {--} hotové telo neurónu.}
   \label{blender3}
 \end{figure}	
 
 Ďalším krokom bolo vymodelovanie axónu. Ako základ axónu sme použili Bézierovú krivku. Bézierová krivka je parametrická krivka umožňujúca tvorbu hladkých zakrivených tvarov, pričom výsledný tvar je
 jednoducho modifikovateľný pomocou riadiacich bodov. Do projektu sme vložili novú Bézierovu krivku. Jej umiestnenie v priestore sme volili tak, aby jeden koniec zasahoval do tela neurónu 
-a druhý koniec sa nachádzal v adekvátnej vzdialenosti - v mieste, kde sme mali v úmysle neskôr vytvoriť zakončenia axónu. Po vhodnom vytvarovaní krivky sme v záložke \texttt{Object Data Properties}
+a druhý koniec sa nachádzal v adekvátnej vzdialenosti {--} v mieste, kde sme mali v úmysle neskôr vytvoriť zakončenia axónu. Po vhodnom vytvarovaní krivky sme v záložke \texttt{Object Data Properties}
 v sekcii \texttt{Geometry} $\rightarrow$ \texttt{Bevel} nastavili parameter \texttt{Depth} tak, aby táto krivka nadobudla adekvátny objem. Následne sme túto krivku prekonvertovali na mesh, aby 
 sme ju neskôr mohli detailnejšie tvarovať pomocou sculptingu. 
 Pomocou nástroja \emph{Inflate} sme zväčšili objem meshu v oblasti konca krivky a tiež v mieste, kde sa krivka spája s telom neurónu. Výsledok vidno na obrázku č. \ref{blender4}
@@ -474,7 +485,7 @@ Pomocou nástroja \emph{Inflate} sme zväčšili objem meshu v oblasti konca kri
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=10cm]{img/n5-crop.png}
-  \caption{Tvorba modelu v Blenderi - telo neurónu spolu s axónom.}
+  \caption{Tvorba modelu v Blenderi {--} telo neurónu spolu s axónom.}
   \label{blender4}
 \end{figure}	
 
@@ -485,7 +496,7 @@ nimi boli medzery reprezentujúce Ranvierove zárezy. Na obrázku č. \ref{blend
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=9cm]{img/finalModel-crop.png}
-  \caption{Tvorba modelu v Blenderi - hotový model neurónu bez aplikovaných materiálov.}
+  \caption{Tvorba modelu v Blenderi {--} hotový model neurónu bez aplikovaných materiálov.}
   \label{blender5}
 \end{figure}
 
@@ -514,7 +525,7 @@ Engine, a teda voľba padla prirodzene na najnovšiu verziu, čo bola v čase p�
 Po nainštalovaní tejto verzie Unreal Engine sme však zistili, že nám nie je k dispozícii plugin Mixed Reality Toolkit Hub. Ten nám bol, ako sme neskôr zistili, prístupný len pre verziu Unreal Engine 5.0. Rozhodli sme sa teda
 započať vývoj aplikácie v tejto verzii. Po vytvorení minimálnej funkčnej aplikácie pre MR a jej snahe odskúšať ju v emulátore HoloLensu sme však narazili na problém, ktorý sme neboli schopní vyriešiť; aplikácia po spustení
 okamžite prestala pracovať. 
-Z týchto dôvodov sme nakoniec zvolili cestu, ktorá by nám potenciálne mala priniesť najmenej problémov; použili sme rovnakú verziu Unreal Engine, aká bola spomenutá vo výukových materiáloch Microsoftu - 4.26.2.
+Z týchto dôvodov sme nakoniec zvolili cestu, ktorá by nám potenciálne mala priniesť najmenej problémov; použili sme rovnakú verziu Unreal Engine, aká bola spomenutá vo výukových materiáloch Microsoftu {--} 4.26.2.
 
 Na to, aby sme mohli začať tvoriť aplikáciu pre MS HoloLens 2, bolo najprv potrebné okrem Unreal Engine nainštalovať nasledujúce závislosti:
 \begin{itemize}
@@ -525,7 +536,7 @@ Na to, aby sme mohli začať tvoriť aplikáciu pre MS HoloLens 2, bolo najprv p
     \item \texttt{.NET desktop development}
     \item \texttt{Universal Windows Platform development}
     \item \texttt{C++ (v142) Universal Windows Platform tools}
-    \item \texttt{MSVC v142 - VS 2019 C++ ARM64 build tools}    
+    \item \texttt{MSVC v142 {--} VS 2019 C++ ARM64 build tools}    
   \end{itemize}
 \end{itemize}
 
@@ -534,9 +545,9 @@ nainštalovať podporu pre cieľovú platformu HoloLens 2.
 
 Pokračovali sme vytvorením nového projektu zo šablóny \emph{Blank} v kategórii \emph{Games}. V nastaveniach nového projektu sme vybrali voľby:
 \begin{itemize}
-  \item \emph{C++ project} - vyžadované pri použití UX Tools, stále je možné používať aj Blueprinty,
-  \item \emph{Scalable 2D or 3D} a \emph{Mobile/Tablet} - prispôsobenie projektu z hľadiska výkonu zariadenia, na ktorom bude výsledná aplikácia spúšťaná, a
-  \item \emph{No Starter Content} - nepotrebujeme v projekte žiadne vzorové objekty.
+  \item \emph{C++ project} {--} vyžadované pri použití UX Tools, stále je možné používať aj Blueprinty,
+  \item \emph{Scalable 2D or 3D} a \emph{Mobile/Tablet} {--} prispôsobenie projektu z hľadiska výkonu zariadenia, na ktorom bude výsledná aplikácia spúšťaná, a
+  \item \emph{No Starter Content} {--} nepotrebujeme v projekte žiadne vzorové objekty.
 \end{itemize}
 
 Pre správnu funkčnosť v MR prostredí bolo potrebné do projektu pridať \emph{data asset} s názvom \texttt{ARSessionConfig}. V \emph{Level Blueprinte} sme následne začiatok a koniec \emph{AR Session}
@@ -560,8 +571,8 @@ to, aký Pawn sa má použiť. To sme dosiahli zmenou nastavenia \emph{Default P
 Interaktivitu scény nám zabezpečila inštalácia pluginu Mixed Reality Tookit UX Tools. Ten sme do Unreal Enginu doinštalovali pomocou Epic Games Launchera a a následne sme ho povolili v nastaveniach
 projektu v sekcii Plugins. UX Tools nám poskytuje \emph{Hand Interaction Actors}, vďaka ktorým môžeme ako používateľ interagovať rukami v MR prostredí s UX prvkami na malú aj veľkú vzdialenosť.
 \begin{itemize}
-  \item Interakcia na malú vzdialenosť - uchopenie prvku medzi ukazovák a prostredník, alebo ťuknutie prstom.
-  \item Interakcia na veľkú vzdialenosť - nasmerovanie virtuálneho lúča z ruky smerom na prvok a stlačenie palca a ukazováka.
+  \item Interakcia na malú vzdialenosť {--} uchopenie prvku medzi ukazovák a prostredník, alebo ťuknutie prstom.
+  \item Interakcia na veľkú vzdialenosť {--} nasmerovanie virtuálneho lúča z ruky smerom na prvok a stlačenie palca a ukazováka.
 \end{itemize}
 Týchto actorov sme do projektu pridali tak, že sme si otvorili predtým vytvorený Blueprint MRPawn a v grafe udalostí (\emph{Event Graph}) sme na udalosť \texttt{BeginPlay} naviazali dva nové uzly
 typu \texttt{Spawn Actor from Class}. Na jednom z nich sme nastavili parameter \emph{Hand} na \texttt{Right}, na druhom na \texttt{Left}; na oboch sme zaškrtli \emph{Show Near Cursor on Grab Targets}.
@@ -586,7 +597,7 @@ Na vytvorenie animácie sme teda využili časticový systém Niagara, ktorý je
 Pomocou časticového systému (\emph{Particle system}) je možné simulovať rôzne javy, ako napr. oheň, hmla, dym, pričom objekty reprezentujúce tieto javy sú tvorené zhlukmi častíc; správanie týchto častíc
 je riadené množinou pravidiel ovplyvňujúcich ich pohyb, vzhľad a životný cyklus.
 
-Pozíciu častíc v priestore sme pôvodne chceli ovládať rovnakým spôsobom, ako je to umožnené v systéme \emph{Keyed Particle System} v Blenderi - častice by kopírovali objem zvoleného meshu; v čase by 
+Pozíciu častíc v priestore sme pôvodne chceli ovládať rovnakým spôsobom, ako je to umožnené v systéme \emph{Keyed Particle System} v Blenderi {--} častice by kopírovali objem zvoleného meshu; v čase by 
 sa časticovému systému menil parameter, ktorý odkazuje na mesh, podľa ktorého sa majú častice preusporiadať. Vstavaná funkcionalita Niagary umožňuje časticiam kopírovať len povrch meshu, nie jeho objem, 
 preto bolo potrebné pripraviť si vlastné riešenie; v ďalšom texte budeme popisovať len najdôležitejšie kroky pri tvorbe tohto riešenia. 
 
@@ -597,7 +608,7 @@ parametrom definovanom rozsahu pre každý mesh zvlášť. Tým sme dosiahli usp
 Pre tento účel sme si vytvorili nový \emph{Niagara Module Script}; nazvali sme ho \texttt{NMS}. Do sekcie \emph{Module Inputs} sme pridali parametre typu \texttt{Static Mesh} nazvané \texttt{StaticMeshA}, \texttt{StaticMeshB} a 
 \texttt{StaticMeshC} reprezentujúce meshe, podľa ktorých sa bude meniť poloha častíc v priestore, a parametre typu \texttt{int32} nazvané \texttt{MorphingScatterA}, \texttt{MorphingScatterB} a \texttt{MorphingScatterC},
 ktorých hodnota bude určovať rozptyl častíc v okolí povrchov jednotlivých meshov. Následne sme do sekcie \emph{Particle Attributes} pridali parametre typu \texttt{Vector} nazvané \texttt{MorphingPositionA}, 
-\texttt{MorphingPositionB} a \texttt{MorphingPositionC}, ktoré reprezentujú výstupné hodnoty tohto skriptu - polohy častíc.
+\texttt{MorphingPositionB} a \texttt{MorphingPositionC}, ktoré reprezentujú výstupné hodnoty tohto skriptu {--} polohy častíc.
 
 Pre každý mesh sme vytvorili skript, ktorý z hodnoty príslušnej premennej \texttt{StaticMesh} zobral náhodný bod z povrchu meshu, pomocou uzla \texttt{Break Vector} sme jeho súradnice rozdelili na tri 
 separátne hodnoty, ku ktorým sme následne pripočítali náhodnú hodnotu v rozsahu \(\left<-\frac{MorphingScatter}{2}, \frac{MorphingScatter}{2}\right>\). Upravené hodnoty súradníc sme následne spojili pomocou uzla 
@@ -624,7 +635,7 @@ nastavili parametre pre jednotlivé meshe a rozptýlenia častíc tak, ako vidno
 
 V sekcii \emph{Particle Update} sme pridali modul \texttt{Set Position}, ktorému sme ako hodnotu nastavili 
 \texttt{Niagara\_3Lerp}; zobrazili sa nám nastavenia pre parametre \texttt{V1}, \texttt{V2}, \texttt{V3} a \texttt{Alpha}. Do prvých troch parametrov sme nastavili referenciu na výstupné parametre \texttt{NMS}, ktoré
-nám boli prístupné v sekcii \emph{Parameter Attributes} - \texttt{MorphingPositionA}, \texttt{MorphingPositionB} a \texttt{MorphingPositionC}. 
+nám boli prístupné v sekcii \emph{Parameter Attributes} {--} \texttt{MorphingPositionA}, \texttt{MorphingPositionB} a \texttt{MorphingPositionC}. 
 
 Ďalej bolo potrebné vytvoriť nový \emph{Niagara System}, do ktorého sme pridali predtým vytvorený emitter. Do sekcie \emph{User Exposed} sme pridali premennú typu \texttt{float} s názvom \texttt{MorhpingLerp} a jej 
 referenciu sme nastavili ako hodnotu parametra \texttt{Alpha} modulu emittera \texttt{Set Position}.
@@ -663,7 +674,7 @@ ktorá umiestni Actora na začiatok krivky Spline.
 
 \subsubsection{Vytvorenie výsledného Blueprintu}
 Všetky doteraz vytvorené časti aplikácie bolo potrebné spojiť do jedného Blueprintu, v rámci ktorého by sa riadilo spúštanie čiastkových animácií v správnom slede. Vytvorili sme si nový \emph{Blueprint Class} s názvom
-\texttt{BP\_Neuron}, do ktorého sme umiestnili predtým vytvorený model neurónu. Pre tento objekt sme vytvorili dva nové materiály - oba s určitou úrovňou priehľadnosti; materiálu pre telo neurónu sme nastavili ružovú farbu a 
+\texttt{BP\_Neuron}, do ktorého sme umiestnili predtým vytvorený model neurónu. Pre tento objekt sme vytvorili dva nové materiály {--} oba s určitou úrovňou priehľadnosti; materiálu pre telo neurónu sme nastavili ružovú farbu a 
 materiálu pre myelínovú pošvu sme nastavili žltú farbu.
 
 Ďalej sme do Blueprintu vložili po deväť\footnote{Náš model obsahuje deväť Ranvierovych zárezov.} inštancií \texttt{BP\_Morphing}, \texttt{BP\_SplineMovement} a \texttt{BP\_Impulse}, a deväť nových objektov typu 
@@ -679,7 +690,7 @@ Každý z objektov \texttt{Spline} sme rozmiestnili a prispôsobili tak, aby na 
 \end{figure}
 
 Ďalej sme postupovali tak, že sme si v rámci tohto Blueprintu vytvorili novú funkciu s názvom \texttt{Animate Function} s tromi parametrami typu \texttt{Child Actor Component Object Reference}; na vstupe sa očakáva jedna inštancia
-\texttt{BP\_SplineMovement}, jedna inštancia \texttt{BP\_Morphing} a jedna inštancia \texttt{BP\_Impulse}. Účelom tejto funkcie je v rovnakom momente spustiť animáciu na týchto troch objektoch - tým je realizovaná čiastková animácia
+\texttt{BP\_SplineMovement}, jedna inštancia \texttt{BP\_Morphing} a jedna inštancia \texttt{BP\_Impulse}. Účelom tejto funkcie je v rovnakom momente spustiť animáciu na týchto troch objektoch {--} tým je realizovaná čiastková animácia
 v okolí jedného Ranvierovho zárezu. V rámci tejto animácie najprv častice z okolia nervového vlákna v oblasti tohto zárezu prejdú dovnútra vlákna; v tom momente sa objaví nervový vzruch, ktorý sa presunie k ďalšiemu Ranvierovmu
 zárezu a zmizne; medzičasom sa častice postupne presunú naspäť do okolia nervového vlákna. Správne načasovanie animácií jednotlivých objektov je zabezpečené vhodne navrhnutými krivkami ich časových osí.
 
@@ -694,7 +705,7 @@ Následne sme vytvorili novú udalosť s názvom \texttt{Reset all positions}, k
 
 Medzi premenné Blueprintu sme pridali novú premennú typu \texttt{float} s názvom \texttt{AnimationSpeed}, ktorá bude slúžiť na zmenu rýchlosti celej animácie. Potom sme vytvorili novú funkciu s názvom \texttt{InitMorphingAndSplineMovement}, ktorá má tri parametre typu \texttt{Child Actor Component Object Reference} pre inštancie \texttt{BP\_SplineMovement}, \texttt{BP\_Morphing} a \texttt{BP\_Impulse}, a jeden parameter typu 
 \texttt{Spline Component Object Reference}. Účelom tejto funkcie je nastaviť správne hodnoty parametrov \texttt{Actor} a \texttt{Spline} na inštancii \texttt{BP\_SplineMovement} a nastaviť rýchlosť prehrávania animácií v inštanciách
-\texttt{BP\_SplineMovement}, \texttt{BP\_Morphing} a \texttt{BP\_Impulse} na základe premennej \texttt{AnimationSpeed}. Potom sme využili \texttt{Construction Script} na to, aby sme túto funkciu zavolali pre príslušné inštancie - 
+\texttt{BP\_SplineMovement}, \texttt{BP\_Morphing} a \texttt{BP\_Impulse} na základe premennej \texttt{AnimationSpeed}. Potom sme využili \texttt{Construction Script} na to, aby sme túto funkciu zavolali pre príslušné inštancie {--} 
 celkovo deväťkrát; časť skriptu vidno na obrázku č. \ref{constr-script}.
 
 \begin{figure}[!htbp]
@@ -719,7 +730,7 @@ Kľúčovým krokom pre umožnenie interakcie používateľa s aplikáciou bolo 
   \item slider na ovládanie rýchlosti animácie.
 \end{itemize}
 
-Obe tlačidlá sme si pripravili podobným spôsobom - pre každé tlačidlo sme vytvorili nový \emph{Blueprint Class}, pričom ako rodičovská trieda (\emph{parent class}) bola zvolená trieda \texttt{UxtPressableButtonActor}, ktorá nám
+Obe tlačidlá sme si pripravili podobným spôsobom {--} pre každé tlačidlo sme vytvorili nový \emph{Blueprint Class}, pričom ako rodičovská trieda (\emph{parent class}) bola zvolená trieda \texttt{UxtPressableButtonActor}, ktorá nám
 bola prístupná vďaka UX Tools. Blueprint sme nazvali \texttt{StartButton}, resp. \texttt{ExitButton}. 
 
 Do \texttt{StartButton} sme pridali novú premennú typu \texttt{BP\_Neuron}; na udalosť \texttt{On Button Pressed} spustením udalosti \texttt{Play Timeline} na takto sprístupnenej inštancii \texttt{BP\_Neuron}.
@@ -741,15 +752,15 @@ Proces vývoja aplikácie sme zakončili tým, že sme do scény rozmiestnili v�
 
 \subsubsection{Nahratie aplikácie do headsetu}
 Pred nahratím aplikácie do headsetu bolo potrebné upraviť niektoré nastavenia projektu. V nastaveniach projektu sme \texttt{Project Name} nastavili na Neuron, \texttt{Company Distinguished Name} na CN=Drabik a zaškrtli sme 
-možnosť \texttt{Start in VR}. V sekcii \texttt{Platforms - HoloLens} sme zaškrtli \texttt{Build for HoloLens Device} a vygenerovali sme nový certifikát.
+možnosť \texttt{Start in VR}. V sekcii \texttt{Platforms {--} HoloLens} sme zaškrtli \texttt{Build for HoloLens Device} a vygenerovali sme nový certifikát.
 
 Prostredníctvom voľby \texttt{File} \to {} \texttt{Package Project} \to {} \texttt{HoloLens} v menu sme projekt skompilovali a následne nahrali do headsetu pomocou \emph{Windows Device Portal}.
 
 \section{Pedagogický výskum}
 \subsection{Metodológia výskumu}
-Za účelom overenia vhodnosti nami vytvorenej aplikácie pre vyučovací proces sme vykonali krátky pedagogický výskum. Výskum bol realizovaný prostredníctvom exploračnej metódy - 
+Za účelom overenia vhodnosti nami vytvorenej aplikácie pre vyučovací proces sme vykonali krátky pedagogický výskum. Výskum bol realizovaný prostredníctvom exploračnej metódy {--} 
 dotazníka \cite{svecMetodologieVedVychove2009}; ten bol administrovaný študentom strednej školy. Výskumná vzorka bola rozdelená na kontrolnú a experimentálnu skupinu, ktoré boli zvolené tak, aby boli z pohľadu vedomostí čo 
-najviac homogénne. Na určenie homogenity poslúžili predchádzajúce výchovno-vzdelávacie výsledky študentov v predmete biológia. Kontrolnej skupine bola stavba neurónu a koncept prenosu nervového vzruchu sprístupnený
+najviac homogénne. Na určenie homogenity poslúžili predchádzajúce výchovno-vzdelávacie výsledky študentov v predmete biológia. Kontrolnej skupine boli stavba neurónu a koncept prenosu nervového vzruchu sprístupnené
 konvenčnými didaktickými postupmi, predovšetkým výkladom a dvojdimenzionálnymi reprezentáciami. Experimentálnej skupine bola téma sprístupnená pomocou našej aplikácie.
 
 %\subsubsection{Charakter výskumnej vzorky}
@@ -758,8 +769,8 @@ kraja, boli vo veku 17-18 rokov a navštevovali seminár z biológie. Všetkých
 
 \subsubsection{Charakter výskumného nástroja}
 Ako výskumný nástroj bol použitý dotazník, ktorý pozostával z piatich položiek rozdelených do dvoch dimenzií. Prvá dimenzia (tri položky) merala vedomosti študentov o prenose nervového vzruchu a stavbe neurónu, zameriavajúc sa 
-pri tom na identifikáciu najčastejších miskoncepcií, ako sú uvedené v príslušnej odbornej literatúre \cite{vijapurkarWhatCellsReally2014, odomActionPotentialsBiology1993, nagyovaMiskoncepcieZiakovOblasti2016}.  
-Druhá dimenzia poskytla študentom priestor na spätnú väzbu ohľadom testovanej aplikácie (podrobnejšie v tabuľke č. \ref{tab:dotaznik-popis} a prílohe č. \todo{priloha}). Položky druhej dimenzie boli administrované len 
+pri tom na identifikáciu najčastejších miskoncepcií, ako sú uvedené v príslušnej odbornej literatúre (napr. \cite{vijapurkarWhatCellsReally2014, odomActionPotentialsBiology1993, nagyovaMiskoncepcieZiakovOblasti2016}).  
+Druhá dimenzia poskytla študentom priestor na spätnú väzbu ohľadom testovanej aplikácie (podrobnejšie v tabuľke č. \ref{tab:dotaznik-popis} a prílohe č. \todo{priloha}). Položky z druhej dimenzie boli administrované len 
 experimentálnej skupine.
 
 \begin{table}[]
@@ -783,15 +794,15 @@ Kvôli eliminácii efektov, ktoré by mohli spôsobiť chybu prvého typu (\emph
 týždenným odstupom od sprístupnenia témy.
 
 \subsubsection{Spracovanie kvantitatívnych dát}
-Na spracovanie dát bol použitý softvér IBM SPSS Statistics 27. Dáta boli vyhodnotené ako celkové skóre v prvej dimenzii, ako aj pre jednotlivé položky.
-Dáta v prvej dimenzii boli spracované najprv deskriptívno-štatistickými metódami, ktorých výsledkom boli miery: aritmetický priemer, štandardná odchýlka, 
-medián a rozptyl. V rámci induktívnej štatistiky boli údaju podrobené testu normality podľa Shapira a Wilka \cite{mohdrazaliPowerComparisonsShapirowilk2011, komendaAnalyzaNahodnehoPedagogickem1981, shapiroAnalysisVarianceTest1965}.
-Na základe výsledku Shapirovho-Wilkovho testu sme následne vybrali nástroje pre identifikáciu signifikantnej zmeny medzi kontrolnou a experimentálnou skupinou. V sadách údajov bez normálneho rozdelenia sme zvolili 
-neparametrický test (Mann-Whitney); v sadách s normálnym rozdelením sme zvolili Studentov \emph{t}-test pre dva nezávislé výbery. 
+Na spracovanie dát bol použitý softvér IBM SPSS Statistics 27. Kvantitatívne boli spracované dáta z prvej dimenzie, ktoré boli vyhodnotené ako celkové skóre a skóre v jednotlivých položkách.
+Tieto dáta boli podrobené deskriptívno-štatistickému spracovaniu, ktorého výsledkom boli najdôležitejšie miery: aritmetický priemer, štandardná odchýlka, 
+medián a rozptyl. V rámci induktívnej štatistiky boli údaje najprv podrobené testu normality podľa Shapira a Wilka \cite{mohdrazaliPowerComparisonsShapirowilk2011, komendaAnalyzaNahodnehoPedagogickem1981, shapiroAnalysisVarianceTest1965}.
+Na základe výsledku Shapirovho-Wilkovho testu sme následne vybrali nástroje pre identifikáciu signifikantného rozdielu medzi kontrolnou a experimentálnou skupinou. V sadách údajov bez normálneho rozdelenia sme zvolili 
+neparametrický test (Mann-Whitney); v sadách s normálnym rozdelením sme zvolili Studentov \emph{t}-test pre dva nezávislé výbery \cite{svecMetodologieVedVychove2009,komendaAnalyzaNahodnehoPedagogickem1981,proksaMetodologiaPedagogickehoVyskumu2008}. 
 
 \subsubsection{Spracovanie kvalitatívnych dát}
-Kvalitatívne sa spracovávali výsledky z položiek 2 a 5 (viď tabuľka č. \ref{tab:dotaznik-popis}). V položke 2 sme sa sústredili na prítomnosť konkrétnych miskoncepcií v kontrolnej a experimentálnej skupine, v položke 5 sme 
-vyhodnocovali otvorenú spätnú väzbu. 
+Kvalitatívne sa spracovávali výsledky z položiek 2, 4 a 5 (viď tabuľka č. \ref{tab:dotaznik-popis}). V položke 2 sme sa sústredili na prítomnosť konkrétnych miskoncepcií v kontrolnej a experimentálnej skupine, v položkách 4 a 5 sme 
+vyhodnocovali spätnú väzbu. 
 
 \subsection{Výsledky pedagogického výskumu}
 \subsubsection{Kvantitatívny výskum}
@@ -821,12 +832,10 @@ skupinou sa nám nepodarilo identifikovať signifikantný rozdiel ani v jednej s
 
 \subsubsection{Kvalitatívny výskum}
 Položku 2 sme vyhodnotili aj kvalitatívne, sledujúc prítomnosť jednotlivých miskoncepcií v kontrolnej a experimentálnej skupine. V kontrolnej skupine sme sledovali u študentov všetky tri merané miskoncepcie 
-(pohyb iónov vláknom neurónu, elektrický prúd, pohyb bunkových organel). Naproti tomu, v experimentálnej skupine sa podarilo jednu z týchto miskoncepcií eliminovať.
+(pohyb iónov vláknom neurónu, elektrický prúd, pohyb bunkových organel). Naproti tomu, v experimentálnej skupine sa podarilo jednu z týchto miskoncepcií (pohyb bunkových organel) eliminovať.
 
 V položke 4 dotazníka, ktorá bola administrovaná iba experimentálnej skupine, sme identifikovali jednoznačnú zhodu na pozitívnom postoji študentov k testovanej aplikácii. Ani jeden zo študentov nevyužil možnosť poskytnúť
 spätnú väzbu v otvorenej položke 5.
-
-\subsection{Diskusia}
 
 \subsection{Limitujúce faktory výskumu}
 Napriek našej najlepšej vôli boli výsledky výskumu ovplyvnené nasledujúcimi limitujúcimi faktormi:
@@ -839,3 +848,9 @@ Napriek našej najlepšej vôli boli výsledky výskumu ovplyvnené nasledujúci
   \item \emph{Self-reporting:} údaje vo výskume boli zozbierané pomocou metódy dotazníka, ktorá sa zakladá na individuálnych odpovediach respondentov, ktoré sú subjektom potenciálneho skreslenia vychádzajúceho
   zo sociálnych noriem, prípadne neochoty vypĺňať dlhšie otvorené položky.
 \end{enumerate}
+
+\subsection{Diskusia}
+Výsledky pedagogického výskumu sú, aj vo svetle uvedených limitujúcich faktorov, nejednoznačné. Za pozitívne môžeme považovať výsledky kvalitatívneho výskumu, ktoré implikujú jednoznačný pozitívny postoj študentov 
+k testovanej aplikácii, ako aj absenciu istých miskoncepcií v experimentálnej skupine. Výsledky kvantitatívneho výskumu ukazujú potenciál tejto aplikácie: deskriptívna štatistika naznačuje, že aplikácia dokáže zlepšiť
+vedomosti aj eliminovať miskoncepcie. Induktívna štatistická analýza to však nedokázala potvrdiť v konvenčnej hladine významnosti. Na základe toho hodnotíme, že predkladaná tematika vyžaduje intenzívnejší pedagogický 
+výskum na väčšej vzorke respondentov, čo by mohlo eliminovať naše limitujúce faktory a odstrániť nejednoznačnosti vo výsledkoch.
