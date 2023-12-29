@@ -415,8 +415,8 @@ membránový potenciál. \cite{javorkaLekarskaFyziologiaUcebnica2001}
 
 \section{Tvorba MR aplikácie}
 
-Na realizáciu aplikácie boli použité nástroje Blender a Unreal Engine. Blender je slobodný a otvorený \todo{FOSS} softvér pre prácu s trojrozmernou grafikou. Používa sa na 3D modelovanie,
-animáciu, tvorbu vizuálnych efektov, a pod. Unreal Engine je herný engine vyvíjaný spoločnosťou Epic Games. Pôvodne bol určený pre vývoj FPS hier\todo{FPS}, no dnes má širokú škálu použitia
+Na realizáciu aplikácie boli použité nástroje Blender a Unreal Engine. Blender je \acrshort{foss} softvér pre prácu s trojrozmernou grafikou. Používa sa na 3D modelovanie,
+animáciu, tvorbu vizuálnych efektov, a pod. Unreal Engine je herný engine vyvíjaný spoločnosťou Epic Games. Pôvodne bol určený pre vývoj \acrshort{fps} hier, no dnes má širokú škálu použitia
 od vývoja najrôznejších herných titulov a tvorbu filmových efektov až po architektonické vizualizácie a tvorbu aplikácií určených pre virtuálnu, rozšírenú a zmiešanú realitu.
 
 \subsection{Tvorba modelu neurónu v Blenderi}
@@ -448,7 +448,7 @@ je vyobrazená na obrázku č. \ref{blender1}
 \end{figure}	
 
 Po vytvorení základných výbežkov sme prešli k detailnejšej práci na stromových štruktúrach na koncoch výbežkov, ako vidno na obrázku č. \ref{blender2}. Na ich tvorbu sme využili rovnaké nástroje, 
-pričom sme dbali na to, aby rozloženie a hustota vetiev reflektovala vyobrazenie neurónu v dostupných materiáloch. \todo{vzorove obrazky}
+pričom sme dbali na to, aby rozloženie a hustota vetiev reflektovala vyobrazenie neurónu v dostupných materiáloch. 
 
 \begin{figure}[!htbp]
   \centering
@@ -468,7 +468,7 @@ pričom sme dbali na to, aby rozloženie a hustota vetiev reflektovala vyobrazen
 jednoducho modifikovateľný pomocou riadiacich bodov. Do projektu sme vložili novú Bézierovu krivku. Jej umiestnenie v priestore sme volili tak, aby jeden koniec zasahoval do tela neurónu 
 a druhý koniec sa nachádzal v adekvátnej vzdialenosti - v mieste, kde sme mali v úmysle neskôr vytvoriť zakončenia axónu. Po vhodnom vytvarovaní krivky sme v záložke \texttt{Object Data Properties}
 v sekcii \texttt{Geometry} $\rightarrow$ \texttt{Bevel} nastavili parameter \texttt{Depth} tak, aby táto krivka nadobudla adekvátny objem. Následne sme túto krivku prekonvertovali na mesh, aby 
-sme ju neskôr mohli detailnejšie tvarovať pomocou sculptingu. \todo{Popisat join?}
+sme ju neskôr mohli detailnejšie tvarovať pomocou sculptingu. 
 Pomocou nástroja \emph{Inflate} sme zväčšili objem meshu v oblasti konca krivky a tiež v mieste, kde sa krivka spája s telom neurónu. Výsledok vidno na obrázku č. \ref{blender4}
 
 \begin{figure}[!htbp]
@@ -506,13 +506,17 @@ Unreal Engine určený na vývoj hier a tvorbu interaktívneho obsahu. Umožňuj
 Blueprint využíva rozhranie založené na uzloch, kde sú funkcie a akcie reprezentované ako vzájomne prepojené bloky. Vďaka tomuto vizuálnemu prístupu je dostupný aj pre tých, ktorí nemajú hlboké znalosti programovania.
 Okrem Blueprint Visual Scriptingu je možné použiť aj jazyk C++, ktorý je však vhodnejší pre skúsenejších vývojárov.
 
-Pomocou Blueprint Visual Scriptingu vieme vytvárať vlastné objekty (\emph{Blueprint Class}), ktoré môžu dediť sovje správanie a vlastnosti od Iných Blueprintov.
+Pomocou Blueprint Visual Scriptingu vieme vytvárať vlastné objekty (\emph{Blueprint Class}), ktoré môžu dediť svoje správanie a vlastnosti od iných Blueprintov.
 
 \subsubsection{Kostra aplikácie}
-K výberu finálnej množiny verzií použitých nástrojov viedla pomerne zložitá cesta. Na začiatku sme pracovali s predpokladom, že kompatibilita MRTK a Unreal Engine nebude závislá od verzie Unreal
-Engine, a teda voľba padla prirodzene na najnovšiu verziu, ťo bola v čase písania tejto práce verzia 5.3.2. Ukázalo sa však, že plugin Mixed Reality Toolkit Hub TODO
+K výberu finálnej množiny verzií použitých nástrojov viedla pomerne zložitá cesta. Na začiatku sme pracovali s predpokladom, že kompatibilita MRTK a Microsoft OpenXR s Unreal Engine nebude závislá od verzie Unreal
+Engine, a teda voľba padla prirodzene na najnovšiu verziu, čo bola v čase písania tejto práce verzia 5.3.2. Ukázalo sa však, že najnovšia verzia Unreal Engine, pre ktorú bol plugin Microsoft OpenXR k dispozícii, bola verzia 5.1.
+Po nainštalovaní tejto verzie Unreal Engine sme však zistili, že nám nie je k dispozícii plugin Mixed Reality Toolkit Hub. Ten nám bol, ako sme neskôr zistili, prístupný len pre verziu Unreal Engine 5.0. Rozhodli sme sa teda
+započať vývoj aplikácie v tejto verzii. Po vytvorení minimálnej funkčnej aplikácie pre MR a jej snahe odskúšať ju v emulátore HoloLensu sme však narazili na problém, ktorý sme neboli schopní vyriešiť; aplikácia po spustení
+okamžite prestala pracovať. 
+Z týchto dôvodov sme nakoniec zvolili cestu, ktorá by nám potenciálne mala priniesť najmenej problémov; použili sme rovnakú verziu Unreal Engine, aká bola spomenutá vo výukových materiáloch Microsoftu - 4.26.2.
 
-Na to, aby sme mohli začať tvoriť aplikáciu pre MS HoloLens 2, bolo najprv potrebné okrem Unreal Engine doinštalovať potrebné závislosti:
+Na to, aby sme mohli začať tvoriť aplikáciu pre MS HoloLens 2, bolo najprv potrebné okrem Unreal Engine nainštalovať nasledujúce závislosti:
 \begin{itemize}
   \item Windows 10 SDK 10.0.18362.0
   \item Visual Studio 2019 s ďalšími komponentmi:
@@ -525,7 +529,8 @@ Na to, aby sme mohli začať tvoriť aplikáciu pre MS HoloLens 2, bolo najprv p
   \end{itemize}
 \end{itemize}
 
-Taktiež bolo potrebné spustiť \emph{Epic Games Launcher} a doinštalovať do Unreal Enginu plugin s názvom Microsoft OpenXR za účelom sprístupnenia funkcií špecifických pre MR platformu Microsoftu.
+Taktiež bolo potrebné spustiť \emph{Epic Games Launcher} a doinštalovať do Unreal Enginu plugin s názvom Microsoft OpenXR za účelom sprístupnenia funkcií špecifických pre MR platformu Microsoftu. Taktiež bolo nevyhnutné
+nainštalovať podporu pre cieľovú platformu HoloLens 2. 
 
 Pokračovali sme vytvorením nového projektu zo šablóny \emph{Blank} v kategórii \emph{Games}. V nastaveniach nového projektu sme vybrali voľby:
 \begin{itemize}
@@ -535,13 +540,20 @@ Pokračovali sme vytvorením nového projektu zo šablóny \emph{Blank} v kateg�
 \end{itemize}
 
 Pre správnu funkčnosť v MR prostredí bolo potrebné do projektu pridať \emph{data asset} s názvom \texttt{ARSessionConfig}. V \emph{Level Blueprinte} sme následne začiatok a koniec \emph{AR Session}
-priradili k udalostiam \emph{Begin Play}, resp. \emph{End Play}, ako je znázornené na obrázku \todo{Obrazok}.
+priradili k udalostiam \emph{Begin Play}, resp. \emph{End Play}, ako je znázornené na obrázku \ref{arsession}.
 Pokračovali sme vytvorením Blueprintu dediaceho od triedy \texttt{DefaultPawn}, ktorý v tomto prípade reprezentuje používateľa HoloLensu; nazvali sme ho MRPawn.
 Do tohto Blueprintu sme pridali nový komponent typu
 \texttt{Camera}, čo umožnilo naviazať pohľad používateľa v 3D scéne na pohyb HoloLensu. Za normálnych okolností je možná kolízia Pawnu s inými objektami, v MR projekte to však nie je žiadúce.
 Z tohto dôvodu sme v rámci tohto Blueprintu na jeho komponentoch \texttt{CollisionComponent} a \texttt{MeshComponent} nastavili \emph{Collision Presets} na hodnotu \texttt{NoCollision}. 
 
-Ďalším krokom bolo pridanie nového Blueprintu typu \texttt{Game Mode Base} s názvom MRGameMode. Tento Blueprint nám umožňuje meniť rôzne nastavenia aplikácie; pre násbola dôležitá možnosť nastaviť 
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=9cm]{img/arsession.png}
+  \caption{Nastavenie \texttt{ARSession} v \emph{Level Blueprinte}}
+  \label{arsession}
+\end{figure}
+
+Ďalším krokom bolo pridanie nového Blueprintu typu \texttt{Game Mode Base} s názvom MRGameMode. Tento Blueprint nám umožňuje meniť rôzne nastavenia aplikácie; pre nás bola dôležitá možnosť nastaviť 
 to, aký Pawn sa má použiť. To sme dosiahli zmenou nastavenia \emph{Default Pawn Class} na hodnotu MRPawn. V nastaveniach projektu v sekcii \emph{Maps \& Modes} sme následne nastavili parameter
 \emph{Default Game Mode} na hodnotu MRGameMode.
 
@@ -554,12 +566,22 @@ projektu v sekcii Plugins. UX Tools nám poskytuje \emph{Hand Interaction Actors
 Týchto actorov sme do projektu pridali tak, že sme si otvorili predtým vytvorený Blueprint MRPawn a v grafe udalostí (\emph{Event Graph}) sme na udalosť \texttt{BeginPlay} naviazali dva nové uzly
 typu \texttt{Spawn Actor from Class}. Na jednom z nich sme nastavili parameter \emph{Hand} na \texttt{Right}, na druhom na \texttt{Left}; na oboch sme zaškrtli \emph{Show Near Cursor on Grab Targets}.
 S parametrom \emph{Spawn Transform} na oboch uzloch sme prepojili nový uzol \emph{Make Transform}. Na parameter \emph{Owner} sme naviazali referenciu na samotný MRPawn pomocou objektovej referencie
-\emph{Self}.
-\todo{obrazok}
+\emph{Self}, viď obrázok č. \ref{spawn-actor}.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/spawn-actor.png}
+  \caption{Nastavenie \emph{Hand Interaction Actors}}
+  \label{spawn-actor}
+\end{figure}
 
 \subsubsection{Animácia prechodu častíc do nervového vlákna}
-Jednou z výziev pri tvorbe aplikácie bolo vytvorenie animácie prechodu častíc dovnútra nervového vlákna pri depolarizácii a ich následný návrat do okolia nervového vlákna pri repolarizácii. Využili sme 
-na to časticový systém Niagara, ktorý je súčasťou Unreal Enginu. 
+Jednou z výziev pri tvorbe aplikácie bolo vytvorenie animácie prechodu častíc dovnútra nervového vlákna pri depolarizácii a ich následný návrat do okolia nervového vlákna pri repolarizácii. 
+Pôvodne sme túto animáciu vytvorili v Blenderi použitím časticového systému \emph{Keyed Particle System}, narazili sme však na problém pri prenose tejto animácie do Unreal Engine. Pracovali sme s predpokladom, 
+že túto animáciu budeme schopní vyexportovať z Blenderu do formátu Alembic a následne ju importovať do Unreal Engine. Pri importe sme však nedokázali vysporiadať s chybami, ktoré nám Unreal Engine vracal.
+Nakoniec sme dospeli k záveru, že najvhodnejšie bude vrátiť sa o krok späť a naimplementovať animáciu v Unreal Engine, čo nám v konečnom dôsledku prinieslo väčšiu flexibilitu pri ladení animácie a chodu aplikácie.
+
+Na vytvorenie animácie sme teda využili časticový systém Niagara, ktorý je súčasťou Unreal Enginu. 
 
 Pomocou časticového systému (\emph{Particle system}) je možné simulovať rôzne javy, ako napr. oheň, hmla, dym, pričom objekty reprezentujúce tieto javy sú tvorené zhlukmi častíc; správanie týchto častíc
 je riadené množinou pravidiel ovplyvňujúcich ich pohyb, vzhľad a životný cyklus.
@@ -579,7 +601,7 @@ ktorých hodnota bude určovať rozptyl častíc v okolí povrchov jednotlivých
 
 Pre každý mesh sme vytvorili skript, ktorý z hodnoty príslušnej premennej \texttt{StaticMesh} zobral náhodný bod z povrchu meshu, pomocou uzla \texttt{Break Vector} sme jeho súradnice rozdelili na tri 
 separátne hodnoty, ku ktorým sme následne pripočítali náhodnú hodnotu v rozsahu \(\left<-\frac{MorphingScatter}{2}, \frac{MorphingScatter}{2}\right>\). Upravené hodnoty súradníc sme následne spojili pomocou uzla 
-\texttt{Make Vector} a výslednú hodnotu sme nastavili do príslušného parametra \texttt{MorphingPosition}. Celý Blueprint je vyobrazený \todo{Obrazok / priloha}
+\texttt{Make Vector} a výslednú hodnotu sme nastavili do príslušného parametra \texttt{MorphingPosition}. Celý Blueprint je vyobrazený v prílohe č. \ref{att:nms}.
 
 Plynulý prechod medzi dvoma vstupnými hodnotami zabezpečuje uzol \texttt{Lerp}\footnote{Skratka pre \emph{Linear interpolation}.}, ktorý má parameter \texttt{A}, \texttt{B} a \texttt{C};
 Hodnota parametra \texttt{C} určuje štádium prechodu medzi hodnotami \texttt{A} a \texttt{B}, pričom hodnota \texttt{C} = 0 znamená, že na výstupe bude \texttt{A} a pri hodnote \texttt{C} = 1 bude na výstupe \texttt{B}.
@@ -587,7 +609,7 @@ Na prechod medzi troma vstupnými hodnotami sme si vytvorili vlastný \emph{Niag
 \texttt{V2} a \texttt{V3}, medzi ktorými sa má vykonať interpolácia, a parameter typu \texttt{float} s názvom \texttt{Alpha} udávajúci štádium prechodu medzi meshmi. Základom tohto skriptu sú dva uzly \texttt{Lerp} 
 prepojené takým spôsobom, že vstupy \texttt{A} a \texttt{B} prvého Lerpu sú \texttt{V1} a \texttt{V2}, a vstupy \texttt{A} a \texttt{B} druhého Lerpu sú tvorené výstupom prvého Lerpu a hodnotou \texttt{V3}.
 Na oboch Lerpoch sú hodnoty \texttt{C} prepočítané na základe parametra \texttt{Alpha} tak, že na výstupe skriptu je hodnota \texttt{V1} ak \texttt{Alpha} = 0, \texttt{V2} ak \texttt{Alpha} = 0,5 a \texttt{V3} 
-ak \texttt{Alpha} = 1. Blueprint tohto skriptu sa nachádza \todo{obrazok}.
+ak \texttt{Alpha} = 1. Blueprint tohto skriptu sa nachádza v príliohe č. \ref{att:lerp}.
 
 Následne sme si vytvorili nový emitter, ktorý slúži ako zdroj častíc. Emitteru sme v sekcii \emph{User Exposed} pridali tri parametre typu \texttt{StaticMesh} s názvami \texttt{MeshA}, \texttt{MeshB} a \texttt{MeshC}
 a tri parametre typu \texttt{int32} s názvami \texttt{ScatterA}, \texttt{ScatterB} a \texttt{ScatterC}. Do sekcie \texttt{Particle Spawn} sme pridali náš predtým vytvorený modul \texttt{NMS}. V jeho nastaveniach sme 
@@ -683,15 +705,8 @@ celkovo deväťkrát; časť skriptu vidno na obrázku č. \ref{constr-script}.
 \end{figure}
 
 V grafe udalostí sme si vytvorili novú časovú os; v nej sme si vytvorili deväť stôp typu \texttt{Event Track} a do každej sme sme pridali práve jeden kľúč (\emph{Key}) takým spôsobom, aby sa všetkých deväť udalostí generovaných
-týmito stopami spúšťalo postupne v rovnakom intervale. Táto časová os teda deväťkrát spúšťa funkciu \texttt{AnimateFunction}, vždy s inými parametrami; časť tohto skriptu je vyobrazená na obrázku č. \ref{main-timeline}.
+týmito stopami spúšťalo postupne v rovnakom intervale. Táto časová os teda deväťkrát spúšťa funkciu \texttt{AnimateFunction}, vždy s inými parametrami; tento skript je vyobrazený v prílohe č. \ref{att:main-animate}.
 Tým sme dosiahli, že animácie v jednotlivých Ranvierovych zárezoch sa prehrávajú postupne, reprezentujúc celkovú zamýšľanú podobu reprezentácie mechanizmu skokového prenosu nervového vzruchu.
-
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=11cm]{img/main-timeline.png}
-  \caption{Skript s časovou osou v Blueprinte \texttt{BP\_Neuron}}
-  \label{main-timeline}
-\end{figure}
 
 Animácia časovej osi tohto Blueprintu je spúšťaná udalosťou \texttt{Play Timeline}, ktorá okrem toho aj nastavuje jej rýchlosť prehrávania na základe skôr definovanej premennej \texttt{AnimationSpeed}.
 
@@ -724,21 +739,103 @@ Proces vývoja aplikácie sme zakončili tým, že sme do scény rozmiestnili v�
   \label{scena}
 \end{figure}
 
-% \begin{table}[]
-%   \caption{Súborné štatistické spracovanie (deskriptívna a induktívna štatistická analýza) kvantitatívneho pedagogického výskumu}
-%   \label{tab:stat1}
-%   \resizebox{\textwidth}{!}{%
-%   \begin{tabular}{@{}lcccccccc@{}}
-%   \toprule
-%                       & \multicolumn{2}{c}{Reprezentácia neurónu} & \multicolumn{2}{c}{Princíp prenosu vzruchu} & \multicolumn{2}{c}{Smer prenosu vzruchu} & \multicolumn{2}{c}{Celkové skóre}             \\ \midrule
-%   Skupina             & Kontrola           & Experiment           & Kontrola            & Experiment            & Kontrola           & Experiment          & Kontrola             & Experiment             \\ \midrule
-%   Aritmetický priemer & 0,67               & 0,86                 & 2,67                & 3,00                  & 0,67               & 1,00                & 4,00                 & 4,86                   \\
-%   Štandardná odchýlka & 0,50               & 0,38                 & 1,41                & 1,29                  & 0,50               & 0,00                & 1,66                 & 1,46                   \\
-%   Rozptyl             & 0,25               & 0,14                 & 2,00                & 1,67                  & 0,25               & 0,00                & 2,75                 & 2,14                   \\
-%   Normálne rozdelenie & Nie                & Nie                  & Áno                 & Nie                   & Nie                & Nie                 & Áno                  & Áno                    \\
-%   Test                & \multicolumn{2}{c}{Mann-Whitney}          & \multicolumn{2}{c}{Mann-Whitney}            & \multicolumn{2}{c}{Mann-Whitney}         & \multicolumn{2}{c}{Independent sample t-test} \\
-%   Výsledok            & \multicolumn{2}{c}{0,54}                  & \multicolumn{2}{c}{0,61}                    & \multicolumn{2}{c}{0,30}                 & \multicolumn{2}{c}{0,29}                      \\
-%   Signifikancia       & \multicolumn{2}{c}{nie}                   & \multicolumn{2}{c}{nie}                     & \multicolumn{2}{c}{nie}                  & \multicolumn{2}{c}{nie}                       \\ \bottomrule
-%   \end{tabular}%
-%   }
-% \end{table}
+\subsubsection{Nahratie aplikácie do headsetu}
+Pred nahratím aplikácie do headsetu bolo potrebné upraviť niektoré nastavenia projektu. V nastaveniach projektu sme \texttt{Project Name} nastavili na Neuron, \texttt{Company Distinguished Name} na CN=Drabik a zaškrtli sme 
+možnosť \texttt{Start in VR}. V sekcii \texttt{Platforms - HoloLens} sme zaškrtli \texttt{Build for HoloLens Device} a vygenerovali sme nový certifikát.
+
+Prostredníctvom voľby \texttt{File} \to {} \texttt{Package Project} \to {} \texttt{HoloLens} v menu sme projekt skompilovali a následne nahrali do headsetu pomocou \emph{Windows Device Portal}.
+
+\section{Pedagogický výskum}
+\subsection{Metodológia výskumu}
+Za účelom overenia vhodnosti nami vytvorenej aplikácie pre vyučovací proces sme vykonali krátky pedagogický výskum. Výskum bol realizovaný prostredníctvom exploračnej metódy - 
+dotazníka \cite{svecMetodologieVedVychove2009}; ten bol administrovaný študentom strednej školy. Výskumná vzorka bola rozdelená na kontrolnú a experimentálnu skupinu, ktoré boli zvolené tak, aby boli z pohľadu vedomostí čo 
+najviac homogénne. Na určenie homogenity poslúžili predchádzajúce výchovno-vzdelávacie výsledky študentov v predmete biológia. Kontrolnej skupine bola stavba neurónu a koncept prenosu nervového vzruchu sprístupnený
+konvenčnými didaktickými postupmi, predovšetkým výkladom a dvojdimenzionálnymi reprezentáciami. Experimentálnej skupine bola téma sprístupnená pomocou našej aplikácie.
+
+%\subsubsection{Charakter výskumnej vzorky}
+Výskumnú vzorku tvorilo šestnásť študentov septimy a oktávy Školy pre mimoriadne nadané deti a gymnázia v Bratislave. Z pohľadu nacionálií vzorku tvorilo osem mužov a osem žien, všetci pochádzali z Bratislavského samosprávneho 
+kraja, boli vo veku 17-18 rokov a navštevovali seminár z biológie. Všetkých respondentov možno charakterizovať ako intelektovo nadaných, čo je potvrdené aj pravidelnými štandardizovanými testami.
+
+\subsubsection{Charakter výskumného nástroja}
+Ako výskumný nástroj bol použitý dotazník, ktorý pozostával z piatich položiek rozdelených do dvoch dimenzií. Prvá dimenzia (tri položky) merala vedomosti študentov o prenose nervového vzruchu a stavbe neurónu, zameriavajúc sa 
+pri tom na identifikáciu najčastejších miskoncepcií, ako sú uvedené v príslušnej odbornej literatúre \cite{vijapurkarWhatCellsReally2014, odomActionPotentialsBiology1993, nagyovaMiskoncepcieZiakovOblasti2016}.  
+Druhá dimenzia poskytla študentom priestor na spätnú väzbu ohľadom testovanej aplikácie (podrobnejšie v tabuľke č. \ref{tab:dotaznik-popis} a prílohe č. \todo{priloha}). Položky druhej dimenzie boli administrované len 
+experimentálnej skupine.
+
+\begin{table}[]
+  \caption{Charakteristika položiek dotazníka}
+  \label{tab:dotaznik-popis}
+  \resizebox{\textwidth}{!}{%
+  %\begin{tabular}{@{}lll@{}}
+    \begin{tabular}{@{}clp{0.7\textwidth}@{}} 
+  \toprule
+  Číslo & Položka                                                  & Opis                                                                                                                                                                                                       \\ \midrule
+  \noalign{\bigskip}1     & Zvoliť obrázok, ktorý najlepšie reprezentuje neurón      & Kľúčom je reprezentácia, ktorá rešpektuje trojdimenzionalitu neurónu, ako aj rozmiestnenie dendritov; distraktormi sú reprezentácie neurónu, ktoré niektorú z uvedených charakteristík nezobrazujú správne \\
+  \noalign{\bigskip}2     & Identifikovať, čo je podstatou prenosu nervového vzruchu & Kľúčmi sú správne charakteristiky saltatórnej kondukcie, teda prestup iónov cez membránu a zmena elektrochemického potenciálu; distraktormi sú často identifikované miskoncepcie                           \\
+  \noalign{\bigskip}3     & Identifikovať smer, ktorým sa prenáša nervový vzruch     & Kľúčom je obrázok so správne vyznačeným smerom prenosu nervového vzruchu; distraktorom je opak.                                                                                                            \\
+  \noalign{\bigskip}4     & Vyjadriť postoj k aplikácii                              & Študenti vyberajú, či by táto aplikácia zatraktívnila vyučovací proces                                                                                                                                     \\
+  \noalign{\bigskip}5     & Poskytnúť spätnú väzbu                                   & Otvorená položka s priestorom na poskytnutie dlhšej spätnej väzby                                                                                                                                          \\ \noalign{\bigskip}\bottomrule
+  \end{tabular}%
+  }
+\end{table}
+
+Kvôli eliminácii efektov, ktoré by mohli spôsobiť chybu prvého typu (\emph{false positive}), konkrétne tzv. wow-efekt a efekt novosti \cite{turekDidaktika2014, petlakVseobecnaDidaktika2016}, sme dotazník administrovali s 
+týždenným odstupom od sprístupnenia témy.
+
+\subsubsection{Spracovanie kvantitatívnych dát}
+Na spracovanie dát bol použitý softvér IBM SPSS Statistics 27. Dáta boli vyhodnotené ako celkové skóre v prvej dimenzii, ako aj pre jednotlivé položky.
+Dáta v prvej dimenzii boli spracované najprv deskriptívno-štatistickými metódami, ktorých výsledkom boli miery: aritmetický priemer, štandardná odchýlka, 
+medián a rozptyl. V rámci induktívnej štatistiky boli údaju podrobené testu normality podľa Shapira a Wilka \cite{mohdrazaliPowerComparisonsShapirowilk2011, komendaAnalyzaNahodnehoPedagogickem1981, shapiroAnalysisVarianceTest1965}.
+Na základe výsledku Shapirovho-Wilkovho testu sme následne vybrali nástroje pre identifikáciu signifikantnej zmeny medzi kontrolnou a experimentálnou skupinou. V sadách údajov bez normálneho rozdelenia sme zvolili 
+neparametrický test (Mann-Whitney); v sadách s normálnym rozdelením sme zvolili Studentov \emph{t}-test pre dva nezávislé výbery. 
+
+\subsubsection{Spracovanie kvalitatívnych dát}
+Kvalitatívne sa spracovávali výsledky z položiek 2 a 5 (viď tabuľka č. \ref{tab:dotaznik-popis}). V položke 2 sme sa sústredili na prítomnosť konkrétnych miskoncepcií v kontrolnej a experimentálnej skupine, v položke 5 sme 
+vyhodnocovali otvorenú spätnú väzbu. 
+
+\subsection{Výsledky pedagogického výskumu}
+\subsubsection{Kvantitatívny výskum}
+Výsledky kvantitatívneho pedagogického výskumu sú zhrnuté v tabuľke č. \ref{tab:vysledky}. Výsledky deskriptívnej štatistiky (predovšetkým aritmetický priemer) implikujú lepšie výsledky experimentálnej skupiny oproti 
+kontrolnej vo všetkých sadách údajov. Dáta pre jednotlivé dimenzie nemali normálne rozdelenie, to sme identifikovali len pri celkovom skóre. V testoch určujúcich signifikanciu rozdielu medzi kontrolnou a experimentálnou
+skupinou sa nám nepodarilo identifikovať signifikantný rozdiel ani v jednej sade údajov pre hladinu významnosti \alpha{} = 0,05.
+
+\begin{table}[]
+  \caption{Súborné štatistické spracovanie (deskriptívna a induktívna štatistická analýza) kvantitatívneho pedagogického výskumu}
+  \label{tab:vysledky}
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{@{}lcccccccc@{}}
+  \toprule
+                      & \multicolumn{2}{c}{Reprezentácia neurónu} & \multicolumn{2}{c}{Princíp prenosu vzruchu} & \multicolumn{2}{c}{Smer prenosu vzruchu} & \multicolumn{2}{c}{Celkové skóre}             \\ \midrule
+  Skupina             & Kontrola           & Experiment           & Kontrola            & Experiment            & Kontrola           & Experiment          & Kontrola             & Experiment             \\ \midrule
+  Aritmetický priemer & 0,67               & 0,86                 & 2,67                & 3,00                  & 0,67               & 1,00                & 4,00                 & 4,86                   \\
+  Štandardná odchýlka & 0,50               & 0,38                 & 1,41                & 1,29                  & 0,50               & 0,00                & 1,66                 & 1,46                   \\
+  Medián              & 1,00               & 1,00                 & 2,00                & 2,00                  & 1,00               & 1,00                & 4,00                 & 4,00                   \\
+  Rozptyl             & 0,25               & 0,14                 & 2,00                & 1,67                  & 0,25               & 0,00                & 2,75                 & 2,14                   \\
+  Normálne rozdelenie & Nie                & Nie                  & Áno                 & Nie                   & Nie                & Nie                 & Áno                  & Áno                    \\
+  Test                & \multicolumn{2}{c}{Mann-Whitney}          & \multicolumn{2}{c}{Mann-Whitney}            & \multicolumn{2}{c}{Mann-Whitney}         & \multicolumn{2}{c}{Independent sample \emph{t}-test} \\
+  Výsledok            & \multicolumn{2}{c}{0,54}                  & \multicolumn{2}{c}{0,61}                    & \multicolumn{2}{c}{0,30}                 & \multicolumn{2}{c}{0,29}                      \\
+  Signifikancia       & \multicolumn{2}{c}{nie}                   & \multicolumn{2}{c}{nie}                     & \multicolumn{2}{c}{nie}                  & \multicolumn{2}{c}{nie}                       \\ \bottomrule
+  \end{tabular}%
+  }
+\end{table}
+
+\subsubsection{Kvalitatívny výskum}
+Položku 2 sme vyhodnotili aj kvalitatívne, sledujúc prítomnosť jednotlivých miskoncepcií v kontrolnej a experimentálnej skupine. V kontrolnej skupine sme sledovali u študentov všetky tri merané miskoncepcie 
+(pohyb iónov vláknom neurónu, elektrický prúd, pohyb bunkových organel). Naproti tomu, v experimentálnej skupine sa podarilo jednu z týchto miskoncepcií eliminovať.
+
+V položke 4 dotazníka, ktorá bola administrovaná iba experimentálnej skupine, sme identifikovali jednoznačnú zhodu na pozitívnom postoji študentov k testovanej aplikácii. Ani jeden zo študentov nevyužil možnosť poskytnúť
+spätnú väzbu v otvorenej položke 5.
+
+\subsection{Diskusia}
+
+\subsection{Limitujúce faktory výskumu}
+Napriek našej najlepšej vôli boli výsledky výskumu ovplyvnené nasledujúcimi limitujúcimi faktormi:
+
+\begin{enumerate}
+  \item \emph{Veľkosť výskumnej vzorky:} výskum bol vykonaný na malej vzorke študentov, čo mohlo mať vplyv predovšetkým na výsledky štatistickej analýzy. V malých vzorkách je posilnený efekt extrémnych hodnôt, 
+  čo môže viesť k štatistickým chybám prvého, ako aj druhého typu \cite{komendaAnalyzaNahodnehoPedagogickem1981}.
+  \item \emph{Sampling bias:} výskumná vzorka pozostávala zo študentov s intelektovým nadaním, pochádzajúcich len z jedného regiónu Slovenskej republiky. Nedostatočná reprezentatívnosť vzorky vzhľadom k celej populácii 
+  môže viesť k tomu, že výsledky nebude možné bez ďalšieho výskumu generalizovať.
+  \item \emph{Self-reporting:} údaje vo výskume boli zozbierané pomocou metódy dotazníka, ktorá sa zakladá na individuálnych odpovediach respondentov, ktoré sú subjektom potenciálneho skreslenia vychádzajúceho
+  zo sociálnych noriem, prípadne neochoty vypĺňať dlhšie otvorené položky.
+\end{enumerate}

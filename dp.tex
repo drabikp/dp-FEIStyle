@@ -30,6 +30,8 @@
 \FEIglossaries{includes/glossary}
 \bibliography{includes/bibliography.bib}
 
+%\glsenablehyper
+
 \iffalse \input{includes/glossary} \fi
 
 \begin{document}
@@ -82,8 +84,12 @@
 
 \backmatter
 
-\FEIlistOfAppendix
+%\FEIlistOfAppendix
 %\FEIappendix{Štruktúra elektronického nosiča\label{att:A}}{includes/attachmentA}
 %\FEIappendix{Algoritmus\label{att:B}}{includes/attachmentB}
 %\FEIappendix{Výpis sublime\label{att:C}}{includes/attachmentC}
+
+%\FEIappendix{Niagara Module Script\label{att:nms}}{includes/attachment-1}
+
+\noindent\input{includes/attachments.tex}
 \end{document}

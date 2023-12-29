@@ -820,7 +820,7 @@
     \cleardoublepage
     \phantomsection 
     \IfEqCase*{\FEIenglish}{
-        {0}{\def\@zoznamBib{Zoznam pou\v{z}itej literat\'{u}ry}}
+        {0}{\def\@zoznamBib{Použitá literatúra}}
         {1}{\def\@zoznamBib{Bibliography}}
         }[]
     \addcontentsline{toc}{section}{\@zoznamBib}
@@ -842,11 +842,11 @@
 
 \newcommand\FEIlistOfAppendix{
     \newpage
-    \renewcommand \thesection{\Alph{section}}
+    \renewcommand \thesection{\arabic{section}}
     \setcounter{section}{0}
     \setcounter{subsection}{0}
     \setcounter{subsubsection}{0}
-    \renewcommand \thetable{\Alph{section}}
+    \renewcommand \thetable{\arabic{section}}
     \setcounter{table}{0}
     \counterwithin{table}{section}
     \setcounter{figure}{0}
@@ -856,10 +856,10 @@
     \setcounter{lstlisting}{0}
     \counterwithin{lstlisting}{section}
     % \setcounter{page}{1}  
-    \pagenumbering{Roman}
+    % \pagenumbering{Roman}
     \cleardoublepage
     \phantomsection 
-    \addcontentsline{toc}{section}{\@zoznamPri}
+    \addcontentsline{toc}{section}{\@zoznamPri}    
     \listofpriloh
 }
 
@@ -876,7 +876,7 @@
 \newlistof{priloh}{pri}{\@zoznamPri}
 \newcommand{\pridajPrilohu}[1]{
     \refstepcounter{priloh}
-    \addcontentsline{pri}{priloh}{\protect\numberline{\Alph{section}} #1}\par
+    %\addcontentsline{pri}{priloh}{\protect\numberline{\arabic{section}} #1}\par
 }
         
 \newcommand\FEIpdfInfo{ 
