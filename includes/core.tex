@@ -695,6 +695,35 @@ Tým sme dosiahli, že animácie v jednotlivých Ranvierovych zárezoch sa prehr
 
 Animácia časovej osi tohto Blueprintu je spúšťaná udalosťou \texttt{Play Timeline}, ktorá okrem toho aj nastavuje jej rýchlosť prehrávania na základe skôr definovanej premennej \texttt{AnimationSpeed}.
 
+\subsubsection{Ovládacie prvky}
+Kľúčovým krokom pre umožnenie interakcie používateľa s aplikáciou bolo vytvorenie nasledujúcich ovládacích prvkov:
+
+\begin{itemize}
+  \item tlačidlo na spustenie animácie,
+  \item tlačidlo na ukončenie aplikácie a 
+  \item slider na ovládanie rýchlosti animácie.
+\end{itemize}
+
+Obe tlačidlá sme si pripravili podobným spôsobom - pre každé tlačidlo sme vytvorili nový \emph{Blueprint Class}, pričom ako rodičovská trieda (\emph{parent class}) bola zvolená trieda \texttt{UxtPressableButtonActor}, ktorá nám
+bola prístupná vďaka UX Tools. Blueprint sme nazvali \texttt{StartButton}, resp. \texttt{ExitButton}. 
+
+Do \texttt{StartButton} sme pridali novú premennú typu \texttt{BP\_Neuron}; na udalosť \texttt{On Button Pressed} spustením udalosti \texttt{Play Timeline} na takto sprístupnenej inštancii \texttt{BP\_Neuron}.
+\texttt{ExitButton} reaguje na udalosť \texttt{On Button Pressed} spustením funkcie \texttt{Quit Game}.
+
+Pre slider na ovládanie rýchlosti sme vytvorili nový \emph{Blueprint Class} z rodičovskej triedy \texttt{UxtPinchSliderActor}. Pridali sme novú premennú typu \texttt{BP\_Neuron}; jeho udalosť \texttt{On Update Value} má návratovú
+hodnotu \texttt{New Value}, ktorú sme využili na nastavenie parametra \texttt{AnimationSpeed} na inštancii \texttt{BP\_Neuron}.
+
+\subsubsection{Tvorba scény}
+Proces vývoja aplikácie sme zakončili tým, že sme do scény rozmiestnili všetky potrebné objekty. Súčasťou scény sa teda prirodzene stala inštancia \texttt{BP\_Neuron} pretransformovaná tak, aby bola celá v zornom poli používateľa.
+Ďalej sme do scény pridali predtým pripravené ovládacie prvky. Výsledná scéna je vyobrazená na obrázku č. \ref{scena}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=13cm]{img/scena.png}
+  \caption{Výsledná scéna v Unreal Engine}
+  \label{scena}
+\end{figure}
+
 % \begin{table}[]
 %   \caption{Súborné štatistické spracovanie (deskriptívna a induktívna štatistická analýza) kvantitatívneho pedagogického výskumu}
 %   \label{tab:stat1}
