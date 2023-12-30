@@ -635,7 +635,7 @@
     \noindent\input{#1}
 
     \vspace{2em}
-    \noindent K\v{l}\a'u\v{c}ov\a'e slov\a'a: \printKeywords
+    \noindent {\bf K\v{l}\a'u\v{c}ov\a'e slov\a'a:} \printKeywords
     \clearpage
 }
     
@@ -663,7 +663,7 @@
     \noindent\input{#1}
 
     \vspace{2em}
-    \noindent Keywords: \printKeywordsEn
+    \noindent {\bf Keywords:} \printKeywordsEn
     \clearpage
 }
         
