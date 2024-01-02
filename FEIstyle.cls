@@ -748,7 +748,8 @@
 \newglossarystyle{FEIlong}{
     \setglossarystyle{long}
     \renewenvironment{theglossary}{
-      \begin{longtable*}{lp{\glsdescwidth}}
+      %\begin{longtable*}{lp{\glsdescwidth}}
+        \begin{longtable*}{lp{\textwidth}@{}}
     }
     {\end{longtable*}}%
 }
