@@ -1,9 +1,12 @@
-\documentclass[pdf]{beamer}
+\documentclass[pdf,aspectratio=169]{beamer}
 \mode<presentation>{\usetheme{Warsaw}} 
 
 
 \usepackage[ddmmyyyy]{datetime}
 \renewcommand{\dateseparator}{. }
+
+\usepackage{multimedia}
+%\input{embed_video.tex}
 
 %\usepackage[backend=biber,style=iso-numeric,autolang=other,bibencoding=utf8,seconds=true]{biblatex}
 %\bibliography{../includes/bibliography.bib}
@@ -16,6 +19,7 @@
 }
 
 \usepackage[T1]{fontenc}
+\usepackage{fontspec}
 
 \begin{document}
 
@@ -139,23 +143,22 @@
 \section{Didaktický výskum}
 \begin{frame}{Didaktický výskum}
     \begin{itemize}
-        \item Výskum prebehol na skupine 20 študentov ŠpMNDaG v Bratislave
+        \item Výskum prebehol na skupine 16 študentov ŠpMNDaG v Bratislave
         \item Kontrolnej skupine bol princíp nervového vzruchu sprístupnený bežnými didaktickými prostriedkami
         \item Vo výskumnej skupine bola použitá aplikácia
         \item Všetci študenti dostali dotazník
-        \item Výsledky sa budú vyhodnocovať štatistickými metódami
+        \item Výsledky boli vyhodnotené štatistickými metódami
     \end{itemize}    
 \end{frame}
- 
-% \section{Stavba neurónu}
-% \begin{frame}{Stavba neurónu}
-    
-% \end{frame}
 
-% \section{Prenos nervového vzruchu}
-% \begin{frame}{Prenos nervového vzruchu}
-    
-% \end{frame}
+\section{Test}
+\begin{frame}
+    \frametitle{test}
+    \movie[externalviewer]{
+        Prve video
+    }{videos/ue4.mp4}   
+
+\end{frame}
 
 \section*{}
 \begin{frame}{}
